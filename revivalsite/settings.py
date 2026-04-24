@@ -20,6 +20,17 @@ from django.utils.translation import gettext_lazy as _
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def config_bool(value):
+    return str(value).strip().lower() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+        "debug",
+        "development",
+    }
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -27,11 +38,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", default=False, cast=bool)
+DEBUG = config("DEBUG", default=False, cast=config_bool)
 
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS", default="*", cast=lambda v: [s.strip() for s in v.split(",")]
 )
+ADMIN_URL = config("ADMIN_URL", default="admin/").strip("/") + "/"
 
 
 if DEBUG:
@@ -54,6 +66,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "parler",
     "website",
     "core",
 ]
@@ -130,6 +143,17 @@ LANGUAGES = [
     ("en", _("English")),
 ]
 LOCALE_PATHS = [BASE_DIR / "locale"]
+PARLER_DEFAULT_LANGUAGE_CODE = "fr"
+PARLER_LANGUAGES = {
+    None: (
+        {"code": "fr"},
+        {"code": "en"},
+    ),
+    "default": {
+        "fallbacks": ["fr"],
+        "hide_untranslated": False,
+    },
+}
 
 
 # Static files (CSS, JavaScript, Images)
@@ -140,3 +164,25 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+# Production security defaults. Override with environment variables when the
+# app is behind a proxy or during local development.
+SECURE_SSL_REDIRECT = config("SECURE_SSL_REDIRECT", default=not DEBUG, cast=config_bool)
+SESSION_COOKIE_SECURE = config(
+    "SESSION_COOKIE_SECURE", default=not DEBUG, cast=config_bool
+)
+CSRF_COOKIE_SECURE = config("CSRF_COOKIE_SECURE", default=not DEBUG, cast=config_bool)
+SECURE_HSTS_SECONDS = config(
+    "SECURE_HSTS_SECONDS",
+    default=31536000 if not DEBUG else 0,
+    cast=int,
+)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = config(
+    "SECURE_HSTS_INCLUDE_SUBDOMAINS",
+    default=not DEBUG,
+    cast=config_bool,
+)
+SECURE_HSTS_PRELOAD = config("SECURE_HSTS_PRELOAD", default=not DEBUG, cast=config_bool)
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

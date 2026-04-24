@@ -1,0 +1,640 @@
+{
+  "project_categories": [
+    {
+      "code": "saas",
+      "name": "SaaS"
+    },
+    {
+      "code": "mobile",
+      "name": "Mobile"
+    },
+    {
+      "code": "web",
+      "name": "Web App"
+    },
+    {
+      "code": "ecom",
+      "name": "E-commerce"
+    },
+    {
+      "code": "fintech",
+      "name": "Fintech"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "poshub",
+      "category": "saas",
+      "title": "PosHub",
+      "short_description": "Complete business management solution: POS, inventory, HR, invoicing, and real-time analytics.",
+      "description": "Complete business management solution: POS, inventory, HR, invoicing, and real-time analytics.",
+      "technologies": "Laravel, React, Analytics",
+      "external_url": "https://poshub-online.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "pharmahub",
+      "category": "saas",
+      "title": "PharmaHub",
+      "short_description": "Complete digital pharmacy management: inventory, prescriptions, sales, and reporting.",
+      "description": "Complete digital pharmacy management: inventory, prescriptions, sales, and reporting.",
+      "technologies": "PHP, MySQL",
+      "external_url": "https://pharmhub-online.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "freela",
+      "category": "mobile",
+      "title": "Freela",
+      "short_description": "The made-in-Africa freelance platform designed to connect talent and opportunities.",
+      "description": "The made-in-Africa freelance platform designed to connect talent and opportunities.",
+      "technologies": "React Native, Marketplace",
+      "external_url": "https://freela-online.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "matchwork",
+      "category": "web",
+      "title": "MatchWork",
+      "short_description": "Platform connecting talent and companies.",
+      "description": "Platform connecting talent and companies.",
+      "technologies": "Node.js, Web App",
+      "external_url": "https://matchwork-app.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "lawlinker",
+      "category": "web",
+      "title": "LawLinker",
+      "short_description": "Platform connecting lawyers and clients.",
+      "description": "Platform connecting lawyers and clients.",
+      "technologies": "Web App, Mobile",
+      "external_url": "https://lawlinker-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "kabishiai",
+      "category": "web",
+      "title": "Kabishiai",
+      "short_description": "Smart solution powered by artificial intelligence.",
+      "description": "Smart solution powered by artificial intelligence.",
+      "technologies": "IA, Web App",
+      "external_url": "https://kabishiai.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "ecomnex",
+      "category": "ecom",
+      "title": "Ecomnex",
+      "short_description": "High-performance and scalable e-commerce platform.",
+      "description": "High-performance and scalable e-commerce platform.",
+      "technologies": "Next.js, E-commerce",
+      "external_url": "https://ecomnex-shop.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "emmicard",
+      "category": "fintech",
+      "title": "Emmicard",
+      "short_description": "Digital business card and innovative payment solution.",
+      "description": "Digital business card and innovative payment solution.",
+      "technologies": "Mobile, Fintech",
+      "external_url": "https://emicard-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "clinixa",
+      "category": "saas",
+      "title": "Clinixa",
+      "short_description": "Clinic management and real-time patient tracking.",
+      "description": "Clinic management and real-time patient tracking.",
+      "technologies": "SaaS, Santé",
+      "external_url": "https://clinixa-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "immohub",
+      "category": "web",
+      "title": "ImmoHub",
+      "short_description": "Online real estate management and sales platform.",
+      "description": "Online real estate management and sales platform.",
+      "technologies": "Web App, Immobilier",
+      "external_url": "https://immohub-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "kula-table",
+      "category": "web",
+      "title": "Kula Table",
+      "short_description": "Online table reservation and restaurant management.",
+      "description": "Online table reservation and restaurant management.",
+      "technologies": "Web App, Restauration",
+      "external_url": "https://kulatable.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "taska360",
+      "category": "saas",
+      "title": "Taska360",
+      "short_description": "Team task and project management platform.",
+      "description": "Team task and project management platform.",
+      "technologies": "SaaS, Productivité",
+      "external_url": "https://taska360.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "spacehub",
+      "category": "web",
+      "title": "SpaceHub",
+      "short_description": "Online coworking space booking and management.",
+      "description": "Online coworking space booking and management.",
+      "technologies": "Web App, Coworking",
+      "external_url": "https://spacehub-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "bookstay",
+      "category": "web",
+      "title": "BookStay",
+      "short_description": "Hotel booking and stay management platform.",
+      "description": "Hotel booking and stay management platform.",
+      "technologies": "Web App, Tourisme",
+      "external_url": "https://bookstay-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "auroreia",
+      "category": "web",
+      "title": "Auroreia",
+      "short_description": "Innovative digital solution built by Revival.",
+      "description": "Innovative digital solution built by Revival.",
+      "technologies": "Web App",
+      "external_url": "https://auroreia.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "celineai",
+      "category": "web",
+      "title": "CélineAI",
+      "short_description": "Application powered by artificial intelligence.",
+      "description": "Application powered by artificial intelligence.",
+      "technologies": "IA, Web App",
+      "external_url": "https://celineai-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "carvista",
+      "category": "web",
+      "title": "CarVista",
+      "short_description": "Online vehicle sales and management platform.",
+      "description": "Online vehicle sales and management platform.",
+      "technologies": "Web App, Automobile",
+      "external_url": "https://carvista-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "wapimedia",
+      "category": "web",
+      "title": "WapiMedia",
+      "short_description": "Digital media platform for Africa.",
+      "description": "Digital media platform for Africa.",
+      "technologies": "Web App, Médias",
+      "external_url": "https://wapimedia.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "nginda",
+      "category": "mobile",
+      "title": "Nginda",
+      "short_description": "Innovative mobile application for the African market.",
+      "description": "Innovative mobile application for the African market.",
+      "technologies": "Mobile, React Native",
+      "external_url": "https://nginda-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "vendia",
+      "category": "ecom",
+      "title": "Vendia",
+      "short_description": "Fast and intuitive online sales solution.",
+      "description": "Fast and intuitive online sales solution.",
+      "technologies": "E-commerce, Mobile",
+      "external_url": "https://vendia-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "hrnow",
+      "category": "saas",
+      "title": "HRNow",
+      "short_description": "Simplified and digital HR management.",
+      "description": "Simplified and digital HR management.",
+      "technologies": "SaaS, RH",
+      "external_url": "https://hrnow-online.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "taskhub",
+      "category": "saas",
+      "title": "TaskHub",
+      "short_description": "Collaborative task and project management platform.",
+      "description": "Collaborative task and project management platform.",
+      "technologies": "SaaS, Productivité",
+      "external_url": "https://taskhub-online.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "dropfa",
+      "category": "ecom",
+      "title": "Dropfa",
+      "short_description": "Turnkey dropshipping platform for African entrepreneurs.",
+      "description": "Turnkey dropshipping platform for African entrepreneurs.",
+      "technologies": "E-commerce, Dropshipping",
+      "external_url": "https://dropfa-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How long does it take to develop an application?",
+      "answer": "The timeline depends on project complexity. A first version can be delivered within a few weeks and improved progressively."
+    },
+    {
+      "question": "Can you build an application like Uber, Airbnb, or Glovo?",
+      "answer": "Yes. Revival builds solutions inspired by major platforms, adapted to African realities, with modern and scalable features."
+    },
+    {
+      "question": "Do you provide support after launch?",
+      "answer": "Yes. Revival provides ongoing support, including maintenance, updates, performance improvements, and strategic guidance."
+    },
+    {
+      "question": "How can I start with Revival?",
+      "answer": "Contact us through the website or official channels. Our team will review your need and propose a suitable solution."
+    },
+    {
+      "question": "Does Revival only work in the DRC?",
+      "answer": "No. Although we are strongly rooted in the Democratic Republic of Congo, our services are available across Africa and internationally."
+    },
+    {
+      "question": "Are my data and project secure?",
+      "answer": "Yes. Revival gives strong importance to security and confidentiality, following modern standards."
+    },
+    {
+      "question": "Can I collaborate with Revival as a partner?",
+      "answer": "Yes. Revival offers several commercial, technical, and strategic partnership models."
+    },
+    {
+      "question": "Can I pay with Mobile Money?",
+      "answer": "Yes. Revival supports payment solutions adapted to the African context, including Mobile Money."
+    },
+    {
+      "question": "Can Revival help me grow my existing business?",
+      "answer": "Yes. We help existing businesses improve performance, attract more customers, and automate operations."
+    },
+    {
+      "question": "What if I do not yet have a clear idea?",
+      "answer": "That is not a problem. Revival helps you structure your idea and identify opportunities."
+    }
+  ],
+  "reviews": [
+    {
+      "client_name": "Marie Laurent",
+      "company": "Groupe Nexia",
+      "client_role": "DRH",
+      "content": "Revival transformed our HR management. The application is intuitive, fast, and reduced our administrative workload by 65%.",
+      "rating": 5
+    },
+    {
+      "client_name": "Pierre Dubois",
+      "company": "LuxeShop",
+      "client_role": "CEO",
+      "content": "Our online store saw conversions increase by 120% after the redesign. The team is responsive and professional.",
+      "rating": 5
+    },
+    {
+      "client_name": "Sarah Chen",
+      "company": "DataFlow Inc.",
+      "client_role": "COO",
+      "content": "Revival’s analytics dashboard gives us real-time visibility into our KPIs. Essential for decision-making.",
+      "rating": 5
+    }
+  ],
+  "article_categories": [
+    {
+      "slug": "projets",
+      "name": "Projects"
+    },
+    {
+      "slug": "tech",
+      "name": "Tech & Dev"
+    },
+    {
+      "slug": "conseils",
+      "name": "Advice"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "avenir-digital-rdc",
+      "category": "tech",
+      "title": "The future of digital in the DRC: how Revival shapes African tech",
+      "excerpt": "Since its creation, Revival has become a reference tech agency in the Democratic Republic of Congo.",
+      "content": "Since its creation, Revival has become a reference tech agency in the Democratic Republic of Congo.",
+      "seo_title": "The future of digital in the DRC: how Revival shapes African tech",
+      "seo_description": "Since its creation, Revival has become a reference tech agency in the Democratic Republic of Congo.",
+      "author_name": "Équipe Revival",
+      "reading_time": 10,
+      "published_at": "2026-06-15T09:00:00+01:00",
+      "is_featured": true,
+      "status": "published"
+    },
+    {
+      "slug": "kulatable",
+      "category": "projets",
+      "title": "Kulatable",
+      "excerpt": "Kulatable is a restaurant management platform that digitizes and centralizes operations.",
+      "content": "Kulatable is a restaurant management platform that digitizes and centralizes operations.",
+      "seo_title": "Kulatable",
+      "seo_description": "Kulatable is a restaurant management platform that digitizes and centralizes operations.",
+      "author_name": "Équipe Revival",
+      "reading_time": 8,
+      "published_at": "2026-04-10T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "ecomnex",
+      "category": "projets",
+      "title": "Ecomnex-shop",
+      "excerpt": "An online store platform presenting a wide range of consumer products.",
+      "content": "An online store platform presenting a wide range of consumer products.",
+      "seo_title": "Ecomnex-shop",
+      "seo_description": "An online store platform presenting a wide range of consumer products.",
+      "author_name": "Équipe Revival",
+      "reading_time": 5,
+      "published_at": "2026-04-02T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "freela",
+      "category": "projets",
+      "title": "Freela",
+      "excerpt": "A platform focused on freelance services and marketplace workflows.",
+      "content": "A platform focused on freelance services and marketplace workflows.",
+      "seo_title": "Freela",
+      "seo_description": "A platform focused on freelance services and marketplace workflows.",
+      "author_name": "Équipe Revival",
+      "reading_time": 6,
+      "published_at": "2026-03-25T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "digitaliser-pme-2026",
+      "category": "tech",
+      "title": "How to digitize your SME in 2026",
+      "excerpt": "Digital transformation is no longer optional for Congolese SMEs. Discover the key steps to digitize your business.",
+      "content": "Digital transformation is no longer optional for Congolese SMEs. Discover the key steps to digitize your business.",
+      "seo_title": "How to digitize your SME in 2026",
+      "seo_description": "Digital transformation is no longer optional for Congolese SMEs. Discover the key steps to digitize your business.",
+      "author_name": "Arnold N.",
+      "reading_time": 5,
+      "published_at": "2026-06-10T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "poshub",
+      "category": "projets",
+      "title": "PosHub: manage your business intelligently",
+      "excerpt": "PosHub is a next-generation point-of-sale solution for Congolese merchants.",
+      "content": "PosHub is a next-generation point-of-sale solution for Congolese merchants.",
+      "seo_title": "PosHub: manage your business intelligently",
+      "seo_description": "PosHub is a next-generation point-of-sale solution for Congolese merchants.",
+      "author_name": "Équipe Revival",
+      "reading_time": 4,
+      "published_at": "2026-05-20T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "cybersecurite",
+      "category": "conseils",
+      "title": "Cybersecurity: protect your business",
+      "excerpt": "Cyberattacks increasingly affect African companies. Discover best practices to secure your data.",
+      "content": "Cyberattacks increasingly affect African companies. Discover best practices to secure your data.",
+      "seo_title": "Cybersecurity: protect your business",
+      "seo_description": "Cyberattacks increasingly affect African companies. Discover best practices to secure your data.",
+      "author_name": "David L.",
+      "reading_time": 6,
+      "published_at": "2026-05-15T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    }
+  ],
+  "job_departments": [
+    {
+      "code": "dev",
+      "name": "Development"
+    },
+    {
+      "code": "design",
+      "name": "Design"
+    },
+    {
+      "code": "ops",
+      "name": "DevOps"
+    },
+    {
+      "code": "biz",
+      "name": "Business"
+    }
+  ],
+  "job_offers": [
+    {
+      "department": "dev",
+      "title": "Senior Full-Stack Developer",
+      "location": "Remote or Kinshasa",
+      "salary_range": "55k - 75k EUR",
+      "description": "Nous recherchons un developpeur Full-Stack Senior maitrisant Laravel, React et MySQL pour rejoindre notre equipe produit.",
+      "requirements": "",
+      "deadline": "2026-05-01",
+      "published_at": "2026-03-15T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "dev",
+      "title": "Front-End React/Next.js Developer",
+      "location": "Remote",
+      "salary_range": "45k - 65k EUR",
+      "description": "Rejoignez notre equipe front-end pour construire des interfaces utilisateur modernes et performantes avec React et Next.js.",
+      "requirements": "",
+      "deadline": "2026-04-25",
+      "published_at": "2026-03-20T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "dev",
+      "title": "Back-End Laravel Developer",
+      "location": "Remote or Lyon",
+      "salary_range": "42k - 60k EUR",
+      "description": "Nous cherchons un developpeur Back-End experimente en PHP/Laravel pour concevoir et maintenir nos APIs REST.",
+      "requirements": "",
+      "deadline": "2026-04-10",
+      "published_at": "2026-02-10T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "design",
+      "title": "Senior UI/UX Designer",
+      "location": "Remote",
+      "salary_range": "45k - 60k EUR",
+      "description": "Nous recherchons un UI/UX Designer Senior pour concevoir des experiences utilisateur exceptionnelles sur Figma.",
+      "requirements": "",
+      "deadline": "2026-05-15",
+      "published_at": "2026-03-25T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "ops",
+      "title": "DevOps / Cloud Engineer",
+      "location": "Remote",
+      "salary_range": "55k - 75k EUR",
+      "description": "Rejoignez notre equipe infrastructure pour gerer et optimiser nos environnements cloud AWS avec Docker et Kubernetes.",
+      "requirements": "",
+      "deadline": "2026-06-01",
+      "published_at": "2026-04-01T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "biz",
+      "title": "Business Developer",
+      "location": "Kinshasa or Remote",
+      "salary_range": "40k - 55k EUR + variable",
+      "description": "Nous cherchons un Business Developer dynamique pour developper notre portefeuille clients et nos partenariats strategiques.",
+      "requirements": "",
+      "deadline": "2026-04-05",
+      "published_at": "2026-03-10T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "dev",
+      "title": "React Native Mobile Developer",
+      "location": "Remote",
+      "salary_range": "45k - 65k EUR",
+      "description": "Nous recherchons un developpeur Mobile React Native pour concevoir et developper nos applications iOS et Android.",
+      "requirements": "",
+      "deadline": "2026-06-15",
+      "published_at": "2026-04-05T09:00:00+01:00",
+      "contract_type": "full_time"
+    }
+  ],
+  "partnership_types": [
+    {
+      "code": "commercial",
+      "name": "Commercial partner (reseller)",
+      "description": "Resell Revival solutions in a specific region or market."
+    },
+    {
+      "code": "technique",
+      "name": "Technical / integration partner",
+      "description": "Collaborate on API integrations, SDKs, plugins, or white-label solutions."
+    },
+    {
+      "code": "strategique",
+      "name": "Strategic partner",
+      "description": "Co-develop products, open new markets, or build a strong alliance."
+    },
+    {
+      "code": "startup",
+      "name": "Startup / innovation partner",
+      "description": "Support or co-build innovative solutions with startups."
+    },
+    {
+      "code": "autre",
+      "name": "Other",
+      "description": "Suggest a specific partnership model to review with the Revival team."
+    }
+  ],
+  "video_categories": [
+    {
+      "code": "projet",
+      "name": "Project"
+    },
+    {
+      "code": "tuto",
+      "name": "Tutorial"
+    },
+    {
+      "code": "coulisse",
+      "name": "Behind the scenes"
+    }
+  ],
+  "videos": [
+    {
+      "category": "projet",
+      "title": "KULATABLE application interface",
+      "description": "Discover the KULATABLE application interface, a solution for managing restaurants.",
+      "youtube_url": "https://www.youtube.com/shorts/X30WWQVMthE",
+      "is_featured": true
+    },
+    {
+      "category": "projet",
+      "title": "POSHUB smart business management",
+      "description": "Make your work easier with PosHub, a smart way to manage your business.",
+      "youtube_url": "https://www.youtube.com/shorts/dJn4ugANCLg",
+      "is_featured": true
+    },
+    {
+      "category": "projet",
+      "title": "PHARMA HUB pharmacy management",
+      "description": "Having trouble managing your pharmacy? Discover Pharma Hub, a custom digital solution.",
+      "youtube_url": "https://www.youtube.com/shorts/V0iWwb_AYM8",
+      "is_featured": true
+    },
+    {
+      "category": "tuto",
+      "title": "How to create a mobile app in 2026",
+      "description": "How to create a mobile app in 2026?",
+      "youtube_url": "https://www.youtube.com/shorts/dJn4ugANCLg",
+      "is_featured": false
+    },
+    {
+      "category": "coulisse",
+      "title": "Revival: 3 years of tech innovation in the DRC",
+      "description": "Revival: 3 years of technological innovation in the DRC.",
+      "youtube_url": "https://www.youtube.com/shorts/dJn4ugANCLg",
+      "is_featured": false
+    },
+    {
+      "category": "projet",
+      "title": "EMICARD online store",
+      "description": "Want to launch your online store on EMICARD? Discover the answer in this video.",
+      "youtube_url": "https://www.youtube.com/shorts/C5gmtimkAR4",
+      "is_featured": false
+    }
+  ]
+}

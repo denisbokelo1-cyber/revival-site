@@ -1,0 +1,640 @@
+{
+  "project_categories": [
+    {
+      "code": "saas",
+      "name": "SaaS"
+    },
+    {
+      "code": "mobile",
+      "name": "Mobile"
+    },
+    {
+      "code": "web",
+      "name": "Web App"
+    },
+    {
+      "code": "ecom",
+      "name": "E-commerce"
+    },
+    {
+      "code": "fintech",
+      "name": "Fintech"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "poshub",
+      "category": "saas",
+      "title": "PosHub",
+      "short_description": "Solution complète de gestion d'entreprise : caisse, stocks, RH, facturation et analytics en temps réel.",
+      "description": "Solution complète de gestion d'entreprise : caisse, stocks, RH, facturation et analytics en temps réel.",
+      "technologies": "Laravel, React, Analytics",
+      "external_url": "https://poshub-online.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "pharmahub",
+      "category": "saas",
+      "title": "PharmaHub",
+      "short_description": "Gestion digitale complète de pharmacie : stocks, ordonnances, ventes et reporting.",
+      "description": "Gestion digitale complète de pharmacie : stocks, ordonnances, ventes et reporting.",
+      "technologies": "PHP, MySQL",
+      "external_url": "https://pharmhub-online.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "freela",
+      "category": "mobile",
+      "title": "Freela",
+      "short_description": "La plateforme freelance made in Africa, pensée pour connecter talents et opportunités.",
+      "description": "La plateforme freelance made in Africa, pensée pour connecter talents et opportunités.",
+      "technologies": "React Native, Marketplace",
+      "external_url": "https://freela-online.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "matchwork",
+      "category": "web",
+      "title": "MatchWork",
+      "short_description": "Plateforme de mise en relation entre talents et entreprises.",
+      "description": "Plateforme de mise en relation entre talents et entreprises.",
+      "technologies": "Node.js, Web App",
+      "external_url": "https://matchwork-app.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "lawlinker",
+      "category": "web",
+      "title": "LawLinker",
+      "short_description": "Plateforme de mise en relation entre avocats et clients.",
+      "description": "Plateforme de mise en relation entre avocats et clients.",
+      "technologies": "Web App, Mobile",
+      "external_url": "https://lawlinker-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "kabishiai",
+      "category": "web",
+      "title": "Kabishiai",
+      "short_description": "Solution intelligente propulsée par l'intelligence artificielle.",
+      "description": "Solution intelligente propulsée par l'intelligence artificielle.",
+      "technologies": "IA, Web App",
+      "external_url": "https://kabishiai.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "ecomnex",
+      "category": "ecom",
+      "title": "Ecomnex",
+      "short_description": "Plateforme e-commerce performante et scalable.",
+      "description": "Plateforme e-commerce performante et scalable.",
+      "technologies": "Next.js, E-commerce",
+      "external_url": "https://ecomnex-shop.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "emmicard",
+      "category": "fintech",
+      "title": "Emmicard",
+      "short_description": "Carte de visite digitale et solution de paiement innovante.",
+      "description": "Carte de visite digitale et solution de paiement innovante.",
+      "technologies": "Mobile, Fintech",
+      "external_url": "https://emicard-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "clinixa",
+      "category": "saas",
+      "title": "Clinixa",
+      "short_description": "Gestion de clinique et suivi patient en temps réel.",
+      "description": "Gestion de clinique et suivi patient en temps réel.",
+      "technologies": "SaaS, Santé",
+      "external_url": "https://clinixa-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "immohub",
+      "category": "web",
+      "title": "ImmoHub",
+      "short_description": "Plateforme de gestion et vente immobilière en ligne.",
+      "description": "Plateforme de gestion et vente immobilière en ligne.",
+      "technologies": "Web App, Immobilier",
+      "external_url": "https://immohub-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "kula-table",
+      "category": "web",
+      "title": "Kula Table",
+      "short_description": "Réservation de table et gestion de restaurant en ligne.",
+      "description": "Réservation de table et gestion de restaurant en ligne.",
+      "technologies": "Web App, Restauration",
+      "external_url": "https://kulatable.com",
+      "is_featured": true,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "taska360",
+      "category": "saas",
+      "title": "Taska360",
+      "short_description": "Plateforme de gestion de tâches et de projets en équipe.",
+      "description": "Plateforme de gestion de tâches et de projets en équipe.",
+      "technologies": "SaaS, Productivité",
+      "external_url": "https://taska360.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "spacehub",
+      "category": "web",
+      "title": "SpaceHub",
+      "short_description": "Réservation et gestion d'espaces de coworking en ligne.",
+      "description": "Réservation et gestion d'espaces de coworking en ligne.",
+      "technologies": "Web App, Coworking",
+      "external_url": "https://spacehub-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "bookstay",
+      "category": "web",
+      "title": "BookStay",
+      "short_description": "Plateforme de réservation hôtelière et gestion de séjours.",
+      "description": "Plateforme de réservation hôtelière et gestion de séjours.",
+      "technologies": "Web App, Tourisme",
+      "external_url": "https://bookstay-online.com",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "auroreia",
+      "category": "web",
+      "title": "Auroreia",
+      "short_description": "Solution digitale innovante développée par Revival.",
+      "description": "Solution digitale innovante développée par Revival.",
+      "technologies": "Web App",
+      "external_url": "https://auroreia.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "celineai",
+      "category": "web",
+      "title": "CélineAI",
+      "short_description": "Application propulsée par l'intelligence artificielle.",
+      "description": "Application propulsée par l'intelligence artificielle.",
+      "technologies": "IA, Web App",
+      "external_url": "https://celineai-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "carvista",
+      "category": "web",
+      "title": "CarVista",
+      "short_description": "Plateforme de vente et gestion de véhicules en ligne.",
+      "description": "Plateforme de vente et gestion de véhicules en ligne.",
+      "technologies": "Web App, Automobile",
+      "external_url": "https://carvista-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "wapimedia",
+      "category": "web",
+      "title": "WapiMedia",
+      "short_description": "Plateforme média digitale pour l'Afrique.",
+      "description": "Plateforme média digitale pour l'Afrique.",
+      "technologies": "Web App, Médias",
+      "external_url": "https://wapimedia.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "nginda",
+      "category": "mobile",
+      "title": "Nginda",
+      "short_description": "Application mobile innovante pour le marché africain.",
+      "description": "Application mobile innovante pour le marché africain.",
+      "technologies": "Mobile, React Native",
+      "external_url": "https://nginda-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "vendia",
+      "category": "ecom",
+      "title": "Vendia",
+      "short_description": "Solution de vente en ligne rapide et intuitive.",
+      "description": "Solution de vente en ligne rapide et intuitive.",
+      "technologies": "E-commerce, Mobile",
+      "external_url": "https://vendia-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "hrnow",
+      "category": "saas",
+      "title": "HRNow",
+      "short_description": "Gestion des ressources humaines simplifiée et digitalisée.",
+      "description": "Gestion des ressources humaines simplifiée et digitalisée.",
+      "technologies": "SaaS, RH",
+      "external_url": "https://hrnow-online.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "taskhub",
+      "category": "saas",
+      "title": "TaskHub",
+      "short_description": "Plateforme collaborative de gestion de tâches et projets.",
+      "description": "Plateforme collaborative de gestion de tâches et projets.",
+      "technologies": "SaaS, Productivité",
+      "external_url": "https://taskhub-online.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    },
+    {
+      "slug": "dropfa",
+      "category": "ecom",
+      "title": "Dropfa",
+      "short_description": "Plateforme de dropshipping clé en main pour entrepreneurs africains.",
+      "description": "Plateforme de dropshipping clé en main pour entrepreneurs africains.",
+      "technologies": "E-commerce, Dropshipping",
+      "external_url": "https://dropfa-app.com/",
+      "is_featured": false,
+      "published_at": "2026-04-01T09:00:00+01:00"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Combien de temps faut-il pour développer une application ?",
+      "answer": "La durée dépend de la complexité du projet. Une première version peut être livrée en quelques semaines, puis enrichie progressivement."
+    },
+    {
+      "question": "Pouvez-vous développer une application comme Uber, Airbnb ou Glovo ?",
+      "answer": "Oui, Revival développe des solutions inspirées des grandes plateformes, adaptées aux réalités africaines, avec des fonctionnalités modernes et évolutives."
+    },
+    {
+      "question": "Proposez-vous un accompagnement après la mise en ligne ?",
+      "answer": "Oui. Revival assure un suivi continu, incluant la maintenance, les mises à jour, l'amélioration des performances et l'accompagnement stratégique."
+    },
+    {
+      "question": "Comment puis-je commencer avec Revival ?",
+      "answer": "Il vous suffit de nous contacter via notre site ou nos canaux officiels. Notre équipe analyse votre besoin et propose une solution adaptée."
+    },
+    {
+      "question": "Revival travaille-t-il uniquement en RDC ?",
+      "answer": "Non. Bien que nous soyons fortement ancrés en République Démocratique du Congo, nos services sont accessibles à toute l'Afrique et à l'international."
+    },
+    {
+      "question": "Mes données et mon projet sont-ils sécurisés ?",
+      "answer": "Oui. Revival accorde une grande importance à la sécurité et à la confidentialité, selon les standards modernes."
+    },
+    {
+      "question": "Puis-je collaborer avec Revival en tant que partenaire ?",
+      "answer": "Oui. Revival propose plusieurs types de partenariats commerciaux, technologiques et stratégiques."
+    },
+    {
+      "question": "Puis-je payer avec Mobile Money ?",
+      "answer": "Oui. Revival propose des solutions de paiement adaptées au contexte africain, incluant Mobile Money."
+    },
+    {
+      "question": "Revival peut-il m'aider à développer mon business existant ?",
+      "answer": "Oui. Nous aidons les entreprises existantes à améliorer leurs performances, attirer plus de clients et automatiser leurs opérations."
+    },
+    {
+      "question": "Que se passe-t-il si je n'ai pas encore une idée claire ?",
+      "answer": "Ce n'est pas un problème. Revival vous accompagne dans la structuration de votre idée et l'identification des opportunités."
+    }
+  ],
+  "reviews": [
+    {
+      "client_name": "Marie Laurent",
+      "company": "Groupe Nexia",
+      "client_role": "DRH",
+      "content": "Revival a transformé notre gestion RH. L'application est intuitive, rapide et a réduit notre charge administrative de 65%.",
+      "rating": 5
+    },
+    {
+      "client_name": "Pierre Dubois",
+      "company": "LuxeShop",
+      "client_role": "CEO",
+      "content": "Notre boutique en ligne a vu ses conversions augmenter de 120% après le redesign. L'équipe est réactive et professionnelle.",
+      "rating": 5
+    },
+    {
+      "client_name": "Sarah Chen",
+      "company": "DataFlow Inc.",
+      "client_role": "COO",
+      "content": "Le dashboard analytics de Revival nous donne une visibilité en temps réel sur nos KPIs. Indispensable pour nos décisions.",
+      "rating": 5
+    }
+  ],
+  "article_categories": [
+    {
+      "slug": "projets",
+      "name": "Projets"
+    },
+    {
+      "slug": "tech",
+      "name": "Tech & Dev"
+    },
+    {
+      "slug": "conseils",
+      "name": "Conseils"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "avenir-digital-rdc",
+      "category": "tech",
+      "title": "L'avenir du digital en RDC : comment Revival façonne la tech africaine",
+      "excerpt": "Depuis sa création, Revival s'est imposée comme l'agence de référence en République Démocratique du Congo.",
+      "content": "Depuis sa création, Revival s'est imposée comme l'agence de référence en République Démocratique du Congo.",
+      "seo_title": "L'avenir du digital en RDC : comment Revival façonne la tech africaine",
+      "seo_description": "Depuis sa création, Revival s'est imposée comme l'agence de référence en République Démocratique du Congo.",
+      "author_name": "Équipe Revival",
+      "reading_time": 10,
+      "published_at": "2026-06-15T09:00:00+01:00",
+      "is_featured": true,
+      "status": "published"
+    },
+    {
+      "slug": "kulatable",
+      "category": "projets",
+      "title": "Kulatable",
+      "excerpt": "Kulatable est une plateforme de gestion de restaurant permettant de digitaliser et centraliser toutes les opérations.",
+      "content": "Kulatable est une plateforme de gestion de restaurant permettant de digitaliser et centraliser toutes les opérations.",
+      "seo_title": "Kulatable",
+      "seo_description": "Kulatable est une plateforme de gestion de restaurant permettant de digitaliser et centraliser toutes les opérations.",
+      "author_name": "Équipe Revival",
+      "reading_time": 8,
+      "published_at": "2026-04-10T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "ecomnex",
+      "category": "projets",
+      "title": "Ecomnex-shop",
+      "excerpt": "Il s'agit d'une boutique en ligne présentant des produits de consommation variés.",
+      "content": "Il s'agit d'une boutique en ligne présentant des produits de consommation variés.",
+      "seo_title": "Ecomnex-shop",
+      "seo_description": "Il s'agit d'une boutique en ligne présentant des produits de consommation variés.",
+      "author_name": "Équipe Revival",
+      "reading_time": 5,
+      "published_at": "2026-04-02T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "freela",
+      "category": "projets",
+      "title": "Freela",
+      "excerpt": "Il s'agit d'une plateforme orientée vers des services freelance et marketplace.",
+      "content": "Il s'agit d'une plateforme orientée vers des services freelance et marketplace.",
+      "seo_title": "Freela",
+      "seo_description": "Il s'agit d'une plateforme orientée vers des services freelance et marketplace.",
+      "author_name": "Équipe Revival",
+      "reading_time": 6,
+      "published_at": "2026-03-25T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "digitaliser-pme-2026",
+      "category": "tech",
+      "title": "Comment digitaliser votre PME en 2026",
+      "excerpt": "La transformation numérique n'est plus une option pour les PME congolaises. Découvrez les étapes clés pour digitaliser votre entreprise.",
+      "content": "La transformation numérique n'est plus une option pour les PME congolaises. Découvrez les étapes clés pour digitaliser votre entreprise.",
+      "seo_title": "Comment digitaliser votre PME en 2026",
+      "seo_description": "La transformation numérique n'est plus une option pour les PME congolaises. Découvrez les étapes clés pour digitaliser votre entreprise.",
+      "author_name": "Arnold N.",
+      "reading_time": 5,
+      "published_at": "2026-06-10T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "poshub",
+      "category": "projets",
+      "title": "PosHub : gérez votre commerce intelligemment",
+      "excerpt": "PosHub est la solution de point de vente nouvelle génération pour les commerçants congolais.",
+      "content": "PosHub est la solution de point de vente nouvelle génération pour les commerçants congolais.",
+      "seo_title": "PosHub : gérez votre commerce intelligemment",
+      "seo_description": "PosHub est la solution de point de vente nouvelle génération pour les commerçants congolais.",
+      "author_name": "Équipe Revival",
+      "reading_time": 4,
+      "published_at": "2026-05-20T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    },
+    {
+      "slug": "cybersecurite",
+      "category": "conseils",
+      "title": "Cybersécurité : protégez votre entreprise",
+      "excerpt": "Les cyberattaques touchent de plus en plus les entreprises africaines. Découvrez les meilleures pratiques pour sécuriser vos données.",
+      "content": "Les cyberattaques touchent de plus en plus les entreprises africaines. Découvrez les meilleures pratiques pour sécuriser vos données.",
+      "seo_title": "Cybersécurité : protégez votre entreprise",
+      "seo_description": "Les cyberattaques touchent de plus en plus les entreprises africaines. Découvrez les meilleures pratiques pour sécuriser vos données.",
+      "author_name": "David L.",
+      "reading_time": 6,
+      "published_at": "2026-05-15T09:00:00+01:00",
+      "is_featured": false,
+      "status": "published"
+    }
+  ],
+  "job_departments": [
+    {
+      "code": "dev",
+      "name": "Développement"
+    },
+    {
+      "code": "design",
+      "name": "Design"
+    },
+    {
+      "code": "ops",
+      "name": "DevOps"
+    },
+    {
+      "code": "biz",
+      "name": "Business"
+    }
+  ],
+  "job_offers": [
+    {
+      "department": "dev",
+      "title": "Developpeur Full-Stack Senior",
+      "location": "Remote ou Kinshasa",
+      "salary_range": "55k - 75k EUR",
+      "description": "Nous recherchons un developpeur Full-Stack Senior maitrisant Laravel, React et MySQL pour rejoindre notre equipe produit.",
+      "requirements": "",
+      "deadline": "2026-05-01",
+      "published_at": "2026-03-15T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "dev",
+      "title": "Developpeur Front-End React/Next.js",
+      "location": "Remote",
+      "salary_range": "45k - 65k EUR",
+      "description": "Rejoignez notre equipe front-end pour construire des interfaces utilisateur modernes et performantes avec React et Next.js.",
+      "requirements": "",
+      "deadline": "2026-04-25",
+      "published_at": "2026-03-20T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "dev",
+      "title": "Developpeur Back-End Laravel",
+      "location": "Remote ou Lyon",
+      "salary_range": "42k - 60k EUR",
+      "description": "Nous cherchons un developpeur Back-End experimente en PHP/Laravel pour concevoir et maintenir nos APIs REST.",
+      "requirements": "",
+      "deadline": "2026-04-10",
+      "published_at": "2026-02-10T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "design",
+      "title": "UI/UX Designer Senior",
+      "location": "Remote",
+      "salary_range": "45k - 60k EUR",
+      "description": "Nous recherchons un UI/UX Designer Senior pour concevoir des experiences utilisateur exceptionnelles sur Figma.",
+      "requirements": "",
+      "deadline": "2026-05-15",
+      "published_at": "2026-03-25T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "ops",
+      "title": "DevOps / Cloud Engineer",
+      "location": "Remote",
+      "salary_range": "55k - 75k EUR",
+      "description": "Rejoignez notre equipe infrastructure pour gerer et optimiser nos environnements cloud AWS avec Docker et Kubernetes.",
+      "requirements": "",
+      "deadline": "2026-06-01",
+      "published_at": "2026-04-01T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "biz",
+      "title": "Business Developer",
+      "location": "Kinshasa ou Remote",
+      "salary_range": "40k - 55k EUR + variable",
+      "description": "Nous cherchons un Business Developer dynamique pour developper notre portefeuille clients et nos partenariats strategiques.",
+      "requirements": "",
+      "deadline": "2026-04-05",
+      "published_at": "2026-03-10T09:00:00+01:00",
+      "contract_type": "full_time"
+    },
+    {
+      "department": "dev",
+      "title": "Developpeur Mobile React Native",
+      "location": "Remote",
+      "salary_range": "45k - 65k EUR",
+      "description": "Nous recherchons un developpeur Mobile React Native pour concevoir et developper nos applications iOS et Android.",
+      "requirements": "",
+      "deadline": "2026-06-15",
+      "published_at": "2026-04-05T09:00:00+01:00",
+      "contract_type": "full_time"
+    }
+  ],
+  "partnership_types": [
+    {
+      "code": "commercial",
+      "name": "Partenaire commercial (revendeur)",
+      "description": "Revendre les solutions Revival dans une région ou un marché donné."
+    },
+    {
+      "code": "technique",
+      "name": "Partenaire technique / intégration",
+      "description": "Collaborer sur des intégrations API, SDK, plugins ou solutions white-label."
+    },
+    {
+      "code": "strategique",
+      "name": "Partenaire stratégique",
+      "description": "Co-développer des produits, ouvrir de nouveaux marchés ou construire une alliance forte."
+    },
+    {
+      "code": "startup",
+      "name": "Partenaire startup / innovation",
+      "description": "Accompagner ou co-construire des solutions innovantes avec des startups."
+    },
+    {
+      "code": "autre",
+      "name": "Autre",
+      "description": "Proposer une forme de partenariat spécifique à évaluer avec l'équipe Revival."
+    }
+  ],
+  "video_categories": [
+    {
+      "code": "projet",
+      "name": "Projet"
+    },
+    {
+      "code": "tuto",
+      "name": "Tutoriel"
+    },
+    {
+      "code": "coulisse",
+      "name": "Coulisse"
+    }
+  ],
+  "videos": [
+    {
+      "category": "projet",
+      "title": "KULATABLE interface application",
+      "description": "Découvrez l'interface de l'application KULATABLE, une solution pour la gestion de vos restaurants.",
+      "youtube_url": "https://www.youtube.com/shorts/X30WWQVMthE",
+      "is_featured": true
+    },
+    {
+      "category": "projet",
+      "title": "POSHUB gestion intelligente entreprise",
+      "description": "Facilitez-vous la tâche avec PosHub, une gestion intelligente de votre entreprise.",
+      "youtube_url": "https://www.youtube.com/shorts/dJn4ugANCLg",
+      "is_featured": true
+    },
+    {
+      "category": "projet",
+      "title": "PHARMA HUB gestion pharmacie",
+      "description": "Vous avez du mal à gérer votre pharmacie ? Rejoignez Pharma Hub, une solution digitale sur mesure.",
+      "youtube_url": "https://www.youtube.com/shorts/V0iWwb_AYM8",
+      "is_featured": true
+    },
+    {
+      "category": "tuto",
+      "title": "Comment creer une app mobile en 2026",
+      "description": "Comment créer une app mobile en 2026 ?",
+      "youtube_url": "https://www.youtube.com/shorts/dJn4ugANCLg",
+      "is_featured": false
+    },
+    {
+      "category": "coulisse",
+      "title": "Revival 3 ans innovation technologique RDC",
+      "description": "Revival - 3 ans d'innovation technologique en RDC.",
+      "youtube_url": "https://www.youtube.com/shorts/dJn4ugANCLg",
+      "is_featured": false
+    },
+    {
+      "category": "projet",
+      "title": "EMICARD boutique en ligne",
+      "description": "Vous souhaitez lancer votre boutique en ligne sur EMICARD ? Découvrez la réponse dans cette vidéo.",
+      "youtube_url": "https://www.youtube.com/shorts/C5gmtimkAR4",
+      "is_featured": false
+    }
+  ]
+}
