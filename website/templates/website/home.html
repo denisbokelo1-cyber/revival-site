@@ -149,55 +149,16 @@
 
       <div class="pf-carousel-viewport fade-up">
         <div class="pf-carousel-track" id="pfTrack">
-          <a href="{% url 'website:portfolio' %}" class="pf-carousel-card">
-            <div class="pf-carousel-card__img" style="background:url('{% static 'projet/lank.png' %}') center/cover no-repeat"></div>
+          {% for project in projects %}
+          <a href="{{ project.external_url }}" class="pf-carousel-card">
+            <div class="pf-carousel-card__img" {% if project.image.name %}style="background:url('{{ project.image.url }}') center/cover no-repeat"{% endif %}></div>
             <div class="pf-carousel-card__info">
-              <span class="pf-carousel-card__cat">{% trans "UI/UX Design" %}</span>
-              <h4 class="pf-carousel-card__title">{% trans "Lanlinker" %}</h4>
+              <span class="pf-carousel-card__cat">{{ project.category }}</span>
+              <h4 class="pf-carousel-card__title">{{ project.title }}</h4>
               <span class="pf-carousel-card__arrow">→</span> 
             </div>
           </a>
-          <a href="{% url 'website:portfolio' %}" class="pf-carousel-card">
-            <div class="pf-carousel-card__img" style="background:url('{% static 'projet/Match_Work.png' %}') center/cover no-repeat"></div>
-            <div class="pf-carousel-card__info">
-              <span class="pf-carousel-card__cat">{% trans "UI/UX Design" %}</span>
-              <h4 class="pf-carousel-card__title">{% trans "Match Work" %}</h4>
-              <span class="pf-carousel-card__arrow">→</span>
-            </div>
-          </a>
-          <a href="{% url 'website:portfolio' %}" class="pf-carousel-card">
-            <div class="pf-carousel-card__img" style="background:url('{% static 'projet/Freela.png' %}') center/cover no-repeat"></div>
-            <div class="pf-carousel-card__info">
-              <span class="pf-carousel-card__cat">{% trans "React & Next.js" %}</span>
-              <h4 class="pf-carousel-card__title">{% trans "Frella" %}</h4>
-              <span class="pf-carousel-card__arrow">→</span>
-            </div>
-          </a>
-          <a href="{% url 'website:portfolio' %}" class="pf-carousel-card">
-            <div class="pf-carousel-card__img" style="background:url('{% static 'projet/poshub.png' %}') center/cover no-repeat"></div>
-            <div class="pf-carousel-card__info">
-              <span class="pf-carousel-card__cat">{% trans "React & Next.js" %}</span>
-              <h4 class="pf-carousel-card__title">{% trans "Poshub" %}</h4>
-              <span class="pf-carousel-card__arrow">→</span>
-            </div>
-          </a>
-          <!-- duplicates for infinite loop -->
-          <a href="{% url 'website:portfolio' %}" class="pf-carousel-card" aria-hidden="true">
-            <div class="pf-carousel-card__img" style="background:url('{% static 'projet/lank.png' %}') center/cover no-repeat"></div>
-            <div class="pf-carousel-card__info">
-              <span class="pf-carousel-card__cat">{% trans "UI/UX Design" %}</span>
-              <h4 class="pf-carousel-card__title">{% trans "Lanlinker" %}</h4>
-              <span class="pf-carousel-card__arrow">→</span>
-            </div>
-          </a>
-          <a href="{% url 'website:portfolio' %}" class="pf-carousel-card" aria-hidden="true">
-            <div class="pf-carousel-card__img" style="background:url('{% static 'projet/Match_Work.png' %}') center/cover no-repeat"></div>
-            <div class="pf-carousel-card__info">
-              <span class="pf-carousel-card__cat">{% trans "React & Next.js" %}</span>
-              <h4 class="pf-carousel-card__title">{% trans "Match Work" %}</h4>
-              <span class="pf-carousel-card__arrow">→</span>
-            </div>
-          </a>
+          {% endfor %}
         </div>
       </div>
 

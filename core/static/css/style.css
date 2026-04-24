@@ -260,10 +260,12 @@ img { max-width: 100%; display: block; }
   -webkit-backdrop-filter: blur(4px);
   z-index: 998;
   opacity: 0;
+  pointer-events: none;
   transition: opacity .35s ease;
 }
 .nav-overlay.visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ===== HERO ===== */

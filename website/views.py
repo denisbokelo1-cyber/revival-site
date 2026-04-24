@@ -7,7 +7,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
-from website.models import FAQ, Review
+from website.models import FAQ, Review, Project
 
 
 class RevivalTemplateView(TemplateView):
@@ -27,6 +27,7 @@ class HomeView(RevivalTemplateView):
         context = super().get_context_data(**kwargs)
         context["faqs"] = FAQ.objects.filter(page=FAQ.Page.HOME, is_active=True)
         context["reviews"] = Review.objects.filter(is_active=True, is_featured=True)
+        context["projects"] = Project.objects.filter(is_active=True, is_featured=True)
         return context
 
 
