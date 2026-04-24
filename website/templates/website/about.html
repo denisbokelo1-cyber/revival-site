@@ -1,0 +1,538 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "À propos de Revival | Vision, mission et impact digital en Afrique" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans "Revival transforme les idées en solutions digitales puissantes pour aider les entrepreneurs et les entreprises à lancer, structurer et développer leurs activités en Afrique." %}" />
+  <meta name="keywords" content="{% trans "à propos Revival, entreprise technologique RDC, transformation digitale Afrique, solutions digitales Kinshasa, innovation entrepreneuriale Afrique" %}" />
+  <meta name="author" content="Revival Group" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/about.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/about.html" />
+  <meta property="og:title" content="{% trans "À propos de Revival | Vision, mission et impact digital en Afrique" %}" />
+  <meta property="og:description" content="{% trans "Revival met la technologie au service de l'Afrique pour transformer les idées en solutions digitales concrètes, performantes et utiles." %}" />
+  <meta property="og:image" content="https://revival-business.com/logo/about.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@groupe85249" />
+  <meta name="twitter:title" content="{% trans "À propos de Revival | Vision, mission et impact digital en Afrique" %}" />
+  <meta name="twitter:description" content="{% trans "Nous aidons les entrepreneurs et les entreprises à transformer leurs ambitions en solutions digitales puissantes." %}" />
+  <meta name="twitter:image" content="https://revival-business.com/logo/about.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "{% trans "À propos de Revival" %}",
+    "url": "https://revival-business.com/about.html",
+    "description": "{% trans "Revival est une entreprise technologique qui transforme les idées en solutions digitales puissantes pour créer des opportunités en Afrique." %}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{% trans "Revival" %}",
+      "url": "https://revival-business.com",
+      "logo": "https://revival-business.com/logo/logo.png"
+    }
+  }
+  </script>
+
+  <style>
+    .about-page {
+      background:
+        radial-gradient(circle at top right, rgba(1, 156, 214, 0.1), transparent 28%),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 40%, #eef5ff 100%);
+    }
+
+    .about-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 148px 0 92px;
+      min-height: 76vh;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(0, 255, 255, 0.14), transparent 24%),
+        radial-gradient(circle at 82% 0%, rgba(1, 156, 214, 0.28), transparent 32%),
+        linear-gradient(135deg, #000d2d 0%, #001860 42%, #013d8a 100%);
+      color: var(--white);
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent);
+      pointer-events: none;
+    }
+
+    .about-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-hero__content h1 {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+
+    .about-hero__lead {
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.76);
+      margin-bottom: 28px;
+    }
+
+    .about-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .about-hero__panel {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(18px);
+    }
+
+    .about-hero__panel h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+    }
+
+    .about-hero__panel p {
+      color: rgba(255, 255, 255, 0.74);
+      margin-bottom: 16px;
+    }
+
+    .about-hero__list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-hero__list li {
+      position: relative;
+      padding-left: 22px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .about-hero__list li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #00ffff, #019cd6);
+      box-shadow: 0 0 0 5px rgba(0, 255, 255, 0.12);
+    }
+
+    .about-block {
+      padding: 86px 0;
+    }
+
+    .about-manifesto {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(3, 81, 148, 0.1);
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(0, 24, 96, 0.08);
+    }
+
+    .about-card--dark {
+      background:
+        linear-gradient(135deg, rgba(0, 24, 96, 0.98), rgba(2, 76, 155, 0.94));
+      border-color: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    .about-card__inner {
+      padding: 34px;
+    }
+
+    .about-card__inner p {
+      color: #4a5976;
+      margin-bottom: 16px;
+    }
+
+    .about-card--dark .about-card__inner p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .about-section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+      letter-spacing: -.04em;
+      color: var(--dark);
+    }
+
+    .about-emphasis {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(1, 156, 214, 0.08);
+      border: 1px solid rgba(1, 156, 214, 0.16);
+      color: var(--accent);
+      font-size: .92rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .about-quote {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+      margin-bottom: 18px;
+    }
+
+    .about-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .about-pillar {
+      padding: 30px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(242, 248, 255, 0.96));
+      border: 1px solid rgba(3, 81, 148, 0.08);
+      box-shadow: 0 16px 50px rgba(0, 24, 96, 0.06);
+    }
+
+    .about-pillar__icon {
+      width: 62px;
+      height: 62px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(1, 156, 214, 0.16), rgba(3, 81, 148, 0.1));
+      color: var(--accent);
+    }
+
+    .about-pillar p {
+      color: #52627f;
+      margin-top: 10px;
+    }
+
+    .about-build {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .about-build__visual {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(0, 24, 96, 0.9), rgba(1, 156, 214, 0.85)),
+        url('{% static 'logo/about.jpg' %}') center/cover no-repeat;
+      box-shadow: 0 24px 60px rgba(0, 24, 96, 0.16);
+    }
+
+    .about-build__visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 10, 38, 0.2), rgba(0, 10, 38, 0.78));
+    }
+
+    .about-build__caption {
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      z-index: 1;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      backdrop-filter: blur(12px);
+    }
+
+    .about-build__caption p {
+      color: rgba(255, 255, 255, 0.78);
+      margin-top: 8px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .about-list li {
+      padding: 18px 18px 18px 22px;
+      border-left: 3px solid rgba(1, 156, 214, 0.55);
+      background: rgba(1, 156, 214, 0.05);
+      border-radius: 0 18px 18px 0;
+      color: #41516e;
+    }
+
+    .about-list strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .about-banner {
+      padding: 32px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(0, 255, 255, 0.14), transparent 30%),
+        linear-gradient(135deg, #001860, #024c9b);
+      color: var(--white);
+      box-shadow: 0 24px 60px rgba(0, 24, 96, 0.14);
+    }
+
+    .about-banner p {
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 12px;
+    }
+
+    .about-statement {
+      display: grid;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .about-statement span {
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      color: var(--white);
+    }
+
+    .about-short {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      padding: 28px 32px;
+      border-radius: 26px;
+      background: rgba(1, 156, 214, 0.06);
+      border: 1px dashed rgba(1, 156, 214, 0.28);
+    }
+
+    .about-short p {
+      color: #44536d;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 1080px) {
+      .about-hero__inner,
+      .about-manifesto,
+      .about-build,
+      .about-grid-3,
+      .about-short {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .about-hero {
+        padding: 136px 0 72px;
+        min-height: auto;
+      }
+
+      .about-card__inner,
+      .about-pillar,
+      .about-banner,
+      .about-short {
+        padding: 24px;
+      }
+
+      .about-build__caption {
+        inset: auto 16px 16px 16px;
+        padding: 18px;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block body_attrs %} class="about-page"{% endblock %}
+
+{% block content %}
+<section class="about-hero">
+    <div class="container about-hero__inner">
+      <div class="about-hero__content fade-up">
+        <span class="badge badge--light">{% trans "À propos de nous" %}</span>
+        <h1>{% trans "Transformer les idées en" %} <span class="gradient-text">{% trans "solutions digitales puissantes" %}</span></h1>
+        <p class="about-hero__lead">{% blocktrans trimmed %}Revival est bien plus qu’une entreprise technologique. C’est une vision, un mouvement et une mission : mettre le digital au service de l’Afrique, et en particulier de la République Démocratique du Congo, pour aider les entrepreneurs, les entreprises et les porteurs de projets à construire, structurer et faire grandir leurs activités.{% endblocktrans %}</p>
+        <div class="about-hero__actions">
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Parler à notre équipe" %}</a>
+          <a href="{% url 'website:portfolio' %}" class="btn btn--ghost">{% trans "Voir nos réalisations" %}</a>
+        </div>
+      </div>
+
+      <div class="about-hero__panel fade-up delay-2">
+        <h3>{% trans "Notre conviction" %}</h3>
+        <p>{% blocktrans trimmed %}Une idée, même simple, peut devenir un projet à fort impact lorsqu’elle est bien accompagnée, bien structurée et bien exécutée.{% endblocktrans %}</p>
+        <ul class="about-hero__list">
+          <li>{% trans "Créer des solutions concrètes, utiles et performantes." %}</li>
+          <li>{% trans "Accompagner les ambitions avec une vraie lecture du marché africain." %}</li>
+          <li>{% trans "Transformer la technologie en levier de croissance durable." %}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block">
+    <div class="container about-manifesto">
+      <div class="about-card fade-up">
+        <div class="about-card__inner">
+          <span class="about-emphasis">{% trans "Notre mission" %}</span>
+          <h2 class="about-section-title">{% trans "Créer des opportunités réelles grâce au digital" %}</h2>
+          <p>{% blocktrans trimmed %}Dans un contexte où le numérique redéfinit profondément les règles du jeu, Revival a fait un choix clair : utiliser la technologie comme un outil de structuration, de performance et d’accélération pour les acteurs économiques africains.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Nous aidons les entrepreneurs et les entreprises à transformer leurs ambitions en solutions concrètes, performantes et viables. Notre rôle n’est pas seulement de développer des outils. Notre rôle est de rendre les projets plus clairs, plus solides et plus capables de grandir.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}À travers chaque plateforme, chaque application et chaque système que nous concevons, nous cherchons à créer de la valeur utile, durable et exploitable sur le terrain.{% endblocktrans %}</p>
+        </div>
+      </div>
+
+      <div class="about-card about-card--dark fade-up delay-2">
+        <div class="about-card__inner">
+          <span class="about-emphasis" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#fff;">{% trans "Notre positionnement" %}</span>
+          <div class="about-quote">{% blocktrans trimmed %}Nous ne concevons pas la technologie comme une fin. Nous la concevons comme un levier de réussite.{% endblocktrans %}</div>
+          <p>{% blocktrans trimmed %}Revival accompagne chaque projet avec exigence, sens stratégique et compréhension des réalités locales. C’est cette combinaison entre vision business, exécution digitale et lecture du marché africain qui donne à notre approche sa force.{% endblocktrans %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block" style="padding-top:0;">
+    <div class="container">
+      <div class="section__header fade-up" style="margin-bottom:28px;">
+        <span class="badge">{% trans "Ce qui nous définit" %}</span>
+        <h2 class="section__title">{% trans "Une approche claire, engagée et orientée impact" %}</h2>
+      </div>
+
+      <div class="about-grid-3">
+        <article class="about-pillar fade-up delay-1">
+          <div class="about-pillar__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3>{% trans "Vision" %}</h3>
+          <p>{% blocktrans trimmed %}Faire du digital un moteur d’opportunités, d’organisation et de croissance pour les entrepreneurs et les entreprises qui veulent construire sérieusement.{% endblocktrans %}</p>
+        </article>
+
+        <article class="about-pillar fade-up delay-2">
+          <div class="about-pillar__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h3>{% trans "Innovation utile" %}</h3>
+          <p>{% blocktrans trimmed %}Nous privilégions les solutions qui résolvent de vrais problèmes, améliorent l’efficacité et donnent aux projets une base plus solide pour évoluer.{% endblocktrans %}</p>
+        </article>
+
+        <article class="about-pillar fade-up delay-3">
+          <div class="about-pillar__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M7.5 4.21 12 6.81l4.5-2.6"/><path d="M12 22.08V12"/></svg>
+          </div>
+          <h3>{% trans "Valeur réelle" %}</h3>
+          <p>{% blocktrans trimmed %}Notre ambition est de produire des solutions capables d’aider à lancer, gérer, vendre, structurer ou automatiser avec plus de maîtrise et plus d’impact.{% endblocktrans %}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block section--light">
+    <div class="container about-build">
+      <div class="about-build__visual fade-up">
+        <div class="about-build__caption">
+          <strong>{% trans "Revival conçoit un écosystème, pas seulement des interfaces." %}</strong>
+          <p>{% blocktrans trimmed %}Chaque projet est pensé comme un outil de croissance, d’organisation et d’exécution plus intelligente.{% endblocktrans %}</p>
+        </div>
+      </div>
+
+      <div class="about-card fade-up delay-2">
+        <div class="about-card__inner">
+          <span class="about-emphasis">{% trans "Ce que nous construisons" %}</span>
+          <h2 class="about-section-title">{% trans "Des solutions pensées pour lancer, gérer et faire grandir" %}</h2>
+          <p>{% blocktrans trimmed %}Nous concevons des applications mobiles, des plateformes digitales, des systèmes de gestion intelligents et des solutions automatisées qui permettent aux entreprises de gagner en efficacité, de mieux servir leurs clients et de se développer plus rapidement.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Notre travail consiste à rendre les projets plus lisibles, plus performants et plus capables de passer à l’échelle. Cela demande à la fois de la technique, de la structure et une vraie compréhension du contexte dans lequel les solutions seront utilisées.{% endblocktrans %}</p>
+
+          <ul class="about-list">
+            <li>
+              <strong>{% trans "Applications et plateformes digitales" %}</strong>
+              {% blocktrans trimmed %}Des outils conçus pour soutenir l’activité, fluidifier les opérations et améliorer l’expérience utilisateur.{% endblocktrans %}
+            </li>
+            <li>
+              <strong>{% trans "Systèmes de gestion et automatisation" %}</strong>
+              {% blocktrans trimmed %}Des solutions qui aident à mieux organiser, suivre et piloter les processus essentiels d’une entreprise.{% endblocktrans %}
+            </li>
+            <li>
+              <strong>{% trans "Accompagnement stratégique" %}</strong>
+              {% blocktrans trimmed %}Une lecture business et terrain pour que la technologie serve réellement les objectifs du projet.{% endblocktrans %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block">
+    <div class="container">
+      <div class="about-banner fade-up">
+        <span class="badge badge--light">{% trans "Notre engagement" %}</span>
+        <h2 style="font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.04em;">{% trans "Une équipe engagée, tournée vers l’innovation et la réussite des entrepreneurs" %}</h2>
+        <p>{% blocktrans trimmed %}Chez Revival, l’approche ne s’arrête pas à la livraison d’un produit. Nous voulons aider à créer des bases solides, des outils utiles et de vraies possibilités d’évolution pour celles et ceux qui construisent. C’est cette volonté de rendre les ambitions réalisables qui guide notre travail au quotidien.{% endblocktrans %}</p>
+
+        <div class="about-statement">
+          <span>{% trans "Nous ne construisons pas seulement des solutions." %}</span>
+          <span>{% trans "Nous construisons des opportunités." %}</span>
+          <span>{% trans "Nous construisons des réussites." %}</span>
+          <span>{% trans "Nous construisons l’avenir." %}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block" style="padding-top:0;">
+    <div class="container">
+      <div class="about-short fade-up">
+        <div>
+          <span class="about-emphasis">{% trans "Version courte" %}</span>
+          <h3 style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em;color:var(--dark);">{% trans "Revival transforme les idées en solutions digitales puissantes." %}</h3>
+          <p>{% blocktrans trimmed %}Nous aidons les entrepreneurs et les entreprises à lancer, gérer et développer leurs activités grâce à la technologie. Notre mission est claire : créer des opportunités et accélérer la réussite en Afrique grâce au digital.{% endblocktrans %}</p>
+        </div>
+        <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Démarrer avec Revival" %}</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Solutions Digitales sur Mesure — Web, Mobile, IA & Cloud | Revival" %}{% endblock %}
+
+{% block meta %}
+<!-- ═══ SEO PRIMARY ═══ -->
+  
+  <meta name="description" content="{% trans "Développement web, applications mobiles, intelligence artificielle, cloud et cybersécurité. Revival déploie des solutions digitales performantes pour votre entreprise." %}" />
+  <meta name="keywords" content="{% trans "solutions digitales entreprise, développement web sur mesure, application mobile Afrique, intelligence artificielle PME, cloud hébergement sécurisé, ERP CRM sur mesure" %}" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/solutions.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/solutions.html" />
+  <meta property="og:title" content="{% trans "Solutions Digitales sur Mesure — Web, Mobile, IA & Cloud | Revival" %}" />
+  <meta property="og:description" content="{% trans "Développement web, mobile, IA, cloud et cybersécurité. Des solutions scalables adaptées aux entreprises africaines et européennes." %}" />
+  <meta property="og:image" content="https://revival-business.com/logo/banner.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival Agency" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@groupe85249" />
+  <meta name="twitter:title" content="{% trans "Solutions Digitales sur Mesure | Revival" %}" />
+  <meta name="twitter:description" content="{% trans "Web, mobile, IA, cloud, cybersécurité. Revival déploie des solutions digitales performantes pour accélérer votre croissance." %}" />
+  <meta name="twitter:image" content="https://revival-business.com/logo/banner.png" />
+
+  <!-- ═══ SCHEMA.ORG — ItemList of Services ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "{% trans "Solutions Digitales Revival" %}",
+    "url": "https://revival-business.com/solutions.html",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "{% trans "Développement Web & Mobile" %}", "url": "https://revival-business.com/solutions.html" },
+      { "@type": "ListItem", "position": 2, "name": "{% trans "Intelligence Artificielle" %}", "url": "https://revival-business.com/solutions.html" },
+      { "@type": "ListItem", "position": 3, "name": "{% trans "Cloud & Hébergement" %}", "url": "https://revival-business.com/solutions.html" },
+      { "@type": "ListItem", "position": 4, "name": "{% trans "Cybersécurité" %}", "url": "https://revival-business.com/solutions.html" },
+      { "@type": "ListItem", "position": 5, "name": "{% trans "ERP & Gestion d'entreprise" %}", "url": "https://revival-business.com/solutions.html" }
+    ]
+  }
+  </script>
+{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+  <section style="min-height:44vh;background:radial-gradient(ellipse at 70% 0%,#0a2a6e 0%,#050d2a 55%,#000d1f 100%);display:flex;align-items:center;padding:140px 0 70px;position:relative;overflow:hidden;">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
+      <span class="badge badge--light">{% trans "Nos services" %}</span>
+      <h1 style="font-size:clamp(36px,5vw,62px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "Des solutions sur mesure" %}<br/><span class="gradient-text">{% trans "pour chaque besoin" %}</span></h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto">{% blocktrans trimmed %}Nous accompagnons les entreprises dans leur transformation digitale avec des solutions techniques adaptées à leurs objectifs.{% endblocktrans %}</p>
+    </div>
+  </section>
+
+  <!-- SERVICES DÉTAILLÉS -->
+  <section class="section">
+    <div class="container">
+      <div class="service-row fade-up" id="applications-web">
+        <div class="service-row__visual">
+          <div class="service-icon-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+        </div>
+        <div class="service-row__content">
+          <span class="badge">01</span>
+          <h2>{% trans "Applications Web" %}</h2>
+          <p>{% blocktrans trimmed %}Nous développons des applications web modernes, rapides et scalables. De la simple landing page à la plateforme SaaS complexe, notre équipe maîtrise les dernières technologies pour livrer des produits de qualité.{% endblocktrans %}</p>
+          <ul class="service-list">
+            <li>{% trans "Développement front-end (React, Vue, Next.js)" %}</li>
+            <li>{% trans "Back-end robuste (Laravel, Node.js, Django)" %}</li>
+            <li>{% trans "Architecture microservices & API REST" %}</li>
+            <li>{% trans "Optimisation des performances & SEO technique" %}</li>
+          </ul>
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Démarrer un projet" %}</a>
+        </div>
+      </div>
+
+      <div class="service-row service-row--reverse fade-up delay-1" id="applications-mobiles">
+        <div class="service-row__visual">
+          <div class="service-icon-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+        </div>
+        <div class="service-row__content">
+          <span class="badge">02</span>
+          <h2>{% trans "Applications Mobiles" %}</h2>
+          <p>{% blocktrans trimmed %}Des applications iOS et Android natives ou cross-platform qui offrent une expérience utilisateur fluide et intuitive. Nous utilisons React Native et Flutter pour des apps performantes sur toutes les plateformes.{% endblocktrans %}</p>
+          <ul class="service-list">
+            <li>{% trans "React Native & Flutter" %}</li>
+            <li>{% trans "Applications natives iOS / Android" %}</li>
+            <li>{% trans "Intégration API & services tiers" %}</li>
+            <li>{% trans "Publication App Store & Google Play" %}</li>
+          </ul>
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Démarrer un projet" %}</a>
+        </div>
+      </div>
+
+      <div class="service-row fade-up delay-2" id="automatisation">
+        <div class="service-row__visual">
+          <div class="service-icon-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+        </div>
+        <div class="service-row__content">
+          <span class="badge">03</span>
+          <h2>{% trans "Automatisation des processus" %}</h2>
+          <p>{% blocktrans trimmed %}Automatisez vos workflows répétitifs et libérez vos équipes pour des tâches à plus forte valeur ajoutée. Nous intégrons des solutions d'automatisation intelligentes dans vos systèmes existants.{% endblocktrans %}</p>
+          <ul class="service-list">
+            <li>{% trans "Automatisation RPA & scripts métier" %}</li>
+            <li>{% trans "Intégration de systèmes (ERP, CRM)" %}</li>
+            <li>{% trans "Pipelines de données automatisés" %}</li>
+            <li>{% trans "Notifications & alertes intelligentes" %}</li>
+          </ul>
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Démarrer un projet" %}</a>
+        </div>
+      </div>
+
+      <div class="service-row service-row--reverse fade-up delay-1" id="gestion-entreprise">
+        <div class="service-row__visual">
+          <div class="service-icon-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+        </div>
+        <div class="service-row__content">
+          <span class="badge">04</span>
+          <h2>{% trans "Gestion d'entreprise" %}</h2>
+          <p>{% blocktrans trimmed %}Des solutions ERP et CRM sur mesure pour centraliser et optimiser la gestion de votre activité. Nous construisons des outils qui s'adaptent à vos processus, pas l'inverse.{% endblocktrans %}</p>
+          <ul class="service-list">
+            <li>{% trans "ERP personnalisé & modules métier" %}</li>
+            <li>{% trans "CRM & gestion de la relation client" %}</li>
+            <li>{% trans "Tableaux de bord & reporting en temps réel" %}</li>
+            <li>{% trans "Gestion des stocks, RH, facturation" %}</li>
+          </ul>
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Démarrer un projet" %}</a>
+        </div>
+      </div>
+
+      <div class="service-row fade-up delay-2" id="conseil-strategie">
+        <div class="service-row__visual">
+          <div class="service-icon-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+        </div>
+        <div class="service-row__content">
+          <span class="badge">05</span>
+          <h2>{% trans "Conseil & Stratégie digitale" %}</h2>
+          <p>{% blocktrans trimmed %}Nous vous accompagnons dans la définition de votre roadmap digitale. Audit technique, choix technologiques, architecture système — nous vous aidons à prendre les bonnes décisions.{% endblocktrans %}</p>
+          <ul class="service-list">
+            <li>{% trans "Audit technique & recommandations" %}</li>
+            <li>{% trans "Architecture système & choix technologiques" %}</li>
+            <li>{% trans "Roadmap produit & priorisation" %}</li>
+            <li>{% trans "Formation & montée en compétences" %}</li>
+          </ul>
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Prendre rendez-vous" %}</a>
+        </div>
+      </div>
+
+      <div class="service-row service-row--reverse fade-up delay-1" id="securite-cloud">
+        <div class="service-row__visual">
+          <div class="service-icon-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="service-row__content">
+          <span class="badge">06</span>
+          <h2>{% trans "Sécurité & Infrastructure Cloud" %}</h2>
+          <p>{% blocktrans trimmed %}Une infrastructure cloud sécurisée, hautement disponible et conforme aux standards de sécurité. Nous gérons le déploiement, la surveillance et la maintenance de vos systèmes.{% endblocktrans %}</p>
+          <ul class="service-list">
+            <li>{% trans "Déploiement AWS, GCP, Azure" %}</li>
+            <li>{% trans "CI/CD & DevOps (Docker, Kubernetes)" %}</li>
+            <li>{% trans "Audit de sécurité & tests de pénétration" %}</li>
+            <li>{% trans "Monitoring & alertes 24/7" %}</li>
+          </ul>
+          <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Démarrer un projet" %}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band fade-up">
+    <div class="container cta-band__inner">
+      <div>
+        <h2>{% trans "Prêt à démarrer votre projet ?" %}</h2>
+        <p>{% trans "Discutons de vos besoins et trouvons la solution adaptée." %}</p>
+      </div>
+      <a href="{% url 'website:contact' %}" class="btn btn--white">{% trans "Nous contacter" %}</a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

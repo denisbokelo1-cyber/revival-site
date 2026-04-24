@@ -1,0 +1,126 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Kulatable — Application de Réservation de Tables | Étude de Cas Revival" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans "Kulatable : l'application de réservation de tables en ligne pour restaurants africains. Découvrez comment Revival a digitalisé l'expérience restauration." %}" />
+  <meta name="keywords" content="{% trans "Kulatable réservation restaurant, application restaurant Afrique, réservation table en ligne, digitalisation restauration, Revival projet Kulatable" %}" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/articles/kulatable.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://revival-business.com/articles/kulatable.html" />
+  <meta property="og:title" content="{% trans "Kulatable — Application de Réservation de Tables | Revival" %}" />
+  <meta property="og:description" content="{% trans "Comment Revival a développé Kulatable, l'application de réservation de tables pour restaurants en Afrique." %}" />
+  <meta property="og:image" content="https://revival-business.com/projet/kulatable.png" />
+  <meta property="og:site_name" content="Revival Agency" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{% trans "Kulatable — Application de réservation de tables" %}",
+    "description": "{% trans "Étude de cas : développement de Kulatable, application de réservation pour restaurants africains." %}",
+    "url": "https://revival-business.com/articles/kulatable.html",
+    "image": "https://revival-business.com/projet/kulatable.png",
+    "publisher": { "@type": "Organization", "name": "{% trans "Revival Agency" %}", "logo": "https://revival-business.com/logo/logo.png" },
+    "inLanguage": "fr"
+  }
+  </script>
+  
+  
+  
+  
+  
+  <style>
+    .article-hero { min-height: 44vh; background: radial-gradient(ellipse at 70% 0%, #0a2a6e 0%, #050d2a 55%, #000d1f 100%); display: flex; align-items: center; padding: 140px 0 70px; position: relative; overflow: hidden; }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 80px 24px; }
+    .article-body h2 { font-size: 28px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.02em; }
+    .article-body p { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 20px; }
+    .article-body img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: 0 8px 40px rgba(0,0,0,.12); }
+    .article-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,.5); margin-top: 20px; flex-wrap: wrap; }
+    .article-meta .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#019cd6,#035194); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #019cd6; font-weight: 600; font-size: 14px; margin-bottom: 40px; transition: gap .2s; }
+    .back-link:hover { gap: 12px; }
+    .tag { display: inline-block; padding: 4px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; background: rgba(16,185,129,.1); color: #10b981; margin-bottom: 16px; }
+  </style>
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+  <section class="article-hero">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
+      <span class="badge badge--light">{% trans "Projets" %}</span>
+      <h1 style="font-size:clamp(32px,5vw,58px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "Kulatable" %}</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">{% trans "Plateforme de gestion de restaurant — digitaliser et centraliser toutes les opérations." %}</p>
+      <div class="article-meta" style="justify-content:center;margin-top:28px;">
+        <div class="avatar">{% trans "ER" %}</div>
+        <span style="color:rgba(255,255,255,.8);font-weight:600">{% trans "Équipe Revival" %}</span>
+        <span>·</span>
+        <span>{% trans "10 Avril 2026" %}</span>
+        <span>·</span>
+        <span>{% trans "8 min de lecture" %}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+    <a href="{% url 'website:blog' %}" class="back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      {% trans "Retour au blog" %}
+    </a>
+
+    <span class="tag">{% trans "Projets" %}</span>
+
+    <img src="{% static 'projet/kulatable.png' %}" alt="{% trans "Kulatable — plateforme de gestion de restaurant" %}" />
+
+    <h2>{% trans "Description" %}</h2>
+    <p>{% blocktrans trimmed %}Kulatable est une plateforme de gestion de restaurant permettant de digitaliser et centraliser toutes les opérations.{% endblocktrans %}</p>
+
+    <h2>{% trans "Fonctionnalités principales" %}</h2>
+    <ul>
+      <li>{% trans "Gestion des commandes et des tables" %}</li>
+      <li>{% trans "Système de caisse (POS)" %}</li>
+      <li>{% trans "Gestion du menu (ajout, modification, prix)" %}</li>
+      <li>{% trans "Paiements (espèces, carte, mobile money)" %}</li>
+      <li>{% trans "Gestion du personnel" %}</li>
+      <li>{% trans "Statistiques et rapports" %}</li>
+      <li>{% trans "Gestion multi-restaurants" %}</li>
+    </ul>
+
+    <h2>{% trans "Objectif" %}</h2>
+    <p>{% blocktrans trimmed %}Simplifier, automatiser et moderniser la gestion des restaurants afin d'améliorer la performance et l'expérience client.{% endblocktrans %}</p>
+
+    <h2>{% trans "Public cible" %}</h2>
+    <p>{% trans "Restaurants, fast-foods, cafés, hôtels et entrepreneurs en restauration." %}</p>
+
+    <h2>{% trans "Notre vision" %}</h2>
+    <p>{% blocktrans trimmed %}Dans un contexte où les habitudes de consommation évoluent rapidement, la présence digitale est devenue essentielle pour les restaurants et professionnels de la restauration.{% endblocktrans %}</p>
+    <p>{% blocktrans trimmed %}C'est dans cette optique que nous avons développé KULATABLE, une plateforme innovante dédiée à la valorisation des offres culinaires et à la mise en relation avec les clients.{% endblocktrans %}</p>
+    <p>{% blocktrans trimmed %}Face aux défis actuels — manque de visibilité, difficulté à attirer de nouveaux clients, gestion non optimisée des commandes — KULATABLE vous permet de :{% endblocktrans %}</p>
+    <ul>
+      <li>{% trans "Augmenter votre visibilité auprès d'une clientèle ciblée" %}</li>
+      <li>{% trans "Attirer de nouveaux clients et développer votre chiffre d'affaires" %}</li>
+      <li>{% trans "Digitaliser vos menus, offres et promotions" %}</li>
+      <li>{% trans "Faciliter les commandes et interactions clients" %}</li>
+      <li>{% trans "Centraliser vos activités sur une plateforme moderne" %}</li>
+      <li>{% trans "Suivre vos performances en temps réel" %}</li>
+    </ul>
+
+    <p>
+      <a href="https://kulatable.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;color:#019cd6;font-weight:700;font-size:15px;text-decoration:none;border-bottom:2px solid rgba(1,156,214,.3);padding-bottom:2px;transition:border-color .2s;" onmouseover="this.style.borderColor='#019cd6'" onmouseout="this.style.borderColor='rgba(1,156,214,.3)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        {% trans "Voir la plateforme — kulatable.com" %}
+      </a>
+    </p>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

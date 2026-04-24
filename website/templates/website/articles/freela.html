@@ -1,0 +1,98 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Freela — Plateforme Freelance Africaine | Étude de Cas Revival" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans "Freela : la plateforme qui connecte freelances et entreprises en Afrique. Découvrez comment Revival a conçu cette solution innovante de mise en relation professionnelle." %}" />
+  <meta name="keywords" content="{% trans "Freela plateforme freelance, marketplace freelance Afrique, mise en relation freelance entreprise, application freelance Kinshasa, Revival projet Freela" %}" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/articles/freela.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://revival-business.com/articles/freela.html" />
+  <meta property="og:title" content="{% trans "Freela — Plateforme Freelance Africaine | Revival" %}" />
+  <meta property="og:description" content="{% trans "Comment Revival a développé Freela, la plateforme qui connecte freelances et entreprises en Afrique." %}" />
+  <meta property="og:image" content="https://revival-business.com/projet/Freela.png" />
+  <meta property="og:site_name" content="Revival Agency" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{% trans "Freela — Plateforme freelance africaine" %}",
+    "description": "{% trans "Étude de cas : développement de Freela, plateforme de mise en relation freelances et entreprises en Afrique." %}",
+    "url": "https://revival-business.com/articles/freela.html",
+    "image": "https://revival-business.com/projet/Freela.png",
+    "publisher": { "@type": "Organization", "name": "{% trans "Revival Agency" %}", "logo": "https://revival-business.com/logo/logo.png" },
+    "inLanguage": "fr"
+  }
+  </script>
+  
+  
+  
+  
+  
+  <style>
+    .article-hero { min-height: 44vh; background: radial-gradient(ellipse at 70% 0%, #0a2a6e 0%, #050d2a 55%, #000d1f 100%); display: flex; align-items: center; padding: 140px 0 70px; position: relative; overflow: hidden; }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 80px 24px; }
+    .article-body h2 { font-size: 28px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.02em; }
+    .article-body p { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 20px; }
+    .article-body img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: 0 8px 40px rgba(0,0,0,.12); }
+    .article-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,.5); margin-top: 20px; flex-wrap: wrap; }
+    .article-meta .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#019cd6,#035194); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #019cd6; font-weight: 600; font-size: 14px; margin-bottom: 40px; transition: gap .2s; }
+    .back-link:hover { gap: 12px; }
+    .tag { display: inline-block; padding: 4px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; background: rgba(16,185,129,.1); color: #10b981; margin-bottom: 16px; }
+  </style>
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+  <section class="article-hero">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
+      <span class="badge badge--light">{% trans "Projets" %}</span>
+      <h1 style="font-size:clamp(32px,5vw,58px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "Freela" %}</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">{% trans "Plateforme orientée vers des services freelance et marketplace." %}</p>
+      <div class="article-meta" style="justify-content:center;margin-top:28px;">
+        <div class="avatar">{% trans "ER" %}</div>
+        <span style="color:rgba(255,255,255,.8);font-weight:600">{% trans "Équipe Revival" %}</span>
+        <span>·</span>
+        <span>{% trans "25 Mars 2026" %}</span>
+        <span>·</span>
+        <span>{% trans "6 min de lecture" %}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+    <a href="{% url 'website:blog' %}" class="back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      {% trans "Retour au blog" %}
+    </a>
+
+    <span class="tag">{% trans "Projets" %}</span>
+
+    <img src="{% static 'projet/Freela.png' %}" alt="{% trans "Freela — plateforme freelance marketplace" %}" />
+
+    <h2>{% trans "Description" %}</h2>
+    <p>{% blocktrans trimmed %}Freela est une plateforme orientée vers des services freelance et marketplace. Les services disponibles associent Freela à des prestations créatives et à une logique de mise en relation pour acheter ou vendre des services en ligne.{% endblocktrans %}</p>
+    <p>{% trans "La présence de descriptions comme" %} <em>{% trans '"Creative Services"' %}</em> {% trans "et" %} <em>{% trans '"Fast & Effective Affordable Hassle-Free Process"' %}</em> {% blocktrans trimmed %}indique que le site propose des services simples à commander, principalement dans le domaine digital et créatif. Freela Web se positionne comme un marché de services permettant de vendre ou d'acheter auprès de professionnels ou d'étudiants.{% endblocktrans %}</p>
+    <p>{% blocktrans trimmed %}En résumé, Freela est une marketplace de prestations en ligne centrée sur le freelance, les services digitaux et créatifs — plutôt que sur la vente de produits physiques.{% endblocktrans %}</p>
+
+    <p>
+      <a href="https://freela-online.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;color:#019cd6;font-weight:700;font-size:15px;text-decoration:none;border-bottom:2px solid rgba(1,156,214,.3);padding-bottom:2px;transition:border-color .2s;" onmouseover="this.style.borderColor='#019cd6'" onmouseout="this.style.borderColor='rgba(1,156,214,.3)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        {% trans "Voir la plateforme — freela-online.com" %}
+      </a>
+    </p>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

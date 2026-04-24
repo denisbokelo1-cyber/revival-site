@@ -1,0 +1,468 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Carrières chez Revival — Rejoignez Notre Équipe Tech | Afrique & Europe" %}{% endblock %}
+
+{% block meta %}
+<!-- ═══ SEO PRIMARY ═══ -->
+  
+  <meta name="description" content="{% trans "Rejoignez Revival Agency : développeurs, designers, chefs de projet et experts digitaux recherchés. Travail remote, projets innovants, équipe passionnée." %}" />
+  <meta name="keywords" content="{% trans "emploi agence digitale, recrutement développeur Afrique, offre emploi tech Kinshasa, carrière transformation digitale, job développeur web mobile, rejoindre Revival" %}" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/careers.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/careers.html" />
+  <meta property="og:title" content="{% trans "Carrières chez Revival — Rejoignez Notre Équipe Tech" %}" />
+  <meta property="og:description" content="{% trans "Développeurs, designers et experts digitaux : rejoignez Revival Agency. Projets innovants, équipe passionnée, impact réel en Afrique et Europe." %}" />
+  <meta property="og:image" content="https://revival-business.com/logo/about.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival Agency" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@groupe85249" />
+  <meta name="twitter:title" content="{% trans "Carrières chez Revival — Rejoignez Notre Équipe Tech" %}" />
+  <meta name="twitter:description" content="{% trans "Rejoignez Revival Agency : projets innovants, équipe passionnée, impact réel. Postes ouverts en développement, design et digital." %}" />
+  <meta name="twitter:image" content="https://revival-business.com/logo/about.jpg" />
+
+  <!-- ═══ SCHEMA.ORG — JobPosting parent ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "{% trans "Carrières chez Revival Agency" %}",
+    "url": "https://revival-business.com/careers.html",
+    "description": "{% trans "Offres d'emploi et opportunités de carrière chez Revival Agency, agence digitale en Afrique et Europe." %}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{% trans "Revival Agency" %}",
+      "url": "https://revival-business.com",
+      "logo": "https://revival-business.com/logo/logo.png"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/careers.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="container page-hero__inner fade-up">
+      <span class="badge">{% trans "Carrière" %}</span>
+      <h1>{% trans "Rejoignez une équipe" %}<br/><span class="gradient-text">{% trans "qui façonne l'avenir" %}</span></h1>
+      <p>{% blocktrans trimmed %}Nous cherchons des talents passionnés pour construire les solutions de demain. Travail flexible, projets stimulants, équipe bienveillante.{% endblocktrans %}</p>
+      <div class="hero__actions">
+        <a href="#jobs" class="btn btn--primary">{% trans "Voir les offres" %}</a>
+        <a href="{% url 'website:about' %}" class="btn btn--ghost">{% trans "Découvrir l'équipe" %}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">{% trans "Pourquoi Revival ?" %}</span>
+        <h2 class="section__title">{% trans "Un environnement où vous pouvez vraiment évoluer" %}</h2>
+      </div>
+      <div class="perks-grid">
+        <div class="perk-card fade-up delay-1">
+          <div class="perk-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>{% trans "Remote-friendly" %}</h3>
+          <p>{% trans "Travaillez depuis où vous voulez. Nous avons une culture remote-first avec des outils adaptés." %}</p>
+        </div>
+        <div class="perk-card fade-up delay-2">
+          <div class="perk-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3>{% trans "Formation continue" %}</h3>
+          <p>{% blocktrans trimmed %}Budget formation annuel, accès aux conférences tech, veille technologique partagée chaque semaine.{% endblocktrans %}</p>
+        </div>
+        <div class="perk-card fade-up delay-3">
+          <div class="perk-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>{% trans "Projets stimulants" %}</h3>
+          <p>{% trans "Des projets variés et challengeants qui vous permettront de monter en compétences rapidement." %}</p>
+        </div>
+        <div class="perk-card fade-up delay-4">
+          <div class="perk-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>{% trans "Rémunération compétitive" %}</h3>
+          <p>{% blocktrans trimmed %}Salaires au-dessus du marché, participation aux bénéfices et stock options pour les profils seniors.{% endblocktrans %}</p>
+        </div>
+        <div class="perk-card fade-up delay-1">
+          <div class="perk-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>{% trans "Equilibre vie pro/perso" %}</h3>
+          <p>{% blocktrans trimmed %}Horaires flexibles, 5 semaines de conges, pas d'heures sup imposees. Votre vie hors travail compte.{% endblocktrans %}</p>
+        </div>
+        <div class="perk-card fade-up delay-2">
+          <div class="perk-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>{% trans "Equipe bienveillante" %}</h3>
+          <p>{% blocktrans trimmed %}Une culture d'entraide, de feedback constructif et de respect mutuel. Pas de politique, juste du travail bien fait.{% endblocktrans %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFRES D'EMPLOI -->
+  <section class="section section--light" id="jobs">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">{% trans "Offres ouvertes" %}</span>
+        <h2 class="section__title">{% trans "Nos postes disponibles" %}</h2>
+        <p class="section__desc">{% trans "Toutes nos offres sont ouvertes en remote ou en presentiel." %}</p>
+      </div>
+
+      <!-- Recherche -->
+      <div class="jobs-search fade-up">
+        <div class="jobs-search__field">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchKeyword" placeholder="{% trans "Titre, entreprise..." %}" aria-label="{% trans "Rechercher par mot-cle" %}" />
+        </div>
+        <div class="jobs-search__field">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" id="searchLocation" placeholder="{% trans "Localisation..." %}" aria-label="{% trans "Rechercher par localisation" %}" />
+        </div>
+      </div>
+
+      <!-- Filtre categorie -->
+      <div class="jobs-filter fade-up">
+        <button class="filter-btn active" data-filter="all">{% trans "Tous" %}</button>
+        <button class="filter-btn" data-filter="dev">{% trans "Developpement" %}</button>
+        <button class="filter-btn" data-filter="design">{% trans "Design" %}</button>
+        <button class="filter-btn" data-filter="ops">{% trans "DevOps" %}</button>
+        <button class="filter-btn" data-filter="biz">{% trans "Business" %}</button>
+      </div>
+
+      <!-- Liste des offres (data-* attributes) -->
+      <div class="jobs-list" id="jobsList">
+
+        <div class="job-item" data-cat="dev"
+          data-title="{% trans "Developpeur Full-Stack Senior" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Remote ou Kinshasa" %}"
+          data-salary="{% trans "55k - 75k EUR" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-03-15"
+          data-deadline="2026-05-01"
+          data-description="{% trans "Nous recherchons un developpeur Full-Stack Senior maitrisantLaravel, React et MySQL pour rejoindre notre equipe produit. Vous serez responsable de la conception et du developpement de nouvelles fonctionnalites, de la revue de code et du mentorat des developpeurs juniors." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "Developpeur Full-Stack Senior" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "À distance ou Kinshasa" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 15 mars 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "55k - 75k EUR" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "Developpeur Full-Stack Senior" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Remote ou Kinshasa" %}"
+              data-job-salary="{% trans "55k - 75k EUR" %}"
+              data-job-description="{% trans "Nous recherchons un developpeur Full-Stack Senior maitrisantLaravel, React et MySQL pour rejoindre notre equipe produit." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+        <div class="job-item" data-cat="dev"
+          data-title="{% trans "Developpeur Front-End React/Next.js" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Remote" %}"
+          data-salary="{% trans "45k - 65k EUR" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-03-20"
+          data-deadline="2026-04-25"
+          data-description="{% trans "Rejoignez notre equipe front-end pour construire des interfaces utilisateur modernes et performantes avec React et Next.js. Vous travaillerez en etroite collaboration avec nos designers UX et les developpeurs back-end." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "Developpeur Front-End React/Next.js" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 20 mars 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "45k - 65k EUR" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "Developpeur Front-End React/Next.js" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Remote" %}"
+              data-job-salary="{% trans "45k - 65k EUR" %}"
+              data-job-description="{% trans "Rejoignez notre equipe front-end pour construire des interfaces utilisateur modernes et performantes avec React et Next.js." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+        <div class="job-item" data-cat="dev"
+          data-title="{% trans "Developpeur Back-End Laravel" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Remote ou Lyon" %}"
+          data-salary="{% trans "42k - 60k EUR" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-02-10"
+          data-deadline="2026-04-10"
+          data-description="{% trans "Nous cherchons un developpeur Back-End experimente en PHP/Laravel pour concevoir et maintenir nos APIs REST. Vous participerez a l'architecture des solutions et a l'optimisation des performances." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "Developpeur Back-End Laravel" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote ou Lyon" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 10 fevrier 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "42k - 60k EUR" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "Developpeur Back-End Laravel" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Remote ou Lyon" %}"
+              data-job-salary="{% trans "42k - 60k EUR" %}"
+              data-job-description="{% trans "Nous cherchons un developpeur Back-End experimente en PHP/Laravel pour concevoir et maintenir nos APIs REST." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+        <div class="job-item" data-cat="design"
+          data-title="{% trans "UI/UX Designer Senior" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Remote" %}"
+          data-salary="{% trans "45k - 60k EUR" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-03-25"
+          data-deadline="2026-05-15"
+          data-description="{% trans "Nous recherchons un UI/UX Designer Senior pour concevoir des experiences utilisateur exceptionnelles. Vous travaillerez sur Figma, creerez des design systems et collaborerez etroitement avec les equipes produit et developpement." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "UI/UX Designer Senior" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 25 mars 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "45k - 60k EUR" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "UI/UX Designer Senior" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Remote" %}"
+              data-job-salary="{% trans "45k - 60k EUR" %}"
+              data-job-description="{% trans "Nous recherchons un UI/UX Designer Senior pour concevoir des experiences utilisateur exceptionnelles sur Figma." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+        <div class="job-item" data-cat="ops"
+          data-title="{% trans "DevOps / Cloud Engineer" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Remote" %}"
+          data-salary="{% trans "55k - 75k EUR" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-04-01"
+          data-deadline="2026-06-01"
+          data-description="{% trans "Rejoignez notre equipe infrastructure pour gerer et optimiser nos environnements cloud AWS. Vous serez en charge de la mise en place des pipelines CI/CD, de la containerisation Docker/Kubernetes et de la securite des systemes." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "DevOps / Cloud Engineer" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 1 avril 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "55k - 75k EUR" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "DevOps / Cloud Engineer" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Remote" %}"
+              data-job-salary="{% trans "55k - 75k EUR" %}"
+              data-job-description="{% trans "Rejoignez notre equipe infrastructure pour gerer et optimiser nos environnements cloud AWS avec Docker et Kubernetes." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+        <div class="job-item" data-cat="biz"
+          data-title="{% trans "Business Developer" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Kinshasa ou Remote" %}"
+          data-salary="{% trans "40k - 55k EUR + variable" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-03-10"
+          data-deadline="2026-04-05"
+          data-description="{% trans "Nous cherchons un Business Developer dynamique pour developper notre portefeuille clients et nos partenariats strategiques. Vous serez responsable de la prospection, de la negociation et du closing des deals." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "Business Developer" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Kinshasa ou À distance" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 10 mars 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "40k - 55k EUR + variable" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "Business Developer" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Kinshasa ou Remote" %}"
+              data-job-salary="{% trans "40k - 55k EUR + variable" %}"
+              data-job-description="{% trans "Nous cherchons un Business Developer dynamique pour developper notre portefeuille clients et nos partenariats strategiques." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+        <div class="job-item" data-cat="dev"
+          data-title="{% trans "Developpeur Mobile React Native" %}"
+          data-company="{% trans "Revival Tech" %}"
+          data-location="{% trans "Remote" %}"
+          data-salary="{% trans "45k - 65k EUR" %}"
+          data-type="{% trans "Full-time" %}"
+          data-date="2026-04-05"
+          data-deadline="2026-06-15"
+          data-description="{% trans "Nous recherchons un developpeur Mobile React Native pour concevoir et developper nos applications iOS et Android. Vous travaillerez sur des projets innovants avec une equipe passionnee." %}">
+          <div class="job-item__left">
+            <div class="job-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <div class="job-item__info">
+              <h3 class="job-item__title">{% trans "Developpeur Mobile React Native" %}</h3>
+              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
+              <p class="job-item__date">{% trans "Publie le 5 avril 2026" %}</p>
+            </div>
+          </div>
+          <div class="job-item__right">
+            <span class="job-tag">{% trans "Full-time" %}</span>
+            <span class="job-status-badge"></span>
+            <span class="job-salary">{% trans "45k - 65k EUR" %}</span>
+            <button class="btn btn--sm btn--primary job-apply-btn"
+              data-job-title="{% trans "Developpeur Mobile React Native" %}"
+              data-job-company="{% trans "Revival Tech" %}"
+              data-job-location="{% trans "Remote" %}"
+              data-job-salary="{% trans "45k - 65k EUR" %}"
+              data-job-description="{% trans "Nous recherchons un developpeur Mobile React Native pour concevoir et developper nos applications iOS et Android." %}">{% trans "Postuler" %}</button>
+          </div>
+        </div>
+
+      </div><!-- /.jobs-list -->
+
+      <!-- Pagination -->
+      <div class="jobs-pagination" id="jobsPagination"></div>
+
+    </div>
+  </section>
+
+  
+
+  <!-- PROCESS RECRUTEMENT -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">{% trans "Processus" %}</span>
+        <h2 class="section__title">{% trans "Comment ca se passe ?" %}</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-up delay-1">
+          <div class="process-step__num">01</div>
+          <h4>{% trans "Candidature" %}</h4>
+          <p>{% trans "Envoyez votre CV et un message personnalise. On repond sous 48h." %}</p>
+        </div>
+        <div class="process-step__arrow">&#8594;</div>
+        <div class="process-step fade-up delay-2">
+          <div class="process-step__num">02</div>
+          <h4>{% trans "Entretien RH" %}</h4>
+          <p>{% trans "Un appel de 30 min pour se decouvrir et valider l'adequation culturelle." %}</p>
+        </div>
+        <div class="process-step__arrow">&#8594;</div>
+        <div class="process-step fade-up delay-3">
+          <div class="process-step__num">03</div>
+          <h4>{% trans "Test technique" %}</h4>
+          <p>{% trans "Un exercice pratique court (2-3h max) pour evaluer vos competences." %}</p>
+        </div>
+        <div class="process-step__arrow">&#8594;</div>
+        <div class="process-step fade-up delay-4">
+          <div class="process-step__num">04</div>
+          <h4>{% trans "Offre" %}</h4>
+          <p>{% trans "Si tout se passe bien, on vous fait une offre sous 5 jours ouvres." %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band fade-up">
+    <div class="container cta-band__inner">
+      <div>
+        <h2>{% trans "Vous ne trouvez pas votre poste ?" %}</h2>
+        <p>{% trans "Envoyez-nous une candidature spontanee, nous sommes toujours a l'ecoute." %}</p>
+      </div>
+      <button class="btn btn--white" id="spontaneousBtn"
+        data-job-title="{% trans "Candidature spontanee" %}"
+        data-job-company="{% trans "Revival Tech" %}"
+        data-job-location="{% trans "Remote ou presentiel" %}"
+        data-job-salary=""
+        data-job-description="{% trans "Candidature spontanee — nous sommes toujours a la recherche de nouveaux talents." %}">
+        {% trans "Candidature spontanee" %}
+      </button>
+    </div>
+  </section>
+
+  <!-- COOKIE CONSENT -->
+  <div class="cookie-popup" id="cookiePopup" role="dialog" aria-label="{% trans "Consentement cookies" %}" aria-modal="true">
+    <div class="cookie-popup__inner">
+      <p>{% trans "Nous utilisons des cookies pour ameliorer votre experience. En continuant, vous acceptez notre" %} <a href="{% url 'website:privacy_policy' %}">{% trans "politique de confidentialite" %}</a>.</p>
+      <div class="cookie-popup__actions">
+        <button class="btn btn--sm btn--primary" id="cookieAccept">{% trans "Accepter" %}</button>
+        <button class="btn btn--sm btn--outline" id="cookieRefuse">{% trans "Refuser" %}</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION MODAL -->
+  <div id="applicationModal"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/application-modal-simple.js' %}"></script>
+<script src="{% static 'js/careers-page.js' %}"></script>
+{% endblock %}

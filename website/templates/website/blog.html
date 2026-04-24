@@ -1,0 +1,444 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Blog Tech & Innovation Digitale — Transformation Numérique | Revival" %}{% endblock %}
+
+{% block meta %}
+<!-- ═══ SEO PRIMARY ═══ -->
+  
+  <meta name="description" content="{% trans "Articles, guides et actualités sur la transformation digitale, le développement web, l'IA et l'innovation technologique en Afrique et Europe. Blog Revival Agency." %}" />
+  <meta name="keywords" content="{% trans "blog transformation digitale, articles innovation technologique, actualité tech Afrique, guide développement web, intelligence artificielle PME, numérique Afrique" %}" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business/blog.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business/blog.html" />
+  <meta property="og:title" content="{% trans "Blog Tech & Innovation Digitale | Revival Agency" %}" />
+  <meta property="og:description" content="{% trans "Restez informé sur la transformation digitale, l'IA, le développement web et l'innovation technologique en Afrique et Europe." %}" />
+  <meta property="og:image" content="https://revival-business.com/logo/banner.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival Agency" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@groupe85249" />
+  <meta name="twitter:title" content="{% trans "Blog Tech & Innovation Digitale | Revival Agency" %}" />
+  <meta name="twitter:description" content="{% trans "Articles et guides sur la transformation digitale, l'IA et l'innovation tech en Afrique et Europe." %}" />
+  <meta name="twitter:image" content="https://revival-business.com/logo/banner.png" />
+
+  <!-- ═══ SCHEMA.ORG — Blog ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "{% trans "Blog Revival Agency" %}",
+    "url": "https://revival-business.com/blog.html",
+    "description": "{% trans "Articles et guides sur la transformation digitale, le développement web, l'intelligence artificielle et l'innovation technologique." %}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{% trans "Revival Agency" %}",
+      "logo": "https://revival-business.com/logo/logo.png"
+    },
+    "inLanguage": "fr"
+  }
+  </script>
+
+  
+  
+  
+  
+  
+  
+  <style>
+    .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .blog-card__img { height: 200px; overflow: hidden; }
+    .blog-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .blog-card:hover .blog-card__img img { transform: scale(1.05); }
+    .blog-card__body { padding: 24px; }
+    .blog-card__cat { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; }
+    .blog-card__title { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+    .blog-card__excerpt { font-size: 14px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; overflow: hidden; }
+    .blog-card__footer { display: flex; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--gray); }
+    .blog-card__avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #019cd6, #035194); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .filter-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .filter-pill { padding: 9px 20px; border: 1.5px solid var(--border); border-radius: 50px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--white); transition: var(--transition); font-family: 'Inter', sans-serif; }
+    .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-pill.active { background: linear-gradient(135deg, #019cd6, #035194); color: #fff; border-color: transparent; }
+    .search-wrap { margin-left: auto; position: relative; }
+    .search-wrap input { padding: 9px 16px 9px 40px; border: 1.5px solid var(--border); border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 13px; outline: none; transition: border-color .25s; width: 220px; }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray); pointer-events: none; }
+    .featured-card { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 56px; }
+    .featured-card__img { height: 100%; min-height: 320px; overflow: hidden; }
+    .featured-card__img img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-card__body { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-card__meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+    .featured-card__title { font-size: clamp(22px, 2.5vw, 32px); font-weight: 800; letter-spacing: -.03em; margin-bottom: 16px; line-height: 1.3; }
+    .featured-card__excerpt { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } .featured-card { grid-template-columns: 1fr; } .featured-card__img { min-height: 220px; } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } .filter-bar { gap: 8px; } .search-wrap { margin-left: 0; width: 100%; } .search-wrap input { width: 100%; } }
+  </style>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+  <section style="min-height:44vh;background:radial-gradient(ellipse at 70% 0%,#0a2a6e 0%,#050d2a 55%,#000d1f 100%);display:flex;align-items:center;padding:140px 0 70px;position:relative;overflow:hidden;">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
+      <span class="badge badge--light">{% trans "Blog Revival" %}</span>
+      <h1 style="font-size:clamp(36px,5vw,62px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "Nos" %} <span class="gradient-text">{% trans "Articles" %}</span></h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto">{% blocktrans trimmed %}Découvrez nos articles sur la tech, les projets, les tutoriels et les tendances digitales en Afrique.{% endblocktrans %}</p>
+    </div>
+  </section>
+
+  <!-- ARTICLES SECTION -->
+  <section class="section" style="padding:80px 0">
+    <div class="container">
+
+      <!-- BARRE DE RECHERCHE -->
+      <div class="filter-bar fade-up">
+        <div class="search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchInput" placeholder="{% trans "Rechercher un article…" %}" />
+        </div>
+      </div>
+
+      <!-- ARTICLE FEATURED -->
+      <div class="featured-card fade-up" id="featuredCard">
+        <div class="featured-card__img">
+          <img src="{% static 'logo/about.jpg' %}" alt="{% trans "Revival Agency — À la une" %}" />
+        </div>
+        <div class="featured-card__body">
+          <div class="featured-card__meta">
+            <span class="badge">{% trans "À la une" %}</span>
+            <span style="background:rgba(1,156,214,.1);color:#019cd6;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">{% trans "Tech &amp; Dev" %}</span>
+          </div>
+          <h2 class="featured-card__title">{% trans "L'avenir du digital en RDC : comment Revival façonne la tech africaine" %}</h2>
+          <p class="featured-card__excerpt">{% blocktrans trimmed %}Depuis sa création, Revival s'est imposée comme l'agence de référence en République Démocratique du Congo. Découvrez notre vision, nos projets phares et comment nous accompagnons les entreprises dans leur transformation numérique.{% endblocktrans %}</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;font-size:13px;color:var(--gray)">
+            <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#019cd6,#035194);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0">{% trans "ER" %}</div>
+            <span style="font-weight:600;color:var(--black)">{% trans "Équipe Revival" %}</span>
+            <span>·</span>
+            <span>{% trans "15 juin 2026" %}</span>
+            <span>·</span>
+            <span>{% trans "10 min de lecture" %}</span>
+          </div>
+          <a href="{% url 'website:article_avenir_digital_rdc' %}" class="btn btn--primary" style="align-self:flex-start">{% trans "Lire l'article →" %}</a>
+        </div>
+      </div>
+
+      <!-- GRILLE D'ARTICLES -->
+      <div class="blog-grid stagger-children" id="blogGrid">
+
+        <!-- Article 1 — depuis index.html -->
+        <div class="blog-card" data-cat="projets" data-title="{% trans "Kulatable" %}" data-excerpt="{% trans "Kulatable est une plateforme de gestion de restaurant permettant de digitaliser et centraliser toutes les opérations." %}">
+          <a href="{% url 'website:article_kulatable' %}" style="display:contents;text-decoration:none;color:inherit">
+          <div class="blog-card__img">
+            <img src="{% static 'projet/kulatable.png' %}" alt="{% trans "Kulatable" %}" loading="lazy" />
+          </div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat" style="background:rgba(16,185,129,.1);color:#10b981">{% trans "Projets" %}</span>
+            <h3 class="blog-card__title">{% trans "Kulatable" %}</h3>
+            <p class="blog-card__excerpt">{% blocktrans trimmed %}Kulatable est une plateforme de gestion de restaurant permettant de digitaliser et centraliser toutes les opérations.{% endblocktrans %}</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__avatar">{% trans "ER" %}</div>
+              <span style="font-weight:600;color:var(--black)">{% trans "Équipe Revival" %}</span>
+              <span>·</span>
+              <span>{% trans "10 Avril 2026" %}</span>
+              <span style="margin-left:auto">{% trans "8 min" %}</span>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <!-- Article 2 — depuis index.html -->
+        <div class="blog-card" data-cat="projets" data-title="{% trans "Ecomnex-shop" %}" data-excerpt="{% trans "Il s'agit d'une boutique en ligne présentant des produits de consommation variés." %}">
+          <a href="{% url 'website:article_ecomnex' %}" style="display:contents;text-decoration:none;color:inherit">
+          <div class="blog-card__img">
+            <img src="{% static 'projet/ecomnex.png' %}" alt="{% trans "Ecomnex-shop" %}" loading="lazy" />
+          </div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat" style="background:rgba(16,185,129,.1);color:#10b981">{% trans "Projets" %}</span>
+            <h3 class="blog-card__title">{% trans "Ecomnex-shop" %}</h3>
+            <p class="blog-card__excerpt">{% trans "Il s'agit d'une boutique en ligne présentant des produits de consommation variés." %}</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__avatar">{% trans "ER" %}</div>
+              <span style="font-weight:600;color:var(--black)">{% trans "Équipe Revival" %}</span>
+              <span>·</span>
+              <span>{% trans "2 Avril 2026" %}</span>
+              <span style="margin-left:auto">{% trans "5 min" %}</span>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <!-- Article 3 — depuis index.html -->
+        <div class="blog-card" data-cat="projets" data-title="{% trans "Freela" %}" data-excerpt="{% trans "Il s'agit d'une plateforme orientée vers des services freelance / marketplace." %}">
+          <a href="{% url 'website:article_freela' %}" style="display:contents;text-decoration:none;color:inherit">
+          <div class="blog-card__img">
+            <img src="{% static 'projet/Freela.png' %}" alt="{% trans "Freela" %}" loading="lazy" />
+          </div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat" style="background:rgba(16,185,129,.1);color:#10b981">{% trans "Projets" %}</span>
+            <h3 class="blog-card__title">{% trans "Freela" %}</h3>
+            <p class="blog-card__excerpt">{% trans "Il s'agit d'une plateforme orientée vers des services freelance / marketplace." %}</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__avatar">{% trans "ER" %}</div>
+              <span style="font-weight:600;color:var(--black)">{% trans "Équipe Revival" %}</span>
+              <span>·</span>
+              <span>{% trans "25 Mars 2026" %}</span>
+              <span style="margin-left:auto">{% trans "6 min" %}</span>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="blog-card" data-cat="tech" data-title="{% trans "Comment digitaliser votre PME en 2026" %}" data-excerpt="{% trans "La transformation numérique n'est plus une option pour les PME congolaises. Découvrez les étapes clés pour digitaliser votre entreprise et rester compétitif dans un marché en pleine évolution." %}">
+          <a href="{% url 'website:article_digitaliser_pme_2026' %}" style="display:contents;text-decoration:none;color:inherit">
+          <div class="blog-card__img">
+            <img src="{% static 'projet/immohub.png' %}" alt="{% trans "Digitaliser votre PME" %}" loading="lazy" />
+          </div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat" style="background:rgba(1,156,214,.1);color:#019cd6">{% trans "Tech &amp; Dev" %}</span>
+            <h3 class="blog-card__title">{% trans "Comment digitaliser votre PME en 2026" %}</h3>
+            <p class="blog-card__excerpt">{% blocktrans trimmed %}La transformation numérique n'est plus une option pour les PME congolaises. Découvrez les étapes clés pour digitaliser votre entreprise et rester compétitif dans un marché en pleine évolution.{% endblocktrans %}</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__avatar">{% trans "AN" %}</div>
+              <span style="font-weight:600;color:var(--black)">{% trans "Arnold N." %}</span>
+              <span>·</span>
+              <span>{% trans "10 juin 2026" %}</span>
+              <span style="margin-left:auto">{% trans "5 min" %}</span>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="blog-card" data-cat="projets" data-title="{% trans "PosHub : gérez votre commerce intelligemment" %}" data-excerpt="{% trans "PosHub est la solution de point de vente nouvelle génération pour les commerçants congolais. Gestion des stocks, ventes, rapports — tout ce qu'il faut pour piloter votre business." %}">
+          <a href="{% url 'website:article_poshub' %}" style="display:contents;text-decoration:none;color:inherit">
+          <div class="blog-card__img">
+            <img src="{% static 'projet/poshub.png' %}" alt="{% trans "PosHub" %}" loading="lazy" />
+          </div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat" style="background:rgba(16,185,129,.1);color:#10b981">{% trans "Projets" %}</span>
+            <h3 class="blog-card__title">{% trans "PosHub : gérez votre commerce intelligemment" %}</h3>
+            <p class="blog-card__excerpt">{% blocktrans trimmed %}PosHub est la solution de point de vente nouvelle génération pour les commerçants congolais. Gestion des stocks, ventes, rapports — tout ce qu'il faut pour piloter votre business.{% endblocktrans %}</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__avatar">{% trans "ER" %}</div>
+              <span style="font-weight:600;color:var(--black)">{% trans "Équipe Revival" %}</span>
+              <span>·</span>
+              <span>{% trans "20 mai 2026" %}</span>
+              <span style="margin-left:auto">{% trans "4 min" %}</span>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="blog-card" data-cat="conseils" data-title="{% trans "Cybersécurité : protégez votre entreprise" %}" data-excerpt="{% trans "Les cyberattaques touchent de plus en plus les entreprises africaines. Découvrez les meilleures pratiques pour sécuriser vos données, vos systèmes et protéger votre activité contre les menaces numériques." %}">
+          <a href="{% url 'website:article_cybersecurite' %}" style="display:contents;text-decoration:none;color:inherit">
+          <div class="blog-card__img">
+            <img src="{% static 'projet/pharmhub.png' %}" alt="{% trans "Cybersécurité" %}" loading="lazy" />
+          </div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat" style="background:rgba(239,68,68,.1);color:#ef4444">{% trans "Conseils" %}</span>
+            <h3 class="blog-card__title">{% trans "Cybersécurité : protégez votre entreprise" %}</h3>
+            <p class="blog-card__excerpt">{% blocktrans trimmed %}Les cyberattaques touchent de plus en plus les entreprises africaines. Découvrez les meilleures pratiques pour sécuriser vos données, vos systèmes et protéger votre activité contre les menaces numériques.{% endblocktrans %}</p>
+            <div class="blog-card__footer">
+              <div class="blog-card__avatar">{% trans "DL" %}</div>
+              <span style="font-weight:600;color:var(--black)">{% trans "David L." %}</span>
+              <span>·</span>
+              <span>{% trans "15 mai 2026" %}</span>
+              <span style="margin-left:auto">{% trans "6 min" %}</span>
+            </div>
+          </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- MESSAGE AUCUN RÉSULTAT -->
+      <div id="noResults" style="display:none;text-align:center;padding:60px 0;color:var(--gray)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;opacity:.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p style="font-size:16px;font-weight:600">{% trans "Aucun article trouvé" %}</p>
+        <p style="font-size:14px;margin-top:6px">{% trans "Essayez une autre catégorie ou un autre mot-clé." %}</p>
+      </div>
+
+      <!-- PAGINATION -->
+      <div id="paginationBar" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:56px;flex-wrap:wrap">
+        <button id="btnPrev" style="display:flex;align-items:center;gap:8px;padding:12px 24px;border:1.5px solid var(--border);border-radius:50px;background:#fff;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#019cd6';this.style.color='#019cd6'" onmouseout="this.style.borderColor='var(--border)';this.style.color=''">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          {% trans "Précédent" %}
+        </button>
+        <div id="pageNumbers" style="display:flex;gap:8px"></div>
+        <button id="btnNext" style="display:flex;align-items:center;gap:8px;padding:12px 24px;border:1.5px solid var(--border);border-radius:50px;background:#fff;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#019cd6';this.style.color='#019cd6'" onmouseout="this.style.borderColor='var(--border)';this.style.color=''">
+          {% trans "Suivant" %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div id="pageInfo" style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray)"></div>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section style="padding:100px 0;background:#000d1f;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(1,156,214,.18) 0%,transparent 70%);pointer-events:none"></div>
+    <div style="position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(3,81,148,.2) 0%,transparent 70%);pointer-events:none"></div>
+    <div class="container">
+      <div class="fade-up" style="position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:7px;padding:6px 14px;background:rgba(1,156,214,.15);border:1px solid rgba(1,156,214,.3);border-radius:50px;font-size:12px;font-weight:700;color:#019cd6;letter-spacing:.5px;text-transform:uppercase;margin-bottom:20px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          {% trans "Newsletter" %}
+        </div>
+        <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.2;margin:0 0 16px;">{% trans "Restez informé des" %} <span style="background:linear-gradient(135deg,#019cd6,#76d0ec);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">{% trans "dernières tendances" %}</span></h2>
+        <p style="font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;margin:0 0 36px;">{% trans "Articles, projets et insights tech — directement dans votre boîte mail, chaque semaine." %}</p>
+        <form id="blogNewsletterForm" style="display:flex;gap:12px;max-width:480px;margin:0 auto 16px;">
+          <input id="blogNlEmail" type="email" placeholder="{% trans "votre@email.com" %}" required
+            style="flex:1;padding:14px 20px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:50px;color:#fff;font-family:inherit;font-size:14px;outline:none;transition:border-color .25s;"
+            onfocus="this.style.borderColor='#019cd6'" onblur="this.style.borderColor='rgba(255,255,255,.12)'" />
+          <button type="submit" id="blogNlBtn"
+            style="padding:14px 28px;background:linear-gradient(135deg,#019cd6,#035194);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(1,156,214,.35);white-space:nowrap;">
+            {% trans "S'abonner" %}
+          </button>
+        </form>
+        <p id="blogNlMsg" style="font-size:13px;color:rgba(255,255,255,.4);min-height:18px;"></p>
+        <p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px;">{% trans "🔒 Aucun spam. Désabonnement en un clic." %}</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function () {
+    const ARTICLES_PER_PAGE = 9;
+    let currentPage = 1;
+    let searchQuery = '';
+
+    const grid = document.getElementById('blogGrid');
+    const allCards = Array.from(grid.querySelectorAll('.blog-card'));
+    const noResults = document.getElementById('noResults');
+    const featuredCard = document.getElementById('featuredCard');
+
+    // ── Filtrage ──────────────────────────────────────────────
+    function getFilteredCards() {
+      return allCards.filter(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const excerpt = (card.dataset.excerpt || '').toLowerCase();
+        const q = searchQuery.toLowerCase();
+        const matchSearch = !q || title.includes(q) || excerpt.includes(q);
+        return matchSearch;
+      });
+    }
+
+    // ── Rendu pagination ──────────────────────────────────────
+    function renderPage(page) {
+      const filtered = getFilteredCards();
+      const total = Math.max(1, Math.ceil(filtered.length / ARTICLES_PER_PAGE));
+      currentPage = Math.max(1, Math.min(page, total));
+
+      const start = (currentPage - 1) * ARTICLES_PER_PAGE;
+      const visible = filtered.slice(start, start + ARTICLES_PER_PAGE);
+
+      // Masquer toutes les cartes
+      allCards.forEach(c => { c.style.display = 'none'; });
+
+      if (filtered.length === 0) {
+        noResults.style.display = 'block';
+        grid.style.display = 'none';
+        featuredCard.style.display = searchQuery ? 'none' : '';
+      } else {
+        noResults.style.display = 'none';
+        grid.style.display = '';
+        featuredCard.style.display = searchQuery ? 'none' : '';
+        visible.forEach(c => { c.style.display = ''; });
+      }
+
+      renderPagination(total, filtered.length);
+    }
+
+    function renderPagination(total, totalItems) {
+      const nums = document.getElementById('pageNumbers');
+      const btnPrev = document.getElementById('btnPrev');
+      const btnNext = document.getElementById('btnNext');
+
+      nums.innerHTML = '';
+      for (let i = 1; i <= total; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        const isActive = i === currentPage;
+        btn.style.cssText = 'width:40px;height:40px;border-radius:50%;border:1.5px solid ' +
+          (isActive ? 'transparent' : 'var(--border)') + ';background:' +
+          (isActive ? 'linear-gradient(135deg,#019cd6,#035194)' : '#fff') + ';color:' +
+          (isActive ? '#fff' : 'var(--black)') +
+          ';font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .25s';
+        btn.addEventListener('click', () => renderPage(i));
+        nums.appendChild(btn);
+      }
+
+      const atFirst = currentPage === 1;
+      const atLast = currentPage === total;
+      btnPrev.disabled = atFirst;
+      btnPrev.style.opacity = atFirst ? '0.4' : '1';
+      btnPrev.style.cursor = atFirst ? 'not-allowed' : 'pointer';
+      btnNext.disabled = atLast;
+      btnNext.style.opacity = atLast ? '0.4' : '1';
+      btnNext.style.cursor = atLast ? 'not-allowed' : 'pointer';
+
+      document.getElementById('pageInfo').textContent =
+        totalItems > 0
+          ? "{% trans "Page" %} " + currentPage + " {% trans "sur" %} " + total + ' — ' + totalItems + ' ' + (totalItems > 1 ? "{% trans "articles" %}" : "{% trans "article" %}")
+          : '';
+    }
+
+    // ── Recherche ─────────────────────────────────────────────
+    document.getElementById('searchInput').addEventListener('input', function () {
+      searchQuery = this.value.trim();
+      currentPage = 1;
+      renderPage(1);
+    });
+
+    // ── Pagination boutons ────────────────────────────────────
+    document.getElementById('btnPrev').addEventListener('click', () => {
+      if (currentPage > 1) renderPage(currentPage - 1);
+    });
+    document.getElementById('btnNext').addEventListener('click', () => {
+      const total = Math.max(1, Math.ceil(getFilteredCards().length / ARTICLES_PER_PAGE));
+      if (currentPage < total) renderPage(currentPage + 1);
+    });
+
+    // ── Newsletter ────────────────────────────────────────────
+    document.getElementById('blogNewsletterForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('blogNlBtn');
+      const msg = document.getElementById('blogNlMsg');
+      btn.disabled = true;
+      btn.textContent = "{% trans "Envoi…" %}";
+      await new Promise(r => setTimeout(r, 900));
+      msg.style.color = '#4ade80';
+      msg.textContent = "{% trans "✓ Merci ! Vous êtes bien inscrit(e) à la newsletter Revival." %}";
+      document.getElementById('blogNlEmail').value = '';
+      btn.disabled = false;
+      btn.textContent = "{% trans "S'abonner" %}";
+    });
+
+    // ── Init ──────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => renderPage(1));
+    renderPage(1);
+  })();
+  </script>
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

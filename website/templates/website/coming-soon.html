@@ -1,0 +1,443 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% trans "Revival — Bientôt disponible" %}</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'ico/favicon.ico' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --dark:       #001860;
+      --accent:     #035194;
+      --accent-mid: #019cd6;
+      --cyan:       #00FFFF;
+      --white:      #ffffff;
+      --gradient:   linear-gradient(135deg, #019cd6 0%, #001860 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; font-family: 'Inter', sans-serif; overflow: hidden; }
+
+    /* ── FLASH SCREEN ── */
+    #splash {
+      position: fixed;
+      inset: 0;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: splashFadeOut .6s ease forwards;
+      animation-delay: 2.2s;
+    }
+
+    .splash__logo {
+      width: 90px;
+      animation: splashLogoIn .6s cubic-bezier(.4,0,.2,1) forwards;
+      opacity: 0;
+    }
+
+    .splash__name {
+      margin-top: 18px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.03em;
+      opacity: 0;
+      animation: splashLogoIn .6s cubic-bezier(.4,0,.2,1) .25s forwards;
+    }
+
+    .splash__name span {
+      background: linear-gradient(90deg, var(--accent-mid), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .splash__bar {
+      margin-top: 36px;
+      width: 160px;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      border-radius: 99px;
+      overflow: hidden;
+      opacity: 0;
+      animation: splashLogoIn .4s ease .5s forwards;
+    }
+
+    .splash__bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-mid), var(--cyan));
+      border-radius: 99px;
+      animation: barFill 1.5s ease .6s forwards;
+    }
+
+    @keyframes splashLogoIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(16px); }
+    }
+
+    @keyframes barFill {
+      to { width: 100%; }
+    }
+
+    @keyframes splashFadeOut {
+      to { opacity: 0; pointer-events: none; }
+    }
+
+    /* ── COMING SOON PAGE ── */
+    #coming {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: pageIn .8s ease forwards;
+      animation-delay: 2.6s;
+    }
+
+    /* blobs décoratifs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .blob--1 {
+      width: 500px; height: 500px;
+      background: rgba(1,156,214,.18);
+      top: -120px; left: -120px;
+    }
+    .blob--2 {
+      width: 400px; height: 400px;
+      background: rgba(0,255,255,.08);
+      bottom: -100px; right: -80px;
+    }
+
+    /* grille de fond */
+    .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .coming__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+
+    .coming__logo {
+      width: 72px;
+      margin: 0 auto 24px;
+    }
+
+    .coming__badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 99px;
+      border: 1px solid rgba(0,255,255,.3);
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .coming__title {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+
+    .coming__title .gradient-text {
+      background: linear-gradient(90deg, var(--accent-mid), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .coming__desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .countdown__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .countdown__num {
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      backdrop-filter: blur(8px);
+    }
+
+    .countdown__label {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,.4);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* Notify form */
+    .notify-form {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .notify-form input {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.07);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color .3s;
+    }
+
+    .notify-form input::placeholder { color: rgba(255,255,255,.35); }
+    .notify-form input:focus { border-color: var(--accent-mid); }
+
+    .notify-form button {
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent-mid), var(--accent));
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity .3s;
+      white-space: nowrap;
+    }
+
+    .notify-form button:hover { opacity: .85; }
+
+    .notify-success {
+      display: none;
+      color: var(--cyan);
+      font-size: 14px;
+      margin-top: -28px;
+      margin-bottom: 28px;
+    }
+
+    /* Socials */
+    .socials {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.6);
+      transition: border-color .3s, color .3s;
+    }
+
+    .socials a:hover {
+      border-color: var(--accent-mid);
+      color: var(--accent-mid);
+    }
+
+    .coming__footer {
+      position: absolute;
+      bottom: 24px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,.25);
+    }
+
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .countdown__num { width: 60px; height: 60px; font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── FLASH SCREEN ── -->
+  <div id="splash">
+    <img class="splash__logo" src="{% static 'logo/logo.png' %}" alt="{% trans "Revival" %}" />
+    <div class="splash__name">{% trans "Re" %}<span>{% trans "vival" %}</span></div>
+    <div class="splash__bar"><div class="splash__bar-fill"></div></div>
+  </div>
+
+  <!-- ── COMING SOON ── -->
+  <div id="coming">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="grid-lines"></div>
+
+    <div class="coming__inner">
+      <img class="coming__logo" src="{% static 'logo/logo.png' %}" alt="{% trans "Revival" %}" />
+
+      <div class="coming__badge">{% trans "Bientôt disponible" %}</div>
+
+      <h1 class="coming__title">
+        {% trans "Quelque chose de grand" %}<br>
+        {% trans "arrive" %} <span class="gradient-text">{% trans "très bientôt." %}</span>
+      </h1>
+
+      <p class="coming__desc">
+        {% trans "Nous travaillons dur pour vous offrir une expérience exceptionnelle." %}<br>
+        {% trans "Revenez nous voir — ça vaut le détour." %}
+      </p>
+
+      <!-- Countdown -->
+      <div class="countdown">
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-days">00</div>
+          <div class="countdown__label">{% trans "Jours" %}</div>
+        </div>
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-hours">00</div>
+          <div class="countdown__label">{% trans "Heures" %}</div>
+        </div>
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-mins">00</div>
+          <div class="countdown__label">{% trans "Minutes" %}</div>
+        </div>
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-secs">00</div>
+          <div class="countdown__label">{% trans "Secondes" %}</div>
+        </div>
+      </div>
+
+      <!-- Notify -->
+      <form class="notify-form" id="notifyForm">
+        <input type="email" placeholder="{% trans "Votre adresse e-mail" %}" required />
+        <button type="submit">{% trans "Me notifier" %}</button>
+      </form>
+      <p class="notify-success" id="notifySuccess">{% trans "✓ Merci ! Vous serez notifié au lancement." %}</p>
+
+      <!-- Socials -->
+      <div class="socials">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/revival-group-drc/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="{% trans "LinkedIn" %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <!-- Twitter / X -->
+        <a href="https://x.com/groupe85249" target="_blank" rel="noopener noreferrer" aria-label="{% trans "X" %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/revivalgroup7/" target="_blank" rel="noopener noreferrer" aria-label="{% trans "Instagram" %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="coming__footer">{% trans "© 2026 Revival. Tous droits réservés." %}</div>
+  </div>
+
+  <script>
+    // ── Countdown : date cible (modifiable) ──
+    const TARGET = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const diff = TARGET - Date.now();
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent  = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent  = '00';
+        document.getElementById('cd-secs').textContent  = '00';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000)  / 60000);
+      const s = Math.floor((diff % 60000)    / 1000);
+      document.getElementById('cd-days').textContent  = pad(d);
+      document.getElementById('cd-hours').textContent = pad(h);
+      document.getElementById('cd-mins').textContent  = pad(m);
+      document.getElementById('cd-secs').textContent  = pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+
+    // ── Notify form ──
+    document.getElementById('notifyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('notifySuccess').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

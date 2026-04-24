@@ -1,0 +1,216 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Conditions de Partenariat | Revival" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans "Consultez les conditions de partenariat de Revival : cadre de collaboration, engagements, rémunération, confidentialité et droit applicable." %}" />
+  <meta name="keywords" content="{% trans "conditions de partenariat Revival, partenariat digital Afrique, accord partenaire RDC, partenaire technologique Revival" %}" />
+  <meta name="author" content="Revival Group" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/conditions-partenariat.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/conditions-partenariat.html" />
+  <meta property="og:title" content="{% trans "Conditions de Partenariat | Revival" %}" />
+  <meta property="og:description" content="{% trans "Le cadre de collaboration Revival pour les partenaires commerciaux, technologiques, stratégiques et institutionnels." %}" />
+  <meta property="og:image" content="https://revival-business.com/logo/banner.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% trans "Conditions de Partenariat | Revival" %}" />
+  <meta name="twitter:description" content="{% trans "Des partenariats encadrés par la transparence, la confidentialité, la performance et la création de valeur mutuelle." %}" />
+  <meta name="twitter:image" content="https://revival-business.com/logo/banner.png" />
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/legal.css' %}" />
+{% endblock %}
+
+{% block body_attrs %} class="legal-page"{% endblock %}
+
+{% block content %}
+<section class="legal-hero">
+    <div class="container legal-hero__content fade-up">
+      <span class="badge badge--light">{% trans "Cadre de collaboration" %}</span>
+      <h1>{% trans "Conditions de" %} <span class="gradient-text">{% trans "Partenariat" %}</span></h1>
+      <p>{% blocktrans trimmed %}Les partenariats Revival sont conçus pour créer une relation solide, claire et durable entre les parties. Ce cadre fixe les principes de collaboration, les engagements mutuels et les modalités générales applicables à nos projets digitaux, commerciaux, technologiques ou stratégiques.{% endblocktrans %}</p>
+      <div class="legal-hero__meta">
+        <span>{% trans "Version en vigueur : 16 avril 2026" %}</span>
+        <span>{% trans "Partenariats : contact@revival-business.com" %}</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="legal-shell">
+    <div class="container legal-grid">
+      <aside class="legal-card legal-summary fade-up">
+        <h2>{% trans "Repères essentiels" %}</h2>
+        <p>{% blocktrans trimmed %}Nos partenariats reposent sur la transparence, la performance, la confidentialité et la création de valeur partagée. Les conditions spécifiques peuvent être complétées par un accord particulier selon le type de collaboration.{% endblocktrans %}</p>
+        <nav class="legal-toc" aria-label="{% trans "Sommaire des conditions de partenariat" %}">
+          <a href="#objet">{% trans "1. Objet" %}</a>
+          <a href="#domaines">{% trans "2. Domaines de collaboration" %}</a>
+          <a href="#engagements-revival">{% trans "3. Engagements de Revival" %}</a>
+          <a href="#engagements-partenaire">{% trans "4. Engagements du Partenaire" %}</a>
+          <a href="#modeles">{% trans "5. Modèles de partenariat" %}</a>
+          <a href="#remuneration">{% trans "6. Rémunération" %}</a>
+          <a href="#confidentialite">{% trans "7. Confidentialité" %}</a>
+          <a href="#propriete">{% trans "8. Propriété intellectuelle" %}</a>
+          <a href="#duree">{% trans "9. Durée et résiliation" %}</a>
+          <a href="#responsabilites">{% trans "10. Responsabilités" %}</a>
+          <a href="#conformite">{% trans "11. Conformité légale" %}</a>
+          <a href="#modification">{% trans "12. Modification des conditions" %}</a>
+          <a href="#droit">{% trans "13. Droit applicable" %}</a>
+          <a href="#contact">{% trans "14. Contact" %}</a>
+        </nav>
+        <div class="legal-pillbox">
+          <div class="legal-pill">
+            <strong>{% trans "Principe directeur" %}</strong>
+            {% trans "Chaque partenariat vise une croissance mutuelle, mesurable et durable." %}
+          </div>
+          <div class="legal-pill">
+            <strong>{% trans "Cadre spécifique" %}</strong>
+            {% trans "Un accord complémentaire peut préciser les modalités particulières de chaque collaboration." %}
+          </div>
+        </div>
+      </aside>
+
+      <div class="legal-card legal-content">
+        <section class="legal-section fade-up" id="objet">
+          <h3>{% trans "1. Objet" %}</h3>
+          <p>{% blocktrans trimmed %}Les présentes Conditions de Partenariat définissent le cadre général applicable à toute collaboration entre Revival et toute personne physique ou morale, ci-après désignée comme le Partenaire, dans le cadre de projets digitaux, commerciaux, technologiques ou stratégiques.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Elles ont pour finalité d’établir une relation claire, professionnelle et équilibrée, orientée vers la confiance, la performance et la croissance mutuelle.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="domaines">
+          <h3>{% trans "2. Domaines de collaboration" %}</h3>
+          <p>{% blocktrans trimmed %}Revival peut développer des partenariats dans plusieurs domaines, selon les besoins du marché et le profil du partenaire.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "Développement d’applications et de solutions digitales." %}</li>
+            <li>{% trans "Distribution, commercialisation ou revente de services et produits." %}</li>
+            <li>{% trans "Apport d’affaires, génération d’opportunités et acquisition clients." %}</li>
+            <li>{% trans "Intégration technologique, innovation et développement conjoint." %}</li>
+            <li>{% trans "Marketing, communication, visibilité et actions de marque." %}</li>
+            <li>{% trans "Formation, accompagnement, conseil ou déploiement d’expertise." %}</li>
+          </ul>
+        </section>
+
+        <section class="legal-section fade-up" id="engagements-revival">
+          <h3>{% trans "3. Engagements de Revival" %}</h3>
+          <ul class="legal-list">
+            <li>{% blocktrans trimmed %}Fournir des solutions professionnelles, performantes et adaptées aux réalités du marché africain.{% endblocktrans %}</li>
+            <li>{% trans "Assurer un accompagnement technique et stratégique aligné sur les objectifs du partenariat." %}</li>
+            <li>{% trans "Protéger la confidentialité des informations échangées." %}</li>
+            <li>{% trans "Respecter les termes convenus dans les accords spécifiques conclus avec le partenaire." %}</li>
+            <li>{% blocktrans trimmed %}Mettre à disposition, lorsque cela est prévu, les outils, supports ou ressources utiles à la collaboration.{% endblocktrans %}</li>
+          </ul>
+        </section>
+
+        <section class="legal-section fade-up" id="engagements-partenaire">
+          <h3>{% trans "4. Engagements du Partenaire" %}</h3>
+          <ul class="legal-list">
+            <li>{% trans "Respecter les valeurs, l’image, les standards de qualité et les intérêts légitimes de Revival." %}</li>
+            <li>{% trans "Fournir des informations exactes, à jour et exploitables pour la bonne conduite du partenariat." %}</li>
+            <li>{% trans "Collaborer avec professionnalisme, transparence et bonne foi." %}</li>
+            <li>{% blocktrans trimmed %}S’abstenir de tout comportement susceptible de porter atteinte à Revival, à ses clients ou à ses activités.{% endblocktrans %}</li>
+            <li>{% trans "Honorer les obligations contractuelles, financières ou opérationnelles qui lui incombent." %}</li>
+          </ul>
+        </section>
+
+        <section class="legal-section fade-up" id="modeles">
+          <h3>{% trans "5. Modèles de partenariat" %}</h3>
+          <p>{% blocktrans trimmed %}Revival peut proposer différents formats de collaboration, chacun pouvant donner lieu à des conditions particulières.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% blocktrans trimmed %}Partenariat commercial : le partenaire intervient comme apporteur d’affaires, distributeur ou revendeur et peut percevoir une commission selon les ventes réalisées.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Partenariat stratégique : collaboration de moyen ou long terme autour de projets communs, d’un marché, d’un produit ou d’un écosystème partagé.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Partenariat technologique : intégration de solutions, co-développement, interconnexion technique ou contribution d’expertise.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Partenariat institutionnel : coopération avec des organisations, entreprises, institutions publiques ou privées.{% endblocktrans %}</li>
+          </ul>
+          <p>{% blocktrans trimmed %}Chaque modèle peut être complété par un accord spécifique détaillant les obligations opérationnelles, commerciales ou financières propres à la collaboration concernée.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="remuneration">
+          <h3>{% trans "6. Rémunération et commissions" %}</h3>
+          <p>{% blocktrans trimmed %}Les modalités de rémunération dépendent de la nature du partenariat et sont définies dans les accords applicables.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "Commissions sur ventes ou sur projets apportés." %}</li>
+            <li>{% trans "Partage de revenus ou répartition contractuelle des gains." %}</li>
+            <li>{% trans "Honoraires fixes ou forfaits de prestation." %}</li>
+            <li>{% trans "Bonus de performance, selon les objectifs convenus." %}</li>
+          </ul>
+          <p>{% blocktrans trimmed %}Les paiements sont effectués selon les délais, justificatifs et conditions prévus dans l’accord spécifique conclu entre les parties.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="confidentialite">
+          <h3>{% trans "7. Confidentialité" %}</h3>
+          <p>{% blocktrans trimmed %}Toutes les informations techniques, stratégiques, commerciales, financières ou opérationnelles échangées dans le cadre du partenariat sont confidentielles, sauf mention contraire écrite.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Le Partenaire s’engage à ne pas divulguer, reproduire, exploiter ou transmettre ces informations à un tiers sans autorisation écrite préalable de Revival.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="propriete">
+          <h3>{% trans "8. Propriété intellectuelle" %}</h3>
+          <p>{% blocktrans trimmed %}Sauf disposition contraire convenue par écrit, les solutions, technologies, marques, méthodologies, contenus, visuels, documents et éléments créés ou exploités par Revival demeurent sa propriété exclusive.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Le Partenaire ne peut utiliser les éléments appartenant à Revival que dans le cadre strict du partenariat et selon les autorisations accordées.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="duree">
+          <h3>{% trans "9. Durée et résiliation" %}</h3>
+          <p>{% blocktrans trimmed %}Le partenariat peut être conclu pour une durée déterminée ou indéterminée, selon les termes fixés entre les parties.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "Chaque partie peut y mettre fin en cas de non-respect des engagements convenus." %}</li>
+            <li>{% blocktrans trimmed %}Une résiliation peut également intervenir en cas de comportement préjudiciable, de force majeure ou de motif légitime prévu par l’accord applicable.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Sauf faute grave ou urgence particulière, une notification préalable doit être adressée à l’autre partie.{% endblocktrans %}</li>
+          </ul>
+        </section>
+
+        <section class="legal-section fade-up" id="responsabilites">
+          <h3>{% trans "10. Responsabilités" %}</h3>
+          <p>{% blocktrans trimmed %}Chaque partie demeure responsable de ses actes, déclarations, engagements et obligations dans le cadre du partenariat.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Revival ne saurait être tenu responsable des dommages, pertes ou conséquences résultant d’une mauvaise utilisation de ses services, d’une information erronée fournie par le partenaire ou d’un manquement imputable à ce dernier.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="conformite">
+          <h3>{% trans "11. Conformité légale" %}</h3>
+          <p>{% blocktrans trimmed %}Le Partenaire s’engage à respecter les lois, règlements et obligations applicables à son activité, notamment en matière de commerce, fiscalité, concurrence, propriété intellectuelle et protection des données.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="modification">
+          <h3>{% trans "12. Modification des conditions" %}</h3>
+          <p>{% blocktrans trimmed %}Revival se réserve le droit de mettre à jour les présentes conditions afin de tenir compte de l’évolution de ses activités, de ses offres ou du cadre réglementaire applicable.{% endblocktrans %}</p>
+          <p>{% trans "Les partenaires seront informés de toute modification importante par les canaux appropriés." %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="droit">
+          <h3>{% trans "13. Droit applicable et juridiction" %}</h3>
+          <p>{% blocktrans trimmed %}Les présentes conditions sont régies par les lois applicables en République Démocratique du Congo et, le cas échéant, par les principes pertinents du droit OHADA lorsque ceux-ci trouvent à s’appliquer.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Tout litige relatif à leur interprétation, exécution ou validité relève des juridictions compétentes, sauf mécanisme particulier prévu dans un accord spécifique conclu entre les parties.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="contact">
+          <h3>{% trans "14. Contact" %}</h3>
+          <p>{% blocktrans trimmed %}Pour toute question, candidature ou demande liée à un partenariat, vous pouvez nous écrire aux coordonnées suivantes :{% endblocktrans %}</p>
+          <div class="legal-contact">
+            <a href="mailto:contact@revival-business.com">{% trans "contact@revival-business.com" %}</a>
+            <a href="https://www.revival-business.com">{% trans "www.revival-business.com" %}</a>
+          </div>
+        </section>
+
+        <section class="legal-short fade-up" aria-label="{% trans "Version courte" %}">
+          <h3>{% trans "Version courte" %}</h3>
+          <p>{% blocktrans trimmed %}Revival collabore avec des partenaires ambitieux pour construire des solutions digitales performantes en Afrique et au-delà. Nos partenariats sont fondés sur la transparence, la performance, la confidentialité et la création de valeur durable.{% endblocktrans %}</p>
+          <div class="legal-cta">
+            <a href="{% url 'website:partenaire' %}" class="btn btn--primary">{% trans "Devenir partenaire" %}</a>
+            <a href="{% url 'website:contact' %}" class="btn btn--outline">{% trans "Parler à l’équipe" %}</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Politique de Confidentialité | Revival" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans "Consultez la politique de confidentialité de Revival : collecte, utilisation, sécurité, conservation et droits liés à vos données personnelles." %}" />
+  <meta name="keywords" content="{% trans "politique de confidentialité Revival, protection des données RDC, confidentialité site web Afrique, données personnelles Revival" %}" />
+  <meta name="author" content="Revival Group" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/politique-confidentialite.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/politique-confidentialite.html" />
+  <meta property="og:title" content="{% trans "Politique de Confidentialité | Revival" %}" />
+  <meta property="og:description" content="{% trans "Découvrez comment Revival collecte, protège et traite vos données personnelles avec transparence et sécurité." %}" />
+  <meta property="og:image" content="https://revival-business.com/logo/banner.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% trans "Politique de Confidentialité | Revival" %}" />
+  <meta name="twitter:description" content="{% trans "Notre engagement pour la confidentialité, la sécurité et la transparence dans le traitement de vos données." %}" />
+  <meta name="twitter:image" content="https://revival-business.com/logo/banner.png" />
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/legal.css' %}" />
+{% endblock %}
+
+{% block body_attrs %} class="legal-page"{% endblock %}
+
+{% block content %}
+<section class="legal-hero">
+    <div class="container legal-hero__content fade-up">
+      <span class="badge badge--light">{% trans "Protection des données" %}</span>
+      <h1>{% trans "Politique de" %} <span class="gradient-text">{% trans "Confidentialité" %}</span></h1>
+      <p>{% blocktrans trimmed %}Chez Revival, la confidentialité de vos données fait partie intégrante de notre exigence de qualité. Nous traitons vos informations avec rigueur, transparence et un niveau élevé de sécurité, dans le respect des bonnes pratiques applicables en République Démocratique du Congo et à l’international.{% endblocktrans %}</p>
+      <div class="legal-hero__meta">
+        <span>{% trans "Version en vigueur : 16 avril 2026" %}</span>
+        <span>{% trans "Contact : contact@revival-business.com" %}</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="legal-shell">
+    <div class="container legal-grid">
+      <aside class="legal-card legal-summary fade-up">
+        <h2>{% trans "En bref" %}</h2>
+        <p>{% blocktrans trimmed %}Nous collectons uniquement les données utiles au bon fonctionnement de nos services, nous ne les revendons jamais et nous appliquons des standards élevés de sécurité et de confidentialité.{% endblocktrans %}</p>
+        <nav class="legal-toc" aria-label="{% trans "Sommaire de la politique de confidentialité" %}">
+          <a href="#introduction">{% trans "1. Introduction" %}</a>
+          <a href="#donnees">{% trans "2. Données collectées" %}</a>
+          <a href="#utilisation">{% trans "3. Utilisation des données" %}</a>
+          <a href="#partage">{% trans "4. Partage des données" %}</a>
+          <a href="#securite">{% trans "5. Sécurité" %}</a>
+          <a href="#conservation">{% trans "6. Conservation" %}</a>
+          <a href="#droits">{% trans "7. Vos droits" %}</a>
+          <a href="#cookies">{% trans "8. Cookies" %}</a>
+          <a href="#transfert">{% trans "9. Transferts internationaux" %}</a>
+          <a href="#modifications">{% trans "10. Modifications" %}</a>
+          <a href="#contact">{% trans "11. Contact" %}</a>
+        </nav>
+        <div class="legal-pillbox">
+          <div class="legal-pill">
+            <strong>{% trans "Engagement clé" %}</strong>
+            {% blocktrans trimmed %}Nous limitons la collecte au strict nécessaire pour fournir un service fiable, fluide et personnalisé.{% endblocktrans %}
+          </div>
+          <div class="legal-pill">
+            <strong>{% trans "Principe de confiance" %}</strong>
+            {% trans "Vos données ne sont jamais vendues à des tiers." %}
+          </div>
+        </div>
+      </aside>
+
+      <div class="legal-card legal-content">
+        <section class="legal-section fade-up" id="introduction">
+          <h3>{% trans "1. Introduction" %}</h3>
+          <p>{% blocktrans trimmed %}La présente Politique de Confidentialité explique la manière dont Revival collecte, utilise, conserve, protège et, le cas échéant, partage vos données personnelles lorsque vous utilisez notre site, nos formulaires ou nos services digitaux.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}En accédant à notre plateforme ou en interagissant avec nos services, vous reconnaissez avoir pris connaissance de cette politique et accepter les pratiques qui y sont décrites.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="donnees">
+          <h3>{% trans "2. Données collectées" %}</h3>
+          <p>{% blocktrans trimmed %}Nous collectons uniquement les informations nécessaires à la fourniture de nos services, à la qualité de la relation client et à la sécurité de notre plateforme.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% blocktrans trimmed %}Les données que vous nous communiquez directement : nom, prénom, adresse email, numéro de téléphone, informations professionnelles et, si nécessaire, données liées à une transaction via des prestataires de paiement sécurisés.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Les données collectées automatiquement : adresse IP, type d’appareil, navigateur, pages consultées, durée de visite et informations de navigation.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Les données issues de services tiers lorsque vous interagissez avec nous via des plateformes sociales, partenaires techniques ou outils commerciaux autorisés.{% endblocktrans %}</li>
+          </ul>
+        </section>
+
+        <section class="legal-section fade-up" id="utilisation">
+          <h3>{% trans "3. Utilisation des données" %}</h3>
+          <p>{% blocktrans trimmed %}Les informations collectées nous permettent d’exécuter nos prestations avec efficacité, sécurité et pertinence.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "Fournir, exploiter et améliorer nos services digitaux." %}</li>
+            <li>{% trans "Personnaliser l’expérience utilisateur et optimiser les parcours." %}</li>
+            <li>{% trans "Gérer votre compte, vos demandes et nos échanges de support." %}</li>
+            <li>{% blocktrans trimmed %}Vous transmettre des informations utiles, des offres ou des communications liées à nos services.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Prévenir les usages abusifs, renforcer la sécurité et respecter nos obligations légales et contractuelles.{% endblocktrans %}</li>
+          </ul>
+        </section>
+
+        <section class="legal-section fade-up" id="partage">
+          <h3>{% trans "4. Partage des données" %}</h3>
+          <p>{% trans "Revival ne vend, ne loue et ne commercialise jamais vos données personnelles." %}</p>
+          <ul class="legal-list">
+            <li>{% blocktrans trimmed %}Les données peuvent être partagées avec nos partenaires techniques intervenant dans l’hébergement, le paiement, la maintenance ou l’exploitation de nos services.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}L’accès interne est strictement limité aux membres autorisés de nos équipes, selon leur rôle et dans le cadre de leurs missions.{% endblocktrans %}</li>
+            <li>{% blocktrans trimmed %}Nous pouvons également communiquer certaines informations aux autorités compétentes lorsque la loi l’exige ou lorsqu’une demande légitime est formulée.{% endblocktrans %}</li>
+          </ul>
+          <div class="legal-callout">
+            <h3>{% trans "Exigence de confidentialité" %}</h3>
+            <p>{% blocktrans trimmed %}Nos partenaires et prestataires sont soumis à des obligations contractuelles strictes en matière de confidentialité, de sécurité et d’usage limité des données.{% endblocktrans %}</p>
+          </div>
+        </section>
+
+        <section class="legal-section fade-up" id="securite">
+          <h3>{% trans "5. Sécurité des données" %}</h3>
+          <p>{% blocktrans trimmed %}Nous mettons en œuvre des mesures organisationnelles et techniques destinées à protéger vos informations contre les accès non autorisés, la perte, l’altération ou la divulgation abusive.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "Chiffrement ou protection renforcée des données sensibles." %}</li>
+            <li>{% trans "Accès restreint selon les habilitations et les besoins opérationnels." %}</li>
+            <li>{% trans "Surveillance continue de nos environnements et mécanismes de prévention." %}</li>
+            <li>{% trans "Dispositifs de protection contre les usages malveillants et les intrusions." %}</li>
+          </ul>
+          <p>{% blocktrans trimmed %}Aucun système n’offrant une sécurité absolue, nous améliorons en permanence nos pratiques afin de maintenir un niveau de protection élevé et adapté à nos activités.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="conservation">
+          <h3>{% trans "6. Conservation des données" %}</h3>
+          <p>{% blocktrans trimmed %}Vos données sont conservées pendant la durée raisonnablement nécessaire à la fourniture de nos services, au respect de nos obligations légales, comptables ou réglementaires, ainsi qu’à la gestion d’éventuels litiges ou demandes de support.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Lorsque leur conservation n’est plus justifiée, les données sont supprimées ou rendues anonymes selon des procédures adaptées.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="droits">
+          <h3>{% trans "7. Vos droits" %}</h3>
+          <p>{% blocktrans trimmed %}Conformément aux bonnes pratiques internationales en matière de protection des données, vous pouvez demander :{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "L’accès à vos données personnelles." %}</li>
+            <li>{% trans "La rectification de données inexactes ou incomplètes." %}</li>
+            <li>{% trans "La suppression de certaines informations lorsque cela est applicable." %}</li>
+            <li>{% trans "L’opposition à certains traitements ou la limitation de leur usage." %}</li>
+            <li>{% trans "Le retrait de votre consentement lorsque le traitement repose sur celui-ci." %}</li>
+          </ul>
+          <div class="legal-contact">
+            <span>{% trans "Pour exercer vos droits ou poser une question liée à la confidentialité :" %}</span>
+            <a href="mailto:contact@revival-business.com">{% trans "contact@revival-business.com" %}</a>
+          </div>
+        </section>
+
+        <section class="legal-section fade-up" id="cookies">
+          <h3>{% trans "8. Cookies et technologies similaires" %}</h3>
+          <p>{% blocktrans trimmed %}Nous utilisons des cookies et technologies similaires pour améliorer l’expérience de navigation, analyser l’usage du site et adapter certains contenus ou fonctionnalités.{% endblocktrans %}</p>
+          <ul class="legal-list">
+            <li>{% trans "Mesurer et comprendre le trafic." %}</li>
+            <li>{% trans "Optimiser les performances et la fluidité du site." %}</li>
+            <li>{% trans "Améliorer la pertinence de certains contenus ou interactions." %}</li>
+          </ul>
+          <p>{% blocktrans trimmed %}Vous pouvez configurer votre navigateur pour refuser tout ou partie des cookies. Certaines fonctionnalités du site pourraient alors être limitées.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="transfert">
+          <h3>{% trans "9. Transfert international des données" %}</h3>
+          <p>{% blocktrans trimmed %}Selon la nature de nos outils, services d’hébergement ou partenaires techniques, certaines données peuvent être traitées ou hébergées en dehors de votre pays de résidence.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}Dans ce cas, Revival veille à ce que les transferts s’effectuent avec un niveau de protection conforme aux standards de sécurité et de confidentialité généralement reconnus au niveau international.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="modifications">
+          <h3>{% trans "10. Modifications de la politique" %}</h3>
+          <p>{% blocktrans trimmed %}Nous pouvons mettre à jour la présente politique à tout moment afin de refléter l’évolution de nos services, de nos pratiques ou du cadre réglementaire applicable.{% endblocktrans %}</p>
+          <p>{% blocktrans trimmed %}En cas de modification substantielle, l’information sera communiquée sur notre site ou par nos canaux officiels.{% endblocktrans %}</p>
+        </section>
+
+        <section class="legal-section fade-up" id="contact">
+          <h3>{% trans "11. Contact" %}</h3>
+          <p>{% blocktrans trimmed %}Pour toute demande relative à cette politique ou au traitement de vos données personnelles, vous pouvez nous contacter aux coordonnées suivantes :{% endblocktrans %}</p>
+          <div class="legal-contact">
+            <a href="mailto:contact@revival-business.com">{% trans "contact@revival-business.com" %}</a>
+            <a href="https://www.revival-business.com">{% trans "www.revival-business.com" %}</a>
+          </div>
+        </section>
+
+        <section class="legal-short fade-up" aria-label="{% trans "Version courte" %}">
+          <h3>{% trans "Version courte" %}</h3>
+          <p>{% blocktrans trimmed %}Chez Revival, vos données sont traitées avec sérieux. Nous collectons uniquement les informations nécessaires pour vous fournir des services performants, sécurisés et personnalisés. Nous ne vendons jamais vos données personnelles et nous appliquons des standards élevés de protection et de confidentialité.{% endblocktrans %}</p>
+          <div class="legal-cta">
+            <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Nous contacter" %}</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+{% endblock %}

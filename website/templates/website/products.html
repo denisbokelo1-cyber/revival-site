@@ -1,0 +1,353 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Produits — Revival" %}{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+  <section style="min-height:44vh;background:radial-gradient(ellipse at 70% 0%,#0a2a6e 0%,#050d2a 55%,#000d1f 100%);display:flex;align-items:center;padding:140px 0 70px;position:relative;overflow:hidden;">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
+      <span class="badge badge--light">{% trans "Nos produits" %}</span>
+      <h1 style="font-size:clamp(36px,5vw,62px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "Des outils" %} <span class="gradient-text">{% trans "prêts à l'emploi" %}</span><br/>{% trans "pour accélérer vos projets" %}</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto">{% blocktrans trimmed %}Templates, thèmes et applications clés en main. Gagnez du temps et lancez votre projet avec une base solide et professionnelle.{% endblocktrans %}</p>
+    </div>
+  </section>
+
+  <!-- WORDPRESS -->
+  <section class="section" id="wordpress">
+    <div class="container">
+      <div class="product-section fade-up">
+        <div class="product-section__header">
+          <div class="product-section__icon" style="background: linear-gradient(135deg, #21759b, #4596b4)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <span class="badge">{% trans "WordPress" %}</span>
+            <h2>{% trans "Thèmes & Plugins WordPress" %}</h2>
+            <p>{% blocktrans trimmed %}Des thèmes WordPress premium, optimisés pour la performance et le SEO, avec un design moderne et personnalisable.{% endblocktrans %}</p>
+          </div>
+        </div>
+        <div class="product-cards-row">
+          <div class="product-detail-card fade-up delay-1">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #035194 0%, #38619c 100%)">
+              <div class="preview-mockup">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line"></div>
+                  <div class="pm-line pm-line--short"></div>
+                  <div class="pm-btn"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "TechBusiness Pro" %}</h4>
+              <p>{% trans "Thème corporate moderne pour agences et entreprises tech." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">59 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-2">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #38619c 0%, #76d0ec 100%)">
+              <div class="preview-mockup">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line"></div>
+                  <div class="pm-line pm-line--short"></div>
+                  <div class="pm-btn"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "SaaS Landing" %}</h4>
+              <p>{% trans "Landing page optimisée pour les produits SaaS et startups." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">49 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-3">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #76d0ec 0%, #035194 100%)">
+              <div class="preview-mockup">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line"></div>
+                  <div class="pm-line pm-line--short"></div>
+                  <div class="pm-btn"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Portfolio Creative" %}</h4>
+              <p>{% trans "Thème portfolio élégant pour créatifs et freelances." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">39 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LARAVEL -->
+  <section class="section section--light" id="laravel">
+    <div class="container">
+      <div class="product-section fade-up">
+        <div class="product-section__header">
+          <div class="product-section__icon" style="background: linear-gradient(135deg, #ff2d20, #e74c3c)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div>
+            <span class="badge">{% trans "Laravel" %}</span>
+            <h2>{% trans "Applications Laravel" %}</h2>
+            <p>{% blocktrans trimmed %}Des applications web robustes et scalables développées avec Laravel. Architecture MVC, API REST, authentification avancée.{% endblocktrans %}</p>
+          </div>
+        </div>
+        <div class="product-cards-row">
+          <div class="product-detail-card fade-up delay-1">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e)">
+              <div class="preview-mockup preview-mockup--dark">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line" style="background:rgba(118,208,236,.4)"></div>
+                  <div class="pm-line pm-line--short" style="background:rgba(118,208,236,.2)"></div>
+                  <div class="pm-btn" style="background:#035194"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Laravel SaaS Starter" %}</h4>
+              <p>{% trans "Boilerplate complet : auth, billing Stripe, multi-tenant, dashboard." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">149 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-2">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #035194, #021f3d)">
+              <div class="preview-mockup preview-mockup--dark">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line" style="background:rgba(255,255,255,.3)"></div>
+                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.15)"></div>
+                  <div class="pm-btn" style="background:#76d0ec"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Laravel Admin Panel" %}</h4>
+              <p>{% trans "Panel d'administration complet avec CRUD, rôles et permissions." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">99 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-3">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #38619c, #035194)">
+              <div class="preview-mockup preview-mockup--dark">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line" style="background:rgba(255,255,255,.3)"></div>
+                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.15)"></div>
+                  <div class="pm-btn" style="background:#76d0ec"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Laravel API Boilerplate" %}</h4>
+              <p>{% trans "API REST prête à l'emploi avec Sanctum, versioning et documentation." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">79 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REACT & NEXT.JS -->
+  <section class="section" id="react">
+    <div class="container">
+      <div class="product-section fade-up">
+        <div class="product-section__header">
+          <div class="product-section__icon" style="background: linear-gradient(135deg, #61dafb, #0070f3)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div>
+            <span class="badge">{% trans "React & Next.js" %}</span>
+            <h2>{% trans "Modèles React & Next.js" %}</h2>
+            <p>{% blocktrans trimmed %}Templates modernes avec React et Next.js pour des applications ultra-rapides. SSR, SSG, TypeScript et Tailwind CSS inclus.{% endblocktrans %}</p>
+          </div>
+        </div>
+        <div class="product-cards-row">
+          <div class="product-detail-card fade-up delay-1">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #0f0f23, #1a1a3e)">
+              <div class="preview-mockup preview-mockup--dark">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line" style="background:rgba(97,218,251,.4)"></div>
+                  <div class="pm-line pm-line--short" style="background:rgba(97,218,251,.2)"></div>
+                  <div class="pm-btn" style="background:#61dafb"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Next.js SaaS Template" %}</h4>
+              <p>{% trans "Template complet avec auth, dashboard, billing et dark mode." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">129 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-2">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #0070f3, #00c6ff)">
+              <div class="preview-mockup preview-mockup--dark">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line" style="background:rgba(255,255,255,.4)"></div>
+                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.2)"></div>
+                  <div class="pm-btn" style="background:white"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "React Dashboard Pro" %}</h4>
+              <p>{% trans "Dashboard analytics avec graphiques, tables et composants UI." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">89 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-3">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #1a1a2e, #0070f3)">
+              <div class="preview-mockup preview-mockup--dark">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line" style="background:rgba(255,255,255,.3)"></div>
+                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.15)"></div>
+                  <div class="pm-btn" style="background:#61dafb"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Next.js Landing Kit" %}</h4>
+              <p>{% trans "Kit de composants pour landing pages modernes et performantes." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">69 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HTML TEMPLATES -->
+  <section class="section section--light" id="html">
+    <div class="container">
+      <div class="product-section fade-up">
+        <div class="product-section__header">
+          <div class="product-section__icon" style="background: linear-gradient(135deg, #e34c26, #f06529)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="10" y1="13" x2="8" y2="15"/><line x1="14" y1="13" x2="16" y2="15"/></svg>
+          </div>
+          <div>
+            <span class="badge">{% trans "HTML" %}</span>
+            <h2>{% trans "Modèles HTML" %}</h2>
+            <p>{% blocktrans trimmed %}Templates HTML/CSS purs, légers et facilement personnalisables. Aucune dépendance, cross-browser, documentation complète.{% endblocktrans %}</p>
+          </div>
+        </div>
+        <div class="product-cards-row">
+          <div class="product-detail-card fade-up delay-1">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #035194, #76d0ec)">
+              <div class="preview-mockup">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line"></div>
+                  <div class="pm-line pm-line--short"></div>
+                  <div class="pm-btn"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Corporate HTML5" %}</h4>
+              <p>{% trans "Template corporate complet, multi-pages, animations CSS." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">29 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-2">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #38619c, #035194)">
+              <div class="preview-mockup">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line"></div>
+                  <div class="pm-line pm-line--short"></div>
+                  <div class="pm-btn"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Agency One Page" %}</h4>
+              <p>{% trans "Landing page one-page pour agences, avec parallax et animations." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">19 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-detail-card fade-up delay-3">
+            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #76d0ec, #38619c)">
+              <div class="preview-mockup">
+                <div class="pm-header"></div>
+                <div class="pm-body">
+                  <div class="pm-line"></div>
+                  <div class="pm-line pm-line--short"></div>
+                  <div class="pm-btn"></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-card__info">
+              <h4>{% trans "Portfolio HTML" %}</h4>
+              <p>{% trans "Template portfolio minimaliste pour développeurs et designers." %}</p>
+              <div class="product-detail-card__meta">
+                <span class="price">15 €</span>
+                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band fade-up">
+    <div class="container cta-band__inner">
+      <div>
+        <h2>{% trans "Besoin d'un produit sur mesure ?" %}</h2>
+        <p>{% trans "Nous développons des solutions personnalisées adaptées à vos besoins spécifiques." %}</p>
+      </div>
+      <a href="{% url 'website:contact' %}" class="btn btn--white">{% trans "Demander un devis" %}</a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

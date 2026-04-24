@@ -14,6 +14,7 @@ from pathlib import Path
 
 import dj_database_url
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,6 +54,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "website",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -123,9 +126,10 @@ TIME_ZONE = "Africa/Kinshasa"
 USE_I18N = True
 USE_TZ = True
 LANGUAGES = [
-    ("fr", "Francais"),
-    ("en", "English"),
+    ("fr", _("Français")),
+    ("en", _("English")),
 ]
+LOCALE_PATHS = [BASE_DIR / "locale"]
 
 
 # Static files (CSS, JavaScript, Images)

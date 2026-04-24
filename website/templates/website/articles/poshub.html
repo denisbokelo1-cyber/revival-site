@@ -1,0 +1,103 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "PosHub — Système de Caisse & Point de Vente Intelligent | Revival" %}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{% trans "PosHub : le système de point de vente (POS) développé par Revival pour commerces et restaurants. Gestion des ventes, stocks et rapports en temps réel." %}" />
+  <meta name="keywords" content="{% trans "PosHub point de vente, logiciel caisse Afrique, système POS restaurant commerce, gestion ventes temps réel, caisse enregistreuse digitale, Revival PosHub" %}" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/articles/poshub.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://revival-business.com/articles/poshub.html" />
+  <meta property="og:title" content="{% trans "PosHub — Système de Caisse & Point de Vente Intelligent" %}" />
+  <meta property="og:description" content="{% trans "PosHub par Revival : système POS intelligent pour commerces et restaurants. Gestion des ventes, stocks et rapports en temps réel." %}" />
+  <meta property="og:image" content="https://revival-business.com/projet/poshub.png" />
+  <meta property="og:site_name" content="Revival Agency" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{% trans "PosHub — Système de point de vente intelligent" %}",
+    "description": "{% trans "Étude de cas : développement de PosHub, système POS pour commerces et restaurants africains." %}",
+    "url": "https://revival-business.com/articles/poshub.html",
+    "image": "https://revival-business.com/projet/poshub.png",
+    "publisher": { "@type": "Organization", "name": "{% trans "Revival Agency" %}", "logo": "https://revival-business.com/logo/logo.png" },
+    "inLanguage": "fr"
+  }
+  </script>
+  
+  
+  
+  
+  
+  <style>
+    .article-hero { min-height: 44vh; background: radial-gradient(ellipse at 70% 0%, #0a2a6e 0%, #050d2a 55%, #000d1f 100%); display: flex; align-items: center; padding: 140px 0 70px; position: relative; overflow: hidden; }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 80px 24px; }
+    .article-body h2 { font-size: 28px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.02em; }
+    .article-body p { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 20px; }
+    .article-body img { width: 100%; border-radius: 16px; margin: 32px 0; box-shadow: 0 8px 40px rgba(0,0,0,.12); }
+    .article-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,.5); margin-top: 20px; flex-wrap: wrap; }
+    .article-meta .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#019cd6,#035194); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #019cd6; font-weight: 600; font-size: 14px; margin-bottom: 40px; transition: gap .2s; }
+    .back-link:hover { gap: 12px; }
+    .tag { display: inline-block; padding: 4px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; background: rgba(16,185,129,.1); color: #10b981; margin-bottom: 16px; }
+  </style>
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+  <section class="article-hero">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
+      <span class="badge badge--light">{% trans "Projets" %}</span>
+      <h1 style="font-size:clamp(32px,5vw,58px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "PosHub" %}</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">{% trans "Gérez votre commerce intelligemment avec la solution POS nouvelle génération." %}</p>
+      <div class="article-meta" style="justify-content:center;margin-top:28px;">
+        <div class="avatar">{% trans "ER" %}</div>
+        <span style="color:rgba(255,255,255,.8);font-weight:600">{% trans "Équipe Revival" %}</span>
+        <span>·</span>
+        <span>{% trans "20 mai 2026" %}</span>
+        <span>·</span>
+        <span>{% trans "4 min de lecture" %}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+    <a href="{% url 'website:blog' %}" class="back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      {% trans "Retour au blog" %}
+    </a>
+
+    <span class="tag">{% trans "Projets" %}</span>
+
+    <img src="{% static 'projet/poshub.png' %}" alt="{% trans "PosHub — solution point de vente" %}" />
+
+    <h2>{% trans "Présentation de PosHub" %}</h2>
+    <p>{% blocktrans trimmed %}PosHub est la solution de point de vente nouvelle génération conçue par Revival pour les commerçants congolais. Que vous gériez une boutique, un supermarché, une pharmacie ou un restaurant, PosHub centralise toutes vos opérations commerciales dans une interface simple et intuitive.{% endblocktrans %}</p>
+    <p>{% blocktrans trimmed %}Face aux défis spécifiques du commerce en RDC — connectivité variable, diversité des modes de paiement, besoin de rapports fiables — PosHub a été pensé pour fonctionner même en mode hors ligne et s'adapter aux réalités du terrain.{% endblocktrans %}</p>
+
+    <h2>{% trans "Gestion des ventes et des stocks" %}</h2>
+    <p>{% blocktrans trimmed %}PosHub permet d'enregistrer les ventes en quelques secondes, de gérer un catalogue produits illimité avec codes-barres, et de suivre les stocks en temps réel. Les alertes automatiques préviennent les ruptures et les commandes fournisseurs peuvent être générées directement depuis l'application.{% endblocktrans %}</p>
+    <p>{% blocktrans trimmed %}Le module de gestion des retours et des échanges simplifie les opérations quotidiennes et réduit les erreurs de caisse.{% endblocktrans %}</p>
+
+    <h2>{% trans "Rapports et analytics" %}</h2>
+    <p>{% blocktrans trimmed %}Le tableau de bord de PosHub offre une vision claire des performances commerciales : chiffre d'affaires par période, produits les plus vendus, marges, performances par vendeur. Ces données permettent aux gérants de prendre des décisions éclairées et d'optimiser leur activité.{% endblocktrans %}</p>
+
+    <h2>{% trans "Modes de paiement" %}</h2>
+    <p>{% blocktrans trimmed %}PosHub intègre les principaux modes de paiement utilisés en RDC : espèces, mobile money (M-Pesa, Airtel Money, Orange Money), et paiement par carte. Le système de caisse gère automatiquement la monnaie et génère des reçus imprimables ou envoyés par SMS.{% endblocktrans %}</p>
+
+    <h2>{% trans "Impact sur les commerçants" %}</h2>
+    <p>{% blocktrans trimmed %}Les commerçants utilisant PosHub rapportent une réduction significative des pertes liées aux erreurs de caisse, une meilleure visibilité sur leurs stocks et une augmentation de leur productivité. PosHub est un outil concret qui transforme la gestion quotidienne des commerces congolais.{% endblocktrans %}</p>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/seo.js' %}"></script>
+<script src="{% static 'js/components.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
