@@ -60,10 +60,14 @@ class Project(TranslatableModel, OrderedPublicationModel):
     published_at = models.DateTimeField(_("Date de publication"), default=timezone.now)
     translations = TranslatedFields(
         title=models.CharField(_("Titre"), max_length=180),
-        short_description=models.CharField(_("Description courte"), max_length=280, blank=True),
+        short_description=models.CharField(
+            _("Description courte"), max_length=280, blank=True
+        ),
         description=models.TextField(_("Description"), blank=True),
         seo_title=models.CharField(_("Titre SEO"), max_length=180, blank=True),
-        seo_description=models.CharField(_("Description SEO"), max_length=300, blank=True),
+        seo_description=models.CharField(
+            _("Description SEO"), max_length=300, blank=True
+        ),
     )
 
     class Meta:
@@ -76,7 +80,9 @@ class Project(TranslatableModel, OrderedPublicationModel):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            title = self.safe_translation_getter("title", any_language=True) or "project"
+            title = (
+                self.safe_translation_getter("title", any_language=True) or "project"
+            )
             self.slug = slugify(title)
         super().save(*args, **kwargs)
 
@@ -91,7 +97,9 @@ class FAQ(TranslatableModel, OrderedPublicationModel):
         CONTACT = "contact", _("Contact")
         GENERAL = "general", _("Général")
 
-    page = models.CharField(_("Page"), max_length=40, choices=Page.choices, default=Page.GENERAL)
+    page = models.CharField(
+        _("Page"), max_length=40, choices=Page.choices, default=Page.GENERAL
+    )
     translations = TranslatedFields(
         question=models.CharField(_("Question"), max_length=240),
         answer=models.TextField(_("Réponse")),
@@ -124,7 +132,9 @@ class Review(TranslatableModel, OrderedPublicationModel):
     )
     is_featured = models.BooleanField(_("Mis en avant"), default=False)
     translations = TranslatedFields(
-        client_role=models.CharField(_("Fonction du client"), max_length=160, blank=True),
+        client_role=models.CharField(
+            _("Fonction du client"), max_length=160, blank=True
+        ),
         content=models.TextField(_("Avis")),
     )
 
@@ -134,6 +144,9 @@ class Review(TranslatableModel, OrderedPublicationModel):
 
     def __str__(self):
         return f"{self.client_name} - {self.company}".strip(" -")
+
+    def rating_ranged(self) -> range:
+        return range(self.rating)
 
 
 class ArticleCategory(TranslatableModel, OrderedPublicationModel):
@@ -164,9 +177,13 @@ class Article(TranslatableModel, TimeStampedModel):
     )
     slug = models.SlugField(_("Slug"), max_length=180, unique=True, blank=True)
     author_name = models.CharField(_("Auteur"), max_length=140, default="Revival")
-    cover_image = models.ImageField(_("Image de couverture"), upload_to="articles/", blank=True)
+    cover_image = models.ImageField(
+        _("Image de couverture"), upload_to="articles/", blank=True
+    )
     reading_time = models.PositiveSmallIntegerField(_("Temps de lecture"), default=5)
-    status = models.CharField(_("Statut"), max_length=20, choices=Status.choices, default=Status.DRAFT)
+    status = models.CharField(
+        _("Statut"), max_length=20, choices=Status.choices, default=Status.DRAFT
+    )
     is_featured = models.BooleanField(_("Mis en avant"), default=False)
     published_at = models.DateTimeField(_("Date de publication"), blank=True, null=True)
     translations = TranslatedFields(
@@ -174,7 +191,9 @@ class Article(TranslatableModel, TimeStampedModel):
         excerpt=models.TextField(_("Résumé"), blank=True),
         content=models.TextField(_("Contenu")),
         seo_title=models.CharField(_("Titre SEO"), max_length=180, blank=True),
-        seo_description=models.CharField(_("Description SEO"), max_length=300, blank=True),
+        seo_description=models.CharField(
+            _("Description SEO"), max_length=300, blank=True
+        ),
     )
 
     class Meta:
@@ -187,7 +206,9 @@ class Article(TranslatableModel, TimeStampedModel):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            title = self.safe_translation_getter("title", any_language=True) or "article"
+            title = (
+                self.safe_translation_getter("title", any_language=True) or "article"
+            )
             self.slug = slugify(title)
         if self.status == self.Status.PUBLISHED and not self.published_at:
             self.published_at = timezone.now()
@@ -227,7 +248,9 @@ class JobOffer(TranslatableModel, OrderedPublicationModel):
         choices=ContractType.choices,
         default=ContractType.FULL_TIME,
     )
-    salary_range = models.CharField(_("Fourchette salariale"), max_length=120, blank=True)
+    salary_range = models.CharField(
+        _("Fourchette salariale"), max_length=120, blank=True
+    )
     deadline = models.DateField(_("Date limite"), blank=True, null=True)
     published_at = models.DateTimeField(_("Date de publication"), default=timezone.now)
     translations = TranslatedFields(
@@ -264,7 +287,9 @@ class JobApplication(TimeStampedModel):
     )
     full_name = models.CharField(_("Nom complet"), max_length=180)
     email = models.EmailField(_("Adresse email"))
-    salary_expectation = models.CharField(_("Prétention salariale"), max_length=120, blank=True)
+    salary_expectation = models.CharField(
+        _("Prétention salariale"), max_length=120, blank=True
+    )
     availability = models.CharField(_("Disponibilité"), max_length=120, blank=True)
     cv = models.FileField(_("CV"), upload_to="applications/cv/", blank=True)
     cover_letter = models.FileField(
@@ -273,7 +298,9 @@ class JobApplication(TimeStampedModel):
         blank=True,
     )
     message = models.TextField(_("Message"), blank=True)
-    status = models.CharField(_("Statut"), max_length=30, choices=Status.choices, default=Status.NEW)
+    status = models.CharField(
+        _("Statut"), max_length=30, choices=Status.choices, default=Status.NEW
+    )
 
     class Meta:
         verbose_name = _("Candidature")
@@ -322,7 +349,9 @@ class PartnerApplication(TimeStampedModel):
     country = models.CharField(_("Pays / ville"), max_length=140, blank=True)
     website = models.URLField(_("Site web"), blank=True)
     objective = models.TextField(_("Objectif du partenariat"))
-    status = models.CharField(_("Statut"), max_length=30, choices=Status.choices, default=Status.NEW)
+    status = models.CharField(
+        _("Statut"), max_length=30, choices=Status.choices, default=Status.NEW
+    )
 
     class Meta:
         verbose_name = _("Demande de partenariat")
@@ -346,7 +375,9 @@ class ContactMessage(TimeStampedModel):
     company = models.CharField(_("Entreprise"), max_length=160, blank=True)
     subject = models.CharField(_("Sujet"), max_length=180, blank=True)
     message = models.TextField(_("Message"))
-    status = models.CharField(_("Statut"), max_length=30, choices=Status.choices, default=Status.NEW)
+    status = models.CharField(
+        _("Statut"), max_length=30, choices=Status.choices, default=Status.NEW
+    )
 
     class Meta:
         verbose_name = _("Message de contact")
@@ -393,8 +424,12 @@ class VideoItem(TranslatableModel, OrderedPublicationModel):
         related_name="videos",
     )
     youtube_url = models.URLField(_("URL YouTube"))
-    youtube_id = models.CharField(_("ID YouTube"), max_length=32, blank=True, db_index=True)
-    thumbnail = models.ImageField(_("Miniature personnalisée"), upload_to="videos/thumbnails/", blank=True)
+    youtube_id = models.CharField(
+        _("ID YouTube"), max_length=32, blank=True, db_index=True
+    )
+    thumbnail = models.ImageField(
+        _("Miniature personnalisée"), upload_to="videos/thumbnails/", blank=True
+    )
     published_on_youtube_at = models.DateTimeField(
         _("Date de publication YouTube"),
         blank=True,
@@ -412,7 +447,9 @@ class VideoItem(TranslatableModel, OrderedPublicationModel):
         ordering = ("sort_order", "-published_on_youtube_at", "-created_at")
 
     def __str__(self):
-        return self.safe_translation_getter("title", any_language=True) or self.youtube_id
+        return (
+            self.safe_translation_getter("title", any_language=True) or self.youtube_id
+        )
 
     @property
     def watch_url(self):
@@ -446,7 +483,9 @@ class VideoComment(TimeStampedModel):
     )
     author_name = models.CharField(_("Nom"), max_length=120, blank=True)
     text = models.TextField(_("Commentaire"))
-    status = models.CharField(_("Statut"), max_length=30, choices=Status.choices, default=Status.PENDING)
+    status = models.CharField(
+        _("Statut"), max_length=30, choices=Status.choices, default=Status.PENDING
+    )
 
     class Meta:
         verbose_name = _("Commentaire vidéo")

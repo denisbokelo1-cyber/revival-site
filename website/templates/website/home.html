@@ -476,57 +476,22 @@
           </div>
         </div>
 
+        {% for review in reviews %}
         <div class="testi-card-new">
           <div class="testi-card-new__quote">"</div>
-          <div class="testi-card-new__stars">★★★★★</div>
-          <p class="testi-card-new__text">{% blocktrans trimmed %}Notre boutique en ligne a vu ses conversions augmenter de 120% après le redesign. L'équipe est réactive, professionnelle et vraiment à l'écoute.{% endblocktrans %}</p>
+          <div class="testi-card-new__stars">
+            {% for star in review.rating_ranged %}★{% endfor %}
+          </div>
+          <p class="testi-card-new__text">{{ review.content }}</p>
           <div class="testi-card-new__author">
-            <div class="testi-card-new__avatar" style="background:linear-gradient(135deg,#38619c,#76d0ec)">{% trans "PD" %}</div>
+            <div class="testi-card-new__avatar" style="background:linear-gradient(135deg,#38619c,#76d0ec)">{{ review.client_name|first|upper }}</div>
             <div class="testi-card-new__info">
-              <strong>{% trans "Pierre Dubois" %}</strong>
-              <span>{% trans "CEO, LuxeShop" %}</span>
+              <strong>{{ review.client_name }}</strong>
+              <span>{{ review.client_role }}</span>
             </div>
           </div>
         </div>
-
-        <div class="testi-card-new">
-          <div class="testi-card-new__quote">"</div>
-          <div class="testi-card-new__stars">★★★★★</div>
-          <p class="testi-card-new__text">{% blocktrans trimmed %}Le dashboard analytics nous donne une visibilité en temps réel sur nos KPIs. Indispensable pour nos décisions stratégiques au quotidien.{% endblocktrans %}</p>
-          <div class="testi-card-new__author">
-            <div class="testi-card-new__avatar" style="background:linear-gradient(135deg,#76d0ec,#035194)">{% trans "SC" %}</div>
-            <div class="testi-card-new__info">
-              <strong>{% trans "Sarah Chen" %}</strong>
-              <span>{% trans "COO, DataFlow Inc." %}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card-new">
-          <div class="testi-card-new__quote">"</div>
-          <div class="testi-card-new__stars">★★★★★</div>
-          <p class="testi-card-new__text">{% blocktrans trimmed %}Nous avons collaboré sur notre site corporate et un projet CRM. Très satisfaits de leur travail, leur professionnalisme et leur réactivité.{% endblocktrans %}</p>
-          <div class="testi-card-new__author">
-            <div class="testi-card-new__avatar" style="background:linear-gradient(135deg,#035194,#38619c)">{% trans "KH" %}</div>
-            <div class="testi-card-new__info">
-              <strong>{% trans "Karim Hassan" %}</strong>
-              <span>{% trans "Directeur, Nexzen Solutions" %}</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card-new">
-          <div class="testi-card-new__quote">"</div>
-          <div class="testi-card-new__stars">★★★★★</div>
-          <p class="testi-card-new__text">{% blocktrans trimmed %}Une équipe exceptionnelle qui a su comprendre nos besoins métier et livrer une solution sur mesure en un temps record. Bravo Revival !{% endblocktrans %}</p>
-          <div class="testi-card-new__author">
-            <div class="testi-card-new__avatar" style="background:linear-gradient(135deg,#019cd6,#001860)">{% trans "AM" %}</div>
-            <div class="testi-card-new__info">
-              <strong>{% trans "Amina Mbaye" %}</strong>
-              <span>{% trans "Fondatrice, AfriTech Hub" %}</span>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
 
       <!-- Logos clients -->
@@ -561,66 +526,12 @@
           <a href="{% url 'website:contact' %}" class="btn btn--primary">{% trans "Nous contacter" %}</a>
         </div>
         <div class="faq__right">
+          {% for faq in faqs %}
           <div class="faq-item">
-            <button class="faq-q">{% trans "Qu'est-ce que Revival ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Revival est une entreprise spécialisée dans le digital et l'intelligence artificielle, qui accompagne les particuliers, entrepreneurs et entreprises dans la création, la transformation et la croissance de leurs activités grâce à des solutions technologiques modernes. Notre mission est de permettre à chacun de concrétiser ses idées et de réussir dans l'économie digitale.{% endblocktrans %}</div>
+            <button class="faq-q">{% trans faq.question %}<span class="faq-icon">+</span></button>
+            <div class="faq-a">{% trans faq.answer %}</div>
           </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Quels services propose Revival ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Revival propose une large gamme de services incluant la création d'applications mobiles, le développement de sites web, les plateformes e-commerce, les solutions de gestion d'entreprise (ERP, CRM), l'automatisation des processus, ainsi que l'accompagnement stratégique et technique des entreprises.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "À qui s'adressent vos services ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Nos services s'adressent à toute personne ou organisation souhaitant évoluer dans le digital. Cela inclut les entrepreneurs, les startups, les PME, les grandes entreprises, ainsi que toute personne ayant une idée ou un projet à concrétiser.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Est-il possible de lancer un projet sans connaissances techniques ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui, absolument. Revival prend en charge toute la partie technique. Vous n'avez pas besoin de savoir coder ou maîtriser les outils digitaux. Nous vous accompagnons de l'idée jusqu'à la mise en œuvre complète de votre projet.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Combien coûtent vos services ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Le coût dépend du type de projet, de sa complexité et des fonctionnalités souhaitées. Revival propose des solutions adaptées à différents budgets, avec l'objectif de rendre le digital accessible tout en garantissant qualité et performance.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Combien de temps faut-il pour développer une solution digitale ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}La durée dépend du projet. Certains projets simples peuvent être réalisés en quelques jours, tandis que des plateformes plus complexes peuvent nécessiter plusieurs semaines. Un délai précis est toujours communiqué après analyse du besoin.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Puis-je créer une application ou une plateforme comme Uber, Amazon ou TikTok ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui, c'est possible. Revival développe des solutions digitales inspirées des grandes plateformes, adaptées aux réalités africaines, avec des fonctionnalités modernes et évolutives.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Proposez-vous un accompagnement après la mise en ligne ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui. Revival assure un suivi continu, incluant la maintenance, les mises à jour, l'amélioration des performances et l'accompagnement stratégique pour garantir la réussite de votre projet sur le long terme.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Comment puis-je commencer avec Revival ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Il vous suffit de nous contacter via notre site ou nos canaux officiels. Notre équipe analysera votre besoin et vous proposera une solution adaptée avec un plan clair pour la réalisation de votre projet.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Revival travaille-t-il uniquement en RDC ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Non. Bien que nous soyons fortement ancrés en République Démocratique du Congo, nos services sont accessibles à toute l'Afrique et à l'international.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Mes données et mon projet sont-ils sécurisés ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui. Revival accorde une grande importance à la sécurité et à la confidentialité. Toutes les informations sont protégées et traitées de manière sécurisée selon les standards modernes.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Puis-je collaborer avec Revival en tant que partenaire ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui. Revival propose plusieurs types de partenariats, notamment commerciaux, technologiques et stratégiques. Vous pouvez nous contacter pour discuter des opportunités de collaboration.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Puis-je payer avec Mobile Money ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui. Revival propose des solutions de paiement adaptées au contexte africain, incluant Mobile Money, afin de faciliter l'accès à ses services.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Revival peut-il m'aider à développer mon business existant ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Oui. Nous ne créons pas seulement des solutions, nous aidons également les entreprises existantes à améliorer leurs performances, attirer plus de clients et automatiser leurs opérations.{% endblocktrans %}</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">{% trans "Que se passe-t-il si je n'ai pas encore une idée claire ?" %}<span class="faq-icon">+</span></button>
-            <div class="faq-a">{% blocktrans trimmed %}Ce n'est pas un problème. Revival vous accompagne dans la structuration de votre idée, l'identification des opportunités et la mise en place d'un projet viable et rentable.{% endblocktrans %}</div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>

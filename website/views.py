@@ -1,10 +1,13 @@
 import json
+from typing import Any
 
 from django.http import JsonResponse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
+
+from website.models import FAQ, Review
 
 
 class RevivalTemplateView(TemplateView):
@@ -19,6 +22,12 @@ class RevivalTemplateView(TemplateView):
 class HomeView(RevivalTemplateView):
     template_name = "website/home.html"
     active_page = "home"
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["faqs"] = FAQ.objects.filter(page=FAQ.Page.HOME, is_active=True)
+        context["reviews"] = Review.objects.filter(is_active=True, is_featured=True)
+        return context
 
 
 class AboutView(RevivalTemplateView):
@@ -117,14 +126,18 @@ class PoshubArticleView(ArticleView):
 @csrf_exempt
 def contact_submit(request):
     if request.method != "POST":
-        return JsonResponse({"success": False, "message": _("Method not allowed")}, status=405)
+        return JsonResponse(
+            {"success": False, "message": _("Method not allowed")}, status=405
+        )
     return JsonResponse({"success": True})
 
 
 @csrf_exempt
 def application_submit(request):
     if request.method != "POST":
-        return JsonResponse({"success": False, "message": _("Method not allowed")}, status=405)
+        return JsonResponse(
+            {"success": False, "message": _("Method not allowed")}, status=405
+        )
     return JsonResponse({"success": True})
 
 
