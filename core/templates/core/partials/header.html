@@ -1,4 +1,5 @@
 {% load static i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
 <header class="header" id="header">
   <div class="container header__inner">
     <a href="{% url 'website:home' %}" class="logo">
@@ -78,12 +79,16 @@
         <div class="lang-switcher" id="langSwitcher">
           <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <span id="langCurrent">{% trans "FR" %}</span>
+            <span id="langCurrent">{{ CURRENT_LANGUAGE|upper }}</span>
             <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="lang-dropdown" id="langDropdown">
-            <button class="lang-option lang-option--active" data-lang="fr"><span class="lang-flag">🇫🇷</span> {% trans "Français" %}</button>
-            <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> {% trans "English" %}</button>
+            <form action="{% url 'set_language' %}" method="post" class="lang-form">
+              {% csrf_token %}
+              <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              <button type="submit" name="language" value="fr" class="lang-option{% if CURRENT_LANGUAGE == 'fr' %} lang-option--active{% endif %}" data-lang="fr"><span class="lang-flag">🇫🇷</span> {% trans "Français" %}</button>
+              <button type="submit" name="language" value="en" class="lang-option{% if CURRENT_LANGUAGE == 'en' %} lang-option--active{% endif %}" data-lang="en"><span class="lang-flag">🇬🇧</span> {% trans "English" %}</button>
+            </form>
           </div>
         </div>
         <a href="{% url 'website:contact' %}" class="nav__cta-btn">{% trans "Consultation gratuite →" %}</a>
@@ -94,12 +99,16 @@
       <div class="lang-switcher lang-switcher--desktop" id="langSwitcherDesktop">
         <button class="lang-btn" id="langBtnDesktop" aria-haspopup="true" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span id="langCurrentDesktop">{% trans "FR" %}</span>
+          <span id="langCurrentDesktop">{{ CURRENT_LANGUAGE|upper }}</span>
           <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="lang-dropdown" id="langDropdownDesktop">
-          <button class="lang-option lang-option--active" data-lang="fr"><span class="lang-flag">🇫🇷</span> {% trans "Français" %}</button>
-          <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> {% trans "English" %}</button>
+          <form action="{% url 'set_language' %}" method="post" class="lang-form">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <button type="submit" name="language" value="fr" class="lang-option{% if CURRENT_LANGUAGE == 'fr' %} lang-option--active{% endif %}" data-lang="fr"><span class="lang-flag">🇫🇷</span> {% trans "Français" %}</button>
+            <button type="submit" name="language" value="en" class="lang-option{% if CURRENT_LANGUAGE == 'en' %} lang-option--active{% endif %}" data-lang="en"><span class="lang-flag">🇬🇧</span> {% trans "English" %}</button>
+          </form>
         </div>
       </div>
       <button class="burger" id="burger" aria-label="{% trans "Menu" %}" aria-expanded="false">

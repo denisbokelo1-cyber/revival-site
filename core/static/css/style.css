@@ -1281,6 +1281,10 @@ img { max-width: 100%; display: block; }
   transform: translateY(0);
 }
 
+.lang-form {
+  margin: 0;
+}
+
 .lang-option {
   display: flex;
   align-items: center;

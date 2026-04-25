@@ -21,6 +21,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path("i18n/", include("django.conf.urls.i18n")),
     path("", include("website.urls")),
     path(settings.ADMIN_URL, admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
