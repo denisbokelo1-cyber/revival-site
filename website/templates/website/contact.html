@@ -318,7 +318,15 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
-      .then(r => r.json())
+      .then(async (r) => {
+        const result = await r.json().catch(() => ({}));
+        if (!r.ok || !result.success) {
+          const error = new Error(result.message || "{% trans "Une erreur est survenue. Veuillez réessayer." %}");
+          error.responseMessage = result.message;
+          throw error;
+        }
+        return result;
+      })
       .then(() => {
         const successEl = document.getElementById('formSuccess');
         successEl.style.display = 'flex';
@@ -327,8 +335,8 @@
         btn.innerHTML = originalHTML;
         setTimeout(() => { successEl.style.display = 'none'; }, 6000);
       })
-      .catch(() => {
-        alert("{% trans "Une erreur est survenue. Veuillez réessayer." %}");
+      .catch((error) => {
+        alert(error?.responseMessage || error?.message || "{% trans "Une erreur est survenue. Veuillez réessayer." %}");
         btn.disabled = false;
         btn.innerHTML = originalHTML;
       });

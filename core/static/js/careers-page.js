@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const expired = item && item.classList.contains('job-expired');
 
     const jobData = {
+      id:          btn.dataset.jobId       || '',
       title:       btn.dataset.jobTitle    || '',
       company:     btn.dataset.jobCompany  || '',
       location:    btn.dataset.jobLocation || '',
@@ -187,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (spontBtn) {
     spontBtn.addEventListener('click', () => {
       const jobData = {
+        id:          spontBtn.dataset.jobId || '',
         title:       spontBtn.dataset.jobTitle || gettext('Candidature spontanee'),
         company:     spontBtn.dataset.jobCompany || gettext('Revival Tech'),
         location:    spontBtn.dataset.jobLocation || '',

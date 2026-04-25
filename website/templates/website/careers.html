@@ -148,238 +148,56 @@
       <!-- Filtre categorie -->
       <div class="jobs-filter fade-up">
         <button class="filter-btn active" data-filter="all">{% trans "Tous" %}</button>
-        <button class="filter-btn" data-filter="dev">{% trans "Developpement" %}</button>
-        <button class="filter-btn" data-filter="design">{% trans "Design" %}</button>
-        <button class="filter-btn" data-filter="ops">{% trans "DevOps" %}</button>
-        <button class="filter-btn" data-filter="biz">{% trans "Business" %}</button>
+        {% for dept in job_departments %}
+          <button class="filter-btn" data-filter="{{ dept.code }}">{{ dept.name }}</button>
+        {% endfor %}
       </div>
 
-      <!-- Liste des offres (data-* attributes) -->
+      <!-- Liste des offres -->
       <div class="jobs-list" id="jobsList">
-
-        <div class="job-item" data-cat="dev"
-          data-title="{% trans "Developpeur Full-Stack Senior" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Remote ou Kinshasa" %}"
-          data-salary="{% trans "55k - 75k EUR" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-03-15"
-          data-deadline="2026-05-01"
-          data-description="{% trans "Nous recherchons un developpeur Full-Stack Senior maitrisantLaravel, React et MySQL pour rejoindre notre equipe produit. Vous serez responsable de la conception et du developpement de nouvelles fonctionnalites, de la revue de code et du mentorat des developpeurs juniors." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        {% for offer in job_offers %}
+          <div class="job-item" data-cat="{{ offer.department.code }}"
+            data-title="{{ offer.title|default_if_none:'' }}"
+            data-company="{% trans "Revival Tech" %}"
+            data-location="{{ offer.location|default_if_none:'' }}"
+            data-salary="{{ offer.salary_range|default_if_none:'' }}"
+            data-type="{{ offer.get_contract_type_display }}"
+            data-date="{{ offer.published_at|date:'Y-m-d' }}"
+            data-deadline="{% if offer.deadline %}{{ offer.deadline|date:'Y-m-d' }}{% endif %}"
+            data-description="{{ offer.description|striptags }}">
+            <div class="job-item__left">
+              <div class="job-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M9 4V2h6v2"/><path d="M2 11h20"/></svg>
+              </div>
+              <div class="job-item__info">
+                <h3 class="job-item__title">{{ offer.title }}</h3>
+                <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{{ offer.location|default:"Remote" }}</span></p>
+                <p class="job-item__date">{% trans "Publie le" %} {{ offer.published_at|date:"j F Y" }}</p>
+              </div>
             </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "Developpeur Full-Stack Senior" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "À distance ou Kinshasa" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 15 mars 2026" %}</p>
-            </div>
-          </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "55k - 75k EUR" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "Developpeur Full-Stack Senior" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Remote ou Kinshasa" %}"
-              data-job-salary="{% trans "55k - 75k EUR" %}"
-              data-job-description="{% trans "Nous recherchons un developpeur Full-Stack Senior maitrisantLaravel, React et MySQL pour rejoindre notre equipe produit." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
-
-        <div class="job-item" data-cat="dev"
-          data-title="{% trans "Developpeur Front-End React/Next.js" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Remote" %}"
-          data-salary="{% trans "45k - 65k EUR" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-03-20"
-          data-deadline="2026-04-25"
-          data-description="{% trans "Rejoignez notre equipe front-end pour construire des interfaces utilisateur modernes et performantes avec React et Next.js. Vous travaillerez en etroite collaboration avec nos designers UX et les developpeurs back-end." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "Developpeur Front-End React/Next.js" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 20 mars 2026" %}</p>
+            <div class="job-item__right">
+              <span class="job-tag">{{ offer.get_contract_type_display }}</span>
+              <span class="job-status-badge"></span>
+              <span class="job-salary">{{ offer.salary_range|default:"-" }}</span>
+              <button class="btn btn--sm btn--primary job-apply-btn"
+                data-job-id="{{ offer.id }}"
+                data-job-title="{{ offer.title }}"
+                data-job-company="{% trans "Revival Tech" %}"
+                data-job-location="{{ offer.location|default_if_none:'' }}"
+                data-job-salary="{{ offer.salary_range|default_if_none:'' }}"
+                data-job-description="{{ offer.description|striptags }}">{% trans "Postuler" %}</button>
             </div>
           </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "45k - 65k EUR" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "Developpeur Front-End React/Next.js" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Remote" %}"
-              data-job-salary="{% trans "45k - 65k EUR" %}"
-              data-job-description="{% trans "Rejoignez notre equipe front-end pour construire des interfaces utilisateur modernes et performantes avec React et Next.js." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
-
-        <div class="job-item" data-cat="dev"
-          data-title="{% trans "Developpeur Back-End Laravel" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Remote ou Lyon" %}"
-          data-salary="{% trans "42k - 60k EUR" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-02-10"
-          data-deadline="2026-04-10"
-          data-description="{% trans "Nous cherchons un developpeur Back-End experimente en PHP/Laravel pour concevoir et maintenir nos APIs REST. Vous participerez a l'architecture des solutions et a l'optimisation des performances." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "Developpeur Back-End Laravel" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote ou Lyon" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 10 fevrier 2026" %}</p>
+        {% empty %}
+          <div class="job-item">
+            <div class="job-item__left">
+              <div class="job-item__info">
+                <h3 class="job-item__title">{% trans "Aucune offre disponible pour le moment" %}</h3>
+                <p class="job-item__meta">{% trans "Revenez bientôt ou envoyez une candidature spontanée." %}</p>
+              </div>
             </div>
           </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "42k - 60k EUR" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "Developpeur Back-End Laravel" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Remote ou Lyon" %}"
-              data-job-salary="{% trans "42k - 60k EUR" %}"
-              data-job-description="{% trans "Nous cherchons un developpeur Back-End experimente en PHP/Laravel pour concevoir et maintenir nos APIs REST." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
-
-        <div class="job-item" data-cat="design"
-          data-title="{% trans "UI/UX Designer Senior" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Remote" %}"
-          data-salary="{% trans "45k - 60k EUR" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-03-25"
-          data-deadline="2026-05-15"
-          data-description="{% trans "Nous recherchons un UI/UX Designer Senior pour concevoir des experiences utilisateur exceptionnelles. Vous travaillerez sur Figma, creerez des design systems et collaborerez etroitement avec les equipes produit et developpement." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "UI/UX Designer Senior" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 25 mars 2026" %}</p>
-            </div>
-          </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "45k - 60k EUR" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "UI/UX Designer Senior" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Remote" %}"
-              data-job-salary="{% trans "45k - 60k EUR" %}"
-              data-job-description="{% trans "Nous recherchons un UI/UX Designer Senior pour concevoir des experiences utilisateur exceptionnelles sur Figma." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
-
-        <div class="job-item" data-cat="ops"
-          data-title="{% trans "DevOps / Cloud Engineer" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Remote" %}"
-          data-salary="{% trans "55k - 75k EUR" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-04-01"
-          data-deadline="2026-06-01"
-          data-description="{% trans "Rejoignez notre equipe infrastructure pour gerer et optimiser nos environnements cloud AWS. Vous serez en charge de la mise en place des pipelines CI/CD, de la containerisation Docker/Kubernetes et de la securite des systemes." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-            </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "DevOps / Cloud Engineer" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 1 avril 2026" %}</p>
-            </div>
-          </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "55k - 75k EUR" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "DevOps / Cloud Engineer" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Remote" %}"
-              data-job-salary="{% trans "55k - 75k EUR" %}"
-              data-job-description="{% trans "Rejoignez notre equipe infrastructure pour gerer et optimiser nos environnements cloud AWS avec Docker et Kubernetes." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
-
-        <div class="job-item" data-cat="biz"
-          data-title="{% trans "Business Developer" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Kinshasa ou Remote" %}"
-          data-salary="{% trans "40k - 55k EUR + variable" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-03-10"
-          data-deadline="2026-04-05"
-          data-description="{% trans "Nous cherchons un Business Developer dynamique pour developper notre portefeuille clients et nos partenariats strategiques. Vous serez responsable de la prospection, de la negociation et du closing des deals." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "Business Developer" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Kinshasa ou À distance" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 10 mars 2026" %}</p>
-            </div>
-          </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "40k - 55k EUR + variable" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "Business Developer" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Kinshasa ou Remote" %}"
-              data-job-salary="{% trans "40k - 55k EUR + variable" %}"
-              data-job-description="{% trans "Nous cherchons un Business Developer dynamique pour developper notre portefeuille clients et nos partenariats strategiques." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
-
-        <div class="job-item" data-cat="dev"
-          data-title="{% trans "Developpeur Mobile React Native" %}"
-          data-company="{% trans "Revival Tech" %}"
-          data-location="{% trans "Remote" %}"
-          data-salary="{% trans "45k - 65k EUR" %}"
-          data-type="{% trans "Full-time" %}"
-          data-date="2026-04-05"
-          data-deadline="2026-06-15"
-          data-description="{% trans "Nous recherchons un developpeur Mobile React Native pour concevoir et developper nos applications iOS et Android. Vous travaillerez sur des projets innovants avec une equipe passionnee." %}">
-          <div class="job-item__left">
-            <div class="job-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            </div>
-            <div class="job-item__info">
-              <h3 class="job-item__title">{% trans "Developpeur Mobile React Native" %}</h3>
-              <p class="job-item__meta"><span class="job-company">{% trans "Revival Tech" %}</span> {% trans "&bull;" %} <span class="job-location">{% trans "Remote" %}</span></p>
-              <p class="job-item__date">{% trans "Publie le 5 avril 2026" %}</p>
-            </div>
-          </div>
-          <div class="job-item__right">
-            <span class="job-tag">{% trans "Full-time" %}</span>
-            <span class="job-status-badge"></span>
-            <span class="job-salary">{% trans "45k - 65k EUR" %}</span>
-            <button class="btn btn--sm btn--primary job-apply-btn"
-              data-job-title="{% trans "Developpeur Mobile React Native" %}"
-              data-job-company="{% trans "Revival Tech" %}"
-              data-job-location="{% trans "Remote" %}"
-              data-job-salary="{% trans "45k - 65k EUR" %}"
-              data-job-description="{% trans "Nous recherchons un developpeur Mobile React Native pour concevoir et developper nos applications iOS et Android." %}">{% trans "Postuler" %}</button>
-          </div>
-        </div>
+        {% endfor %}
 
       </div><!-- /.jobs-list -->
 
@@ -434,6 +252,7 @@
         <p>{% trans "Envoyez-nous une candidature spontanee, nous sommes toujours a l'ecoute." %}</p>
       </div>
       <button class="btn btn--white" id="spontaneousBtn"
+        data-job-id=""
         data-job-title="{% trans "Candidature spontanee" %}"
         data-job-company="{% trans "Revival Tech" %}"
         data-job-location="{% trans "Remote ou presentiel" %}"

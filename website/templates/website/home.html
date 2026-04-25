@@ -722,14 +722,37 @@
       e.preventDefault();
       const btn = document.getElementById('indexNlBtn');
       const msg = document.getElementById('indexNlMsg');
+      const emailInput = document.getElementById('indexNlEmail');
+      const email = (emailInput.value || '').trim();
+
       btn.disabled = true;
       btn.textContent = "{% trans "Envoi…" %}";
-      await new Promise(r => setTimeout(r, 900));
-      msg.style.color = '#4ade80';
-      msg.textContent = "{% trans "✓ Merci ! Vous êtes bien inscrit(e) à la newsletter Revival." %}";
-      document.getElementById('indexNlEmail').value = '';
-      btn.disabled = false;
-      btn.textContent = "{% trans "S'abonner" %}";
+
+      try {
+        const response = await fetch("{% url 'website:newsletter_subscribe' %}", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            source: 'home'
+          })
+        });
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || "{% trans "Une erreur est survenue. Veuillez réessayer." %}");
+        }
+
+        msg.style.color = '#4ade80';
+        msg.textContent = data.message || "{% trans "✓ Merci ! Vous êtes bien inscrit(e) à la newsletter Revival." %}";
+        emailInput.value = '';
+      } catch (error) {
+        msg.style.color = '#f87171';
+        msg.textContent = error.message || "{% trans "Une erreur est survenue. Veuillez réessayer." %}";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "{% trans "S'abonner" %}";
+      }
     });
   </script>
 {% endblock %}

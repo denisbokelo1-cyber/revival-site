@@ -118,6 +118,7 @@ class ApplicationModalSimple {
     return `
     <form id="appForm" novalidate>
       <!-- Champs caches -->
+      <input type="hidden" name="job_id" value="${this._esc(job.id || '')}" />
       <input type="hidden" name="job_title" value="${this._esc(job.title || '')}" />
       <input type="hidden" name="job_company" value="${this._esc(job.company || '')}" />
       <input type="hidden" name="job_location" value="${this._esc(job.location || '')}" />

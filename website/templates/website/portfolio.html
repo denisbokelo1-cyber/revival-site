@@ -7,7 +7,7 @@
 {% block meta %}
 <!-- ═══ SEO PRIMARY ═══ -->
   
-  <meta name="description" content="{% trans "Découvrez les 21+ projets livrés par Revival : applications web, mobiles, SaaS et plateformes digitales pour des clients en Afrique et Europe. Voir nos réalisations." %}" />
+  <meta name="description" content="{% trans "Découvrez les projets digitaux livrés par Revival : applications web, mobiles, SaaS et plateformes pour des clients en Afrique et en Europe." %}" />
   <meta name="keywords" content="{% trans "portfolio agence digitale, réalisations web mobile, projets SaaS Afrique, applications développées Revival, exemples transformation digitale" %}" />
   <meta name="author" content="Revival Agency" />
   <meta name="robots" content="index, follow" />
@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://revival-business.com/portfolio.html" />
   <meta property="og:title" content="{% trans "Portfolio — Nos Réalisations Web & Mobile | Revival Agency" %}" />
-  <meta property="og:description" content="{% trans "21+ projets livrés : Poshub, Kulatable, Ecomnex, Freela et bien d'autres. Découvrez comment Revival transforme les idées en produits digitaux performants." %}" />
+  <meta property="og:description" content="{% trans "Découvrez nos réalisations web, mobiles et SaaS et comment Revival transforme les idées en produits digitaux performants." %}" />
   <meta property="og:image" content="https://revival-business.com/projet/poshub.png" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Revival Agency" />
@@ -25,7 +25,7 @@
   <!-- ═══ TWITTER CARD ═══ -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@groupe85249" />
-  <meta name="twitter:title" content="{% trans "Portfolio Revival — 21+ Projets Digitaux Livrés" %}" />
+  <meta name="twitter:title" content="{% trans "Portfolio Revival — Projets Digitaux Livrés" %}" />
   <meta name="twitter:description" content="{% trans "Applications web, mobiles et SaaS développées par Revival pour des clients en Afrique et Europe. Découvrez nos réalisations." %}" />
   <meta name="twitter:image" content="https://revival-business.com/projet/poshub.png" />
 
@@ -87,33 +87,24 @@
     .pf-card{background:#fff;border:1px solid var(--border);border-radius:var(--pf-r);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;cursor:pointer;position:relative;}
     .pf-card:hover{transform:translateY(-10px);box-shadow:0 40px 80px rgba(0,0,0,.16);}
 
-    /* Réinitialisation de toutes les positions bento (grille auto) */
-    .pf-card--a,.pf-card--b,.pf-card--c,.pf-card--d,.pf-card--e,.pf-card--f,
-    .pf-card--g,.pf-card--h,.pf-card--i,.pf-card--j,.pf-card--k,.pf-card--l,
-    .pf-card--m,.pf-card--n,.pf-card--o,.pf-card--p,.pf-card--q,.pf-card--r,
-    .pf-card--s,.pf-card--t,.pf-card--u,.pf-card--v,.pf-card--w{
-      grid-column:auto;grid-row:auto;
-    }
-
     /* visual zone */
-    .pf-card__visual{flex:1;position:relative;overflow:hidden;min-height:200px;}
+    .pf-card__visual{flex:0 0 220px;position:relative;overflow:hidden;height:220px;min-height:220px;max-height:220px;background:linear-gradient(135deg,#eef4ff,#ddeafb);}
     .pf-card__visual img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s;}
     .pf-card:hover .pf-card__visual img{transform:scale(1.06);opacity:.75;}
 
-    /* gradient visual for non-image cards */
-    .pf-card__visual-grad{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-
-    /* mockup window */
-    .pf-mock{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;width:82%;max-width:320px;backdrop-filter:blur(8px);overflow:hidden;}
-    .pf-mock__bar{background:rgba(255,255,255,.15);padding:10px 14px;display:flex;gap:6px;align-items:center;}
-    .pf-mock__bar span{width:10px;height:10px;border-radius:50%;}
-    .pf-mock__bar span:nth-child(1){background:#ff5f57;}
-    .pf-mock__bar span:nth-child(2){background:#febc2e;}
-    .pf-mock__bar span:nth-child(3){background:#28c840;}
-    .pf-mock__content{padding:16px;}
-    .pf-mock__bars{display:flex;align-items:flex-end;gap:8px;height:72px;}
-    .pf-mock__bar-item{flex:1;border-radius:5px 5px 0 0;background:rgba(255,255,255,.55);animation:growBar 1.2s ease-out forwards;transform-origin:bottom;}
-    @keyframes growBar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    .pf-card__placeholder{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#035194,#019cd6);
+      color:rgba(255,255,255,.96);
+      font-size:40px;
+      font-weight:700;
+      letter-spacing:-.03em;
+      text-transform:uppercase;
+    }
 
     /* hover overlay */
     .pf-card__overlay{position:absolute;inset:0;background:rgba(3,81,148,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;opacity:0;transition:opacity .3s;backdrop-filter:blur(6px);}
@@ -128,26 +119,6 @@
     .pf-card__tag{padding:3px 10px;background:#f0f9ff;color:var(--pf-accent);border-radius:50px;font-size:11px;font-weight:600;border:1px solid rgba(1,156,214,.2);}
     .pf-card__name{font-size:15px;font-weight:700;margin-bottom:3px;color:var(--black);}
     .pf-card__desc{font-size:12px;color:var(--gray);line-height:1.5;margin-bottom:10px;}
-    .pf-card__kpi{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#059669;}
-
-    /* ── FEATURED STRIP ── */
-    .pf-featured{padding:80px 0;background:linear-gradient(135deg,#000d1f 0%,#021f3d 100%);}
-    .pf-featured__header{text-align:center;margin-bottom:56px;}
-    .pf-featured__header h2{color:#fff;font-size:clamp(28px,3.5vw,44px);letter-spacing:-.03em;margin:12px 0 14px;}
-    .pf-featured__header p{color:rgba(255,255,255,.5);font-size:16px;}
-    .pf-featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    .pf-feat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--pf-r);overflow:hidden;transition:transform .35s,background .3s,border-color .3s;}
-    .pf-feat-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);border-color:rgba(1,156,214,.3);}
-    .pf-feat-card__img{height:200px;overflow:hidden;}
-    .pf-feat-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
-    .pf-feat-card:hover .pf-feat-card__img img{transform:scale(1.05);}
-    .pf-feat-card__body{padding:24px;}
-    .pf-feat-card__cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--pf-accent);margin-bottom:8px;display:block;}
-    .pf-feat-card__name{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;}
-    .pf-feat-card__desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:16px;}
-    .pf-feat-card__link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--pf-accent);text-decoration:none;transition:gap .2s;}
-    .pf-feat-card:hover .pf-feat-card__link{gap:10px;}
-
     /* ── TESTIMONIALS ── */
     .pf-testi{padding:100px 0;background:#000d1f;}
     .pf-testi__header{text-align:center;margin-bottom:56px;}
@@ -176,14 +147,12 @@
     /* ── RESPONSIVE ── */
     @media(max-width:1024px){
       .pf-bento{grid-template-columns:repeat(2,1fr);}
-      .pf-featured-grid{grid-template-columns:1fr 1fr;}
       .pf-testi-grid{grid-template-columns:1fr;}
     }
     @media(max-width:640px){
       .pf-bento{grid-template-columns:1fr;}
       .pf-stats-bar__inner{grid-template-columns:repeat(2,1fr);}
       .pf-stat-item:nth-child(2){border-right:none;}
-      .pf-featured-grid{grid-template-columns:1fr;}
     }
   </style>
 {% endblock %}
@@ -215,434 +184,72 @@
     <div class="container">
       <div class="pf-stats-bar__inner">
         <div class="pf-stat-item fade-up delay-1">
-          <div class="pf-stat-item__num" data-count="23">0+</div>
+          <div class="pf-stat-item__num">{{ portfolio_stats.projects_count }}</div>
           <div class="pf-stat-item__label">{% trans "Projets livrés" %}</div>
         </div>
         <div class="pf-stat-item fade-up delay-2">
-          <div class="pf-stat-item__num">{% trans "3 ans" %}</div>
-          <div class="pf-stat-item__label">{% trans "D'expérience" %}</div>
+          <div class="pf-stat-item__num">{{ portfolio_stats.categories_count }}</div>
+          <div class="pf-stat-item__label">{% trans "Catégories actives" %}</div>
         </div>
         <div class="pf-stat-item fade-up delay-3">
-          <div class="pf-stat-item__num" data-count="10">0</div>
-          <div class="pf-stat-item__label">{% trans "Pays couverts" %}</div>
+          <div class="pf-stat-item__num">{{ portfolio_stats.featured_count }}</div>
+          <div class="pf-stat-item__label">{% trans "Projets mis en avant" %}</div>
         </div>
         <div class="pf-stat-item fade-up delay-4">
-          <div class="pf-stat-item__num">98%</div>
-          <div class="pf-stat-item__label">{% trans "Clients satisfaits" %}</div>
+          <div class="pf-stat-item__num">{{ portfolio_stats.with_link_count }}</div>
+          <div class="pf-stat-item__label">{% trans "Projets publiés en ligne" %}</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS BENTO GRID REMOVED -->
-  <!--BENTO_START-->
+  <!-- PROJECTS -->
   <section class="section" style="padding:80px 0 100px;background:var(--bg);">
     <div class="container">
       <div class="pf-filter-wrap fade-up">
         <div class="pf-filter-bar">
           <button class="pf-filter-btn active" data-filter="all">{% trans "Tous" %}</button>
-          <button class="pf-filter-btn" data-filter="saas">{% trans "SaaS" %}</button>
-          <button class="pf-filter-btn" data-filter="mobile">{% trans "Mobile" %}</button>
-          <button class="pf-filter-btn" data-filter="web">{% trans "Web App" %}</button>
-          <button class="pf-filter-btn" data-filter="ecom">{% trans "E-commerce" %}</button>
-          <button class="pf-filter-btn" data-filter="fintech">{% trans "Fintech" %}</button>
+          {% for category in project_categories %}
+            <button class="pf-filter-btn" data-filter="{{ category.code }}">{{ category.name }}</button>
+          {% endfor %}
         </div>
-        <span class="pf-count" id="pfCount">{% trans "23 projets" %}</span>
+        <span class="pf-count" id="pfCount">{{ projects|length }} {% trans "projets" %}</span>
       </div>
 
       <div class="pf-bento" id="pfGrid">
-
-        <!-- A — PosHub (grande) -->
-        <div class="pf-card pf-card--a fade-up delay-1" data-cat="saas">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#021f3d 0%,#035194 50%,#019cd6 100%)">
-            <img src="{% static 'projet/poshub.png' %}" alt="{% trans "PosHub" %}" style="opacity:.7" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "PosHub — Gestion intelligente" %}</div>
-              <a href="https://poshub-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
+        {% for project in projects %}
+          <div class="pf-card fade-up delay-1" data-cat="{{ project.category.code }}">
+            <div class="pf-card__visual">
+              {% if project.image.name %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" />
+              {% else %}
+                <div class="pf-card__placeholder" aria-label="{% trans "Image non disponible" %}">
+                  {{ project.title|slice:":2" }}
+                </div>
+              {% endif %}
+              <div class="pf-card__overlay">
+                <div class="pf-card__overlay-title">{{ project.title }}</div>
+                {% if project.external_url %}
+                  <a href="{{ project.external_url }}" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
+                {% else %}
+                  <span class="pf-card__overlay-btn" style="opacity:.9;pointer-events:none;">{% trans "Projet interne" %}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="pf-card__foot">
+              <div class="pf-card__tags">
+                <span class="pf-card__tag">{{ project.category.name }}</span>
+                {% if project.technologies %}
+                  <span class="pf-card__tag">{{ project.technologies|truncatechars:28 }}</span>
+                {% endif %}
+              </div>
+              <div class="pf-card__name">{{ project.title }}</div>
+              <div class="pf-card__desc">
+                {{ project.short_description|default:project.description|truncatechars:140 }}
+              </div>
             </div>
           </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "SaaS" %}</span><span class="pf-card__tag">{% trans "Laravel" %}</span><span class="pf-card__tag">{% trans "React" %}</span><span class="pf-card__tag">{% trans "Analytics" %}</span></div>
-            <div class="pf-card__name">{% trans "PosHub" %}</div>
-            <div class="pf-card__desc">{% blocktrans trimmed %}Solution complète de gestion d'entreprise : caisse, stocks, RH, facturation et analytics en temps réel.{% endblocktrans %}</div>
-            <div class="pf-card__kpi"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>{% trans "500+ entreprises utilisatrices" %}</div>
-          </div>
-        </div>
-
-        <!-- B — PharmaHub -->
-        <div class="pf-card pf-card--b fade-up delay-2" data-cat="saas">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#0d4f3c,#1a9e6e)">
-            <img src="{% static 'projet/pharmhub.png' %}" alt="{% trans "PharmaHub" %}" style="opacity:.75" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "PharmaHub — Gestion Pharmacie" %}</div>
-              <a href="https://pharmhub-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "SaaS" %}</span><span class="pf-card__tag">{% trans "PHP" %}</span><span class="pf-card__tag">{% trans "MySQL" %}</span></div>
-            <div class="pf-card__name">{% trans "PharmaHub" %}</div>
-            <div class="pf-card__desc">{% trans "Gestion digitale complète de pharmacie : stocks, ordonnances, ventes et reporting." %}</div>
-            <div class="pf-card__kpi"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>{% trans "Solution sur mesure pharmacie" %}</div>
-          </div>
-        </div>
-
-        <!-- C — Freela -->
-        <div class="pf-card pf-card--c fade-up delay-3" data-cat="mobile">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#38619c,#76d0ec)">
-            <img src="{% static 'projet/Freela.png' %}" alt="{% trans "Freela" %}" style="opacity:.75" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Freela — Marketplace Freelance" %}</div>
-              <a href="https://freela-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Mobile" %}</span><span class="pf-card__tag">{% trans "React Native" %}</span></div>
-            <div class="pf-card__name">{% trans "Freela" %}</div>
-            <div class="pf-card__desc">{% trans "La plateforme freelance made in Africa — connectez talents et opportunités." %}</div>
-            <div class="pf-card__kpi">{% trans "⭐ 4.8/5 sur les stores" %}</div>
-          </div>
-        </div>
-
-        <!-- D — Match Work -->
-        <div class="pf-card pf-card--d fade-up delay-1" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
-            <img src="{% static 'projet/Match_Work.png' %}" alt="{% trans "Match Work" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "MatchWork — Recrutement" %}</div>
-              <a href="https://matchwork-app.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Node.js" %}</span></div>
-            <div class="pf-card__name">{% trans "MatchWork" %}</div>
-            <div class="pf-card__desc">{% trans "Mise en relation talents & entreprises." %}</div>
-            <div class="pf-card__kpi">{% trans "👥 10k+ utilisateurs" %}</div>
-          </div>
-        </div>
-
-        <!-- E — LawLinker -->
-        <div class="pf-card pf-card--e fade-up delay-2" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1a0533,#6b21a8)">
-            <img src="{% static 'projet/lank.png' %}" alt="{% trans "Lank" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "LawLinker — Juridique" %}</div>
-              <a href="https://lawlinker-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Mobile" %}</span></div>
-            <div class="pf-card__name">{% trans "LawLinker" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme de mise en relation entre avocats et clients." %}</div>
-            <div class="pf-card__kpi">{% trans "⚖️ Services juridiques en ligne" %}</div>
-          </div>
-        </div>
-
-        <!-- F — Kabishiai -->
-        <div class="pf-card pf-card--f fade-up delay-3" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">
-            <img src="{% static 'projet/kabishiai.png' %}" alt="{% trans "Kabishiai" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Kabishiai — IA" %}</div>
-              <a href="https://kabishiai.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "IA" %}</span></div>
-            <div class="pf-card__name">{% trans "Kabishiai" %}</div>
-            <div class="pf-card__desc">{% trans "Solution intelligente propulsée par l'IA." %}</div>
-            <div class="pf-card__kpi">{% trans "🤖 IA intégrée" %}</div>
-          </div>
-        </div>
-
-        <!-- G — Ecomnex -->
-        <div class="pf-card pf-card--g fade-up delay-1" data-cat="ecom">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#7c2d12,#ea580c)">
-            <img src="{% static 'projet/ecomnex.png' %}" alt="{% trans "Ecomnex" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Ecomnex — E-commerce" %}</div>
-              <a href="https://ecomnex-shop.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "E-commerce" %}</span><span class="pf-card__tag">{% trans "Next.js" %}</span></div>
-            <div class="pf-card__name">{% trans "Ecomnex" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme e-commerce performante et scalable." %}</div>
-            <div class="pf-card__kpi">{% trans "📈 +200% de ventes" %}</div>
-          </div>
-        </div>
-
-        <!-- H — Emmicard -->
-        <div class="pf-card pf-card--h fade-up delay-2" data-cat="fintech">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#021f3d 0%,#035194 50%,#019cd6 100%)">
-            <img src="{% static 'projet/Emmicard.png' %}" alt="{% trans "Emmicard" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Emmicard — Carte Digitale" %}</div>
-              <a href="https://emicard-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Fintech" %}</span><span class="pf-card__tag">{% trans "Mobile" %}</span></div>
-            <div class="pf-card__name">{% trans "Emmicard" %}</div>
-            <div class="pf-card__desc">{% trans "Carte de visite digitale et solution de paiement innovante." %}</div>
-            <div class="pf-card__kpi">{% trans "💳 Paiement & identité digitale" %}</div>
-          </div>
-        </div>
-
-        <!-- I — Clinixa -->
-        <div class="pf-card pf-card--i fade-up delay-3" data-cat="saas">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#0d4f3c,#059669)">
-            <img src="{% static 'projet/Clinixa.png' %}" alt="{% trans "Clinixa" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Clinixa — Santé Digitale" %}</div>
-              <a href="https://clinixa-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "SaaS" %}</span><span class="pf-card__tag">{% trans "Santé" %}</span></div>
-            <div class="pf-card__name">{% trans "Clinixa" %}</div>
-            <div class="pf-card__desc">{% trans "Gestion de clinique et suivi patient en temps réel." %}</div>
-            <div class="pf-card__kpi">{% trans "🏥 Santé connectée" %}</div>
-          </div>
-        </div>
-
-        <!-- J — ImmoHub -->
-        <div class="pf-card pf-card--j fade-up delay-4" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#78350f,#d97706)">
-            <img src="{% static 'projet/immohub.png' %}" alt="{% trans "ImmoHub" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "ImmoHub — Immobilier" %}</div>
-              <a href="https://immohub-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Immobilier" %}</span></div>
-            <div class="pf-card__name">{% trans "ImmoHub" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme de gestion et vente immobilière en ligne." %}</div>
-            <div class="pf-card__kpi">{% trans "🏠 Transactions simplifiées" %}</div>
-          </div>
-        </div>
-
-        <!-- K — Kula Table -->
-        <div class="pf-card pf-card--k fade-up delay-1" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#3b0764,#7c3aed)">
-            <img src="{% static 'projet/kulatable.png' %}" alt="{% trans "Kula Table" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Kula Table — Restauration" %}</div>
-              <a href="https://kulatable.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Restauration" %}</span></div>
-            <div class="pf-card__name">{% trans "Kula Table" %}</div>
-            <div class="pf-card__desc">{% trans "Réservation de table et gestion de restaurant en ligne." %}</div>
-            <div class="pf-card__kpi">{% trans "🍽️ Expérience client optimisée" %}</div>
-          </div>
-        </div>
-
-        <!-- L — Taska360 -->
-        <div class="pf-card pf-card--l fade-up delay-2" data-cat="saas">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1e3a5f,#2563eb)">
-            <img src="{% static 'projet/taska360.png' %}" alt="{% trans "Taska360" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Taska360 — Gestion de tâches" %}</div>
-              <a href="https://taska360.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "SaaS" %}</span><span class="pf-card__tag">{% trans "Productivité" %}</span></div>
-            <div class="pf-card__name">{% trans "Taska360" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme de gestion de tâches et de projets en équipe." %}</div>
-            <div class="pf-card__kpi">{% trans "✅ Productivité optimisée" %}</div>
-          </div>
-        </div>
-
-        <!-- M — SpaceHub -->
-        <div class="pf-card pf-card--m fade-up delay-3" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#0f0c29,#302b63)">
-            <img src="{% static 'projet/spacehub.png' %}" alt="{% trans "SpaceHub" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "SpaceHub — Espaces de travail" %}</div>
-              <a href="https://spacehub-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Coworking" %}</span></div>
-            <div class="pf-card__name">{% trans "SpaceHub" %}</div>
-            <div class="pf-card__desc">{% trans "Réservation et gestion d'espaces de coworking en ligne." %}</div>
-            <div class="pf-card__kpi">{% trans "🏢 Espaces connectés" %}</div>
-          </div>
-        </div>
-
-        <!-- N — BookStay -->
-        <div class="pf-card pf-card--n fade-up delay-1" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#134e4a,#0d9488)">
-            <img src="{% static 'projet/bookstay.png' %}" alt="{% trans "BookStay" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "BookStay — Réservation hôtelière" %}</div>
-              <a href="https://bookstay-online.com" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Tourisme" %}</span></div>
-            <div class="pf-card__name">{% trans "BookStay" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme de réservation hôtelière et gestion de séjours." %}</div>
-            <div class="pf-card__kpi">{% trans "🏨 Réservations simplifiées" %}</div>
-          </div>
-        </div>
-
-        <!-- O — Auroreia -->
-        <div class="pf-card pf-card--o fade-up delay-2" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#4a044e,#a21caf)">
-            <img src="{% static 'projet/auroreia.png' %}" alt="{% trans "Auroreia" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Auroreia" %}</div>
-              <a href="https://auroreia.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span></div>
-            <div class="pf-card__name">{% trans "Auroreia" %}</div>
-            <div class="pf-card__desc">{% trans "Solution digitale innovante développée par Revival." %}</div>
-            <div class="pf-card__kpi">{% trans "✨ Innovation digitale" %}</div>
-          </div>
-        </div>
-
-        <!-- P — CélineAI -->
-        <div class="pf-card pf-card--p fade-up delay-3" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1c1917,#44403c)">
-            <img src="{% static 'projet/celineai.png' %}" alt="{% trans "CélineAI" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "CélineAI — Intelligence Artificielle" %}</div>
-              <a href="https://celineai-app.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "IA" %}</span></div>
-            <div class="pf-card__name">{% trans "CélineAI" %}</div>
-            <div class="pf-card__desc">{% trans "Application propulsée par l'intelligence artificielle." %}</div>
-            <div class="pf-card__kpi">{% trans "🤖 IA conversationnelle" %}</div>
-          </div>
-        </div>
-
-        <!-- Q — CarVista -->
-        <div class="pf-card pf-card--q fade-up delay-4" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1a1a2e,#c0392b)">
-            <img src="{% static 'projet/carvista.png' %}" alt="{% trans "CarVista" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "CarVista — Automobile" %}</div>
-              <a href="https://carvista-app.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Automobile" %}</span></div>
-            <div class="pf-card__name">{% trans "CarVista" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme de vente et gestion de véhicules en ligne." %}</div>
-            <div class="pf-card__kpi">{% trans "🚗 Marché automobile digitalisé" %}</div>
-          </div>
-        </div>
-
-        <!-- R — WapiMedia -->
-        <div class="pf-card pf-card--r fade-up delay-1" data-cat="web">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#0f4c75,#1b6ca8)">
-            <img src="{% static 'projet/wapimedia.png' %}" alt="{% trans "WapiMedia" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "WapiMedia — Médias" %}</div>
-              <a href="https://wapimedia.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Web App" %}</span><span class="pf-card__tag">{% trans "Médias" %}</span></div>
-            <div class="pf-card__name">{% trans "WapiMedia" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme média digitale pour l'Afrique." %}</div>
-            <div class="pf-card__kpi">{% trans "📡 Médias connectés" %}</div>
-          </div>
-        </div>
-
-        <!-- S — Nginda -->
-        <div class="pf-card pf-card--s fade-up delay-2" data-cat="mobile">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1a3a1a,#2d7a2d)">
-            <img src="{% static 'projet/nginda.png' %}" alt="{% trans "Nginda" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Nginda — Application Mobile" %}</div>
-              <a href="https://nginda-app.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "Mobile" %}</span><span class="pf-card__tag">{% trans "React Native" %}</span></div>
-            <div class="pf-card__name">{% trans "Nginda" %}</div>
-            <div class="pf-card__desc">{% trans "Application mobile innovante pour le marché africain." %}</div>
-            <div class="pf-card__kpi">{% trans "📱 Mobile first" %}</div>
-          </div>
-        </div>
-
-        <!-- T — Vendia -->
-        <div class="pf-card pf-card--t fade-up delay-3" data-cat="ecom">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#3d1a00,#e65c00)">
-            <img src="{% static 'projet/vendia.png' %}" alt="{% trans "Vendia" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Vendia — Commerce" %}</div>
-              <a href="https://vendia-app.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "E-commerce" %}</span><span class="pf-card__tag">{% trans "Mobile" %}</span></div>
-            <div class="pf-card__name">{% trans "Vendia" %}</div>
-            <div class="pf-card__desc">{% trans "Solution de vente en ligne rapide et intuitive." %}</div>
-            <div class="pf-card__kpi">{% trans "🛒 Commerce simplifié" %}</div>
-          </div>
-        </div>
-
-        <!-- U — HRNow -->
-        <div class="pf-card pf-card--u fade-up delay-1" data-cat="saas">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#0d2137,#1565c0)">
-            <img src="{% static 'projet/hrnow.png' %}" alt="{% trans "HRNow" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "HRNow — Ressources Humaines" %}</div>
-              <a href="https://hrnow-online.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "SaaS" %}</span><span class="pf-card__tag">{% trans "RH" %}</span></div>
-            <div class="pf-card__name">{% trans "HRNow" %}</div>
-            <div class="pf-card__desc">{% trans "Gestion des ressources humaines simplifiée et digitalisée." %}</div>
-            <div class="pf-card__kpi">{% trans "👥 RH digitalisées" %}</div>
-          </div>
-        </div>
-
-        <!-- V — TaskHub -->
-        <div class="pf-card pf-card--v fade-up delay-2" data-cat="saas">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#1a0a2e,#6a1b9a)">
-            <img src="{% static 'projet/taskhub.png' %}" alt="{% trans "TaskHub" %}" style="opacity:.8" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "TaskHub — Gestion de tâches" %}</div>
-              <a href="https://taskhub-online.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "SaaS" %}</span><span class="pf-card__tag">{% trans "Productivité" %}</span></div>
-            <div class="pf-card__name">{% trans "TaskHub" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme collaborative de gestion de tâches et projets." %}</div>
-            <div class="pf-card__kpi">{% trans "✅ Équipes plus productives" %}</div>
-          </div>
-        </div>
-
-        <!-- W — Dropfa -->
-        <div class="pf-card pf-card--w fade-up delay-3" data-cat="ecom">
-          <div class="pf-card__visual" style="background:linear-gradient(135deg,#021f3d 0%,#035194 50%,#019cd6 100%)">
-            <img src="{% static 'projet/screencapture-dropfa-app-2026-04-14-16_20_31.png' %}" alt="{% trans "Dropfa" %}" style="opacity:.75" />
-            <div class="pf-card__overlay">
-              <div class="pf-card__overlay-title">{% trans "Dropfa — Dropshipping" %}</div>
-              <a href="https://dropfa-app.com/" target="_blank" rel="noopener noreferrer" class="pf-card__overlay-btn">{% trans "Visiter le site →" %}</a>
-            </div>
-          </div>
-          <div class="pf-card__foot">
-            <div class="pf-card__tags"><span class="pf-card__tag">{% trans "E-commerce" %}</span><span class="pf-card__tag">{% trans "Dropshipping" %}</span></div>
-            <div class="pf-card__name">{% trans "Dropfa" %}</div>
-            <div class="pf-card__desc">{% trans "Plateforme de dropshipping clé en main pour entrepreneurs africains." %}</div>
-            <div class="pf-card__kpi">{% trans "📦 Commerce sans stock" %}</div>
-          </div>
-        </div>
-
+        {% endfor %}
       </div><!-- /pf-bento -->
 
       <!-- MESSAGE AUCUN RÉSULTAT -->
@@ -802,26 +409,6 @@
       const total = Math.max(1, Math.ceil(getFilteredCards().length / PER_PAGE));
       if (currentPage < total) renderPage(currentPage + 1);
     });
-
-    // ── Counter animation ─────────────────────────────────────
-    const counters = document.querySelectorAll('[data-count]');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.count);
-          let current = 0;
-          const step = target / 40;
-          const timer = setInterval(() => {
-            current = Math.min(current + step, target);
-            el.textContent = Math.floor(current) + '+';
-            if (current >= target) clearInterval(timer);
-          }, 30);
-          obs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(c => obs.observe(c));
 
     // ── Init ──────────────────────────────────────────────────
     renderPage(1);
