@@ -1,0 +1,389 @@
+{% extends "core/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}Faire un don — Soutenez l'innovation numérique en RDC | Revival{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="Soutenez Revival : formation des jeunes au numérique, développement d'applications et innovation technologique en République Démocratique du Congo. Don sécurisé par Mobile Money, carte ou virement." />
+  <meta name="keywords" content="faire un don RDC, soutenir innovation numérique Afrique, don technologie Congo, Mobile Money don, formation informatique jeunes Kinshasa" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/don.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/don.html" />
+  <meta property="og:title" content="Faire un don — Revival Group" />
+  <meta property="og:description" content="Contribuez au développement numérique en RDC : formation, innovation et inclusion technologique." />
+  <meta property="og:image" content="https://revival-business.com/logo/banner.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival Agency" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@groupe85249" />
+  <meta name="twitter:title" content="Faire un don — Revival Group" />
+  <meta name="twitter:description" content="Soutenez notre mission technologique en République Démocratique du Congo." />
+  <meta name="twitter:image" content="https://revival-business.com/logo/banner.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Faire un don — Revival",
+    "url": "https://revival-business.com/don.html",
+    "description": "Page de don pour soutenir le développement numérique et la formation des jeunes en RDC.",
+    "publisher": { "@type": "Organization", "name": "Revival Agency", "url": "https://revival-business.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Mon don est-il sécurisé ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, toutes les transactions sont sécurisées." }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je recevoir un reçu ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, un reçu électronique est envoyé automatiquement." }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je faire un don anonyme ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui." }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je annuler un don récurrent ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, à tout moment." }
+      }
+    ]
+  }
+  </script>
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/don.css' %}" />
+{% endblock %}
+
+{% block content %}
+<!-- 1. Bannière d'introduction -->
+  <section class="don-hero">
+    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
+    <div class="container don-hero__inner fade-up">
+      <span class="badge badge--light">Faire un don</span>
+      <h1>Soutenez notre <span class="gradient-text">mission technologique</span></h1>
+      <p>Votre contribution nous aide à développer des solutions numériques innovantes, à former les jeunes aux métiers du numérique et à promouvoir l'innovation technologique en République Démocratique du Congo.</p>
+      <div class="don-hero__actions">
+        <a href="#don-form" class="btn btn--primary btn--lg">Faire un don maintenant</a>
+        <a href="#impact" class="btn btn--outline btn--lg" style="border-color:rgba(255,255,255,.3);color:#fff">Voir l'impact</a>
+      </div>
+      <p class="don-secure-note" style="margin-top:24px;color:rgba(255,255,255,.5)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Paiements sécurisés · Reçu électronique · Transparence financière
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. Pourquoi faire un don ? -->
+  <section class="section" id="pourquoi">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">Impact</span>
+        <h2 class="section__title">Pourquoi faire un don ?</h2>
+        <p class="section__desc">Chaque contribution finance directement des actions concrètes sur le terrain. Grâce à votre soutien, nous pouvons :</p>
+      </div>
+      <div class="don-why__grid stagger-children">
+        <article class="don-why-card fade-up">
+          <div class="don-why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div><strong>Applications web &amp; mobiles</strong><p>Développer des solutions numériques adaptées aux réalités africaines.</p></div>
+        </article>
+        <article class="don-why-card fade-up">
+          <div class="don-why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"/></svg>
+          </div>
+          <div><strong>Formation des jeunes</strong><p>Former en informatique et programmation les talents de demain.</p></div>
+        </article>
+        <article class="don-why-card fade-up">
+          <div class="don-why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div><strong>Ateliers technologiques</strong><p>Organiser des sessions pratiques et des hackathons communautaires.</p></div>
+        </article>
+        <article class="don-why-card fade-up">
+          <div class="don-why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div><strong>Matériel informatique</strong><p>Acquérir du matériel pour les salles de formation et les labs.</p></div>
+        </article>
+        <article class="don-why-card fade-up">
+          <div class="don-why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div><strong>Projets d'innovation</strong><p>Soutenir des startups et projets numériques à fort impact social.</p></div>
+        </article>
+        <article class="don-why-card fade-up">
+          <div class="don-why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <div><strong>Inclusion numérique</strong><p>Favoriser l'accès au digital dans les communautés locales.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Impact des dons -->
+  <section class="section section--light" id="impact">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">Transparence</span>
+        <h2 class="section__title">Impact de vos dons</h2>
+        <p class="section__desc">Voici concrètement ce que représente chaque niveau de contribution.</p>
+      </div>
+      <div class="don-impact-wrap fade-up">
+        <table class="don-impact-table">
+          <thead>
+            <tr>
+              <th>Montant</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>10 USD</td><td>Achat de fournitures pédagogiques</td></tr>
+            <tr><td>25 USD</td><td>Formation d'un jeune pendant une semaine</td></tr>
+            <tr><td>50 USD</td><td>Participation à un atelier numérique</td></tr>
+            <tr><td>100 USD</td><td>Soutien à un projet technologique</td></tr>
+            <tr><td>500 USD</td><td>Équipement informatique pour une salle de formation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4–5–6. Choix du don + Formulaire + Paiement -->
+  <section class="don-picker-section" id="don-form">
+    <div class="container">
+      <div class="section__header fade-up" style="text-align:center;margin-bottom:48px">
+        <span class="badge">Contribution</span>
+        <h2 class="section__title">Choisissez votre don</h2>
+        <p class="section__desc">Sélectionnez un montant, complétez vos informations et finalisez en toute sécurité.</p>
+      </div>
+
+      <div class="don-picker-layout">
+        <!-- Montants -->
+        <div class="fade-up slide-in-left">
+          <h3 style="font-size:20px;margin-bottom:16px">Montant</h3>
+          <div class="don-type-tabs" role="tablist">
+            <button type="button" class="don-type-tab active" data-type="once" role="tab" aria-selected="true">Don ponctuel</button>
+            <button type="button" class="don-type-tab" data-type="monthly" role="tab" aria-selected="false">Don mensuel</button>
+          </div>
+          <div class="don-amount-grid" id="donAmountGrid"></div>
+          <div class="don-custom-wrap" id="donCustomWrap">
+            <label for="donCustomAmount" style="font-size:13px;font-weight:600;display:block;margin-bottom:6px">Autre montant (USD)</label>
+            <input type="number" id="donCustomAmount" min="1" step="1" placeholder="Ex : 75" style="width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px" />
+          </div>
+
+          <!-- 6. Moyens de paiement (aperçu) -->
+          <h3 style="font-size:20px;margin:32px 0 12px">Moyens de paiement</h3>
+          <p style="font-size:14px;color:var(--gray);margin-bottom:12px">Adaptés au contexte de la RDC et à l'international.</p>
+          <div class="don-operators">
+            <span class="don-operator-tag">Vodacom Congo (M-Pesa)</span>
+            <span class="don-operator-tag">Airtel RDC</span>
+            <span class="don-operator-tag">Orange RDC</span>
+          </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="don-form-card fade-up delay-2 slide-in-right">
+          <h3>Formulaire de don</h3>
+          <p class="sub">Tous les champs marqués * sont obligatoires.</p>
+
+          <form id="donForm" class="don-form" novalidate>
+            <p class="don-form-section-title">Informations personnelles</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donName">Nom complet *</label>
+                <input type="text" id="donName" name="name" placeholder="Jean Mukendi" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donEmail">Email *</label>
+                <input type="email" id="donEmail" name="email" placeholder="vous@email.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donPhone">Téléphone *</label>
+                <input type="tel" id="donPhone" name="phone" placeholder="+243 8XX XXX XXX" required />
+              </div>
+              <div class="form-group">
+                <label for="donCountry">Pays *</label>
+                <input type="text" id="donCountry" name="country" placeholder="RDC, Kinshasa" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donMessage">Message (facultatif)</label>
+                <textarea id="donMessage" name="message" rows="3" placeholder="Un mot pour l'équipe Revival…"></textarea>
+              </div>
+            </div>
+            <label class="don-anonymous">
+              <input type="checkbox" id="donAnonymous" name="anonymous" />
+              Je souhaite faire un don anonyme
+            </label>
+
+            <p class="don-form-section-title">Informations de paiement</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donFormAmount">Montant du don *</label>
+                <input type="number" id="donFormAmount" name="amount" min="1" step="1" readonly required />
+              </div>
+              <div class="form-group">
+                <label for="donFormCurrency">Devise *</label>
+                <select id="donFormCurrency" name="currency" required>
+                  <option value="USD" selected>USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="CDF">CDF</option>
+                </select>
+              </div>
+            </div>
+            <input type="hidden" id="donFormType" name="donation_type" value="Don ponctuel" />
+
+            <p class="don-form-section-title">Mode de paiement *</p>
+            <div class="don-payment-grid">
+              <label class="don-payment-option">
+                <input type="radio" name="paymentMethod" value="Mobile Money" required />
+                <span class="don-payment-option__box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  <strong>Mobile Money</strong>
+                  <span>M-Pesa, Airtel, Orange</span>
+                </span>
+              </label>
+              <label class="don-payment-option">
+                <input type="radio" name="paymentMethod" value="Carte bancaire" />
+                <span class="don-payment-option__box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                  <strong>Carte bancaire</strong>
+                  <span>Visa, Mastercard</span>
+                </span>
+              </label>
+              <label class="don-payment-option">
+                <input type="radio" name="paymentMethod" value="Virement bancaire" />
+                <span class="don-payment-option__box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <strong>Virement bancaire</strong>
+                  <span>Transfert international</span>
+                </span>
+              </label>
+              <label class="don-payment-option">
+                <input type="radio" name="paymentMethod" value="PayPal" />
+                <span class="don-payment-option__box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                  <strong>PayPal</strong>
+                  <span>Si disponible</span>
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;display:flex;align-items:center;gap:8px;margin-top:24px;padding:16px">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Confirmer mon don
+            </button>
+
+            <div class="don-secure-note">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Transaction sécurisée · Reçu envoyé par email
+            </div>
+
+            <div class="don-success" id="donSuccess" role="status">
+              Merci pour votre générosité ! Votre demande de don a été enregistrée. Vous recevrez sous peu les instructions de paiement et un reçu électronique à l'adresse indiquée.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Transparence financière -->
+  <section class="don-trust fade-up">
+    <div class="container">
+      <div class="don-trust__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <h2 class="section__title" style="color:#fff;margin-bottom:16px">Transparence financière</h2>
+      <p>Nous nous engageons à utiliser chaque contribution de manière responsable et transparente. Des rapports d'activités et financiers sont publiés régulièrement afin d'informer nos partenaires et donateurs.</p>
+    </div>
+  </section>
+
+  <!-- 8. Témoignages -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">Témoignages</span>
+        <h2 class="section__title">Ils ont été transformés</h2>
+      </div>
+      <div class="don-testimonials stagger-children">
+        <blockquote class="don-testi fade-up">
+          <p>« Grâce à cette initiative, j'ai appris le développement web et obtenu mon premier emploi dans le numérique. »</p>
+          <cite><strong>Participant au programme</strong>Formation développement web</cite>
+        </blockquote>
+        <blockquote class="don-testi fade-up">
+          <p>« Les ateliers m'ont permis de comprendre comment lancer ma propre application. Aujourd'hui, mon projet est en ligne. »</p>
+          <cite><strong>Entrepreneur numérique</strong>Atelier innovation — Kinshasa</cite>
+        </blockquote>
+        <blockquote class="don-testi fade-up">
+          <p>« Soutenir Revival, c'est investir dans l'avenir technologique de notre pays. Chaque franc compte pour les jeunes. »</p>
+          <cite><strong>Donateur régulier</strong>Partenaire de confiance</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section class="section section--light" id="faq">
+    <div class="container">
+      <div class="section__header fade-up">
+        <span class="badge">FAQ</span>
+        <h2 class="section__title">Questions fréquentes</h2>
+      </div>
+      <div class="faq-list don-page-faq fade-up" style="max-width:720px;margin:0 auto">
+        <div class="faq-item">
+          <button class="faq-q">Mon don est-il sécurisé ?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Oui, toutes les transactions sont sécurisées. Nous utilisons des protocoles de chiffrement et des partenaires de paiement reconnus pour protéger vos données financières.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Puis-je recevoir un reçu ?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Oui, un reçu électronique est envoyé automatiquement à l'adresse email que vous indiquez après confirmation de votre don.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Puis-je faire un don anonyme ?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Oui. Cochez l'option « don anonyme » dans le formulaire : votre nom n'apparaîtra pas publiquement dans nos rapports de reconnaissance.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Puis-je annuler un don récurrent ?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Oui, à tout moment. Contactez-nous à contact@revival-business.com ou par téléphone et nous traiterons votre demande sous 48 heures.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Appel à l'action final -->
+  <section class="don-final-cta">
+    <div class="container fade-up">
+      <h2>Ensemble, construisons l'avenir numérique de l'Afrique.</h2>
+      <a href="#don-form" class="btn btn--primary btn--lg">Faire un don maintenant</a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/seo.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/don.js' %}"></script>
+{% endblock %}

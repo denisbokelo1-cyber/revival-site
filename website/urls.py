@@ -15,6 +15,7 @@ urlpatterns = [
     path("portfolio.html", views.PortfolioView.as_view(), name="portfolio"),
     path("videos.html", views.VideosView.as_view(), name="videos"),
     path("partenaire.html", views.PartenaireView.as_view(), name="partenaire"),
+    path("don.html", views.DonateView.as_view(), name="don"),
     path("blog.html", views.BlogView.as_view(), name="blog"),
     path("contact.html", views.ContactView.as_view(), name="contact"),
     path(

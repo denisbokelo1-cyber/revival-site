@@ -130,6 +130,11 @@ class PartenaireView(RevivalTemplateView):
     active_page = "partenaire"
 
 
+class DonateView(RevivalTemplateView):
+    template_name = "website/don.html"
+    active_page = "don"
+
+
 class BlogView(RevivalTemplateView):
     template_name = "website/blog.html"
     active_page = "blog"

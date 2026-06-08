@@ -2,352 +2,897 @@
 
 {% load static i18n %}
 
-{% block title %}{% trans "Produits — Revival" %}{% endblock %}
+{% block title %}Projects Pitch Deck - Revival{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="Pitch deck web interactif multi-projets: EMICARD, ECOMNEX et prochains produits Revival pour investisseurs et partenaires." />
+  <meta name="keywords" content="pitch deck, startup, e-commerce, EMICARD, ECOMNEX, investisseurs, Revival" />
+  <meta name="author" content="Revival Agency" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://revival-business.com/products.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revival-business.com/products.html" />
+  <meta property="og:title" content="Projects Pitch Deck - Revival" />
+  <meta property="og:description" content="Découvrez les pitch decks interactifs des projets Revival: EMICARD, ECOMNEX et plus." />
+  <meta property="og:image" content="https://revival-business.com/projet/Emmicard.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Revival Agency" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects Pitch Deck - Revival" />
+  <meta name="twitter:description" content="Pitch decks interactifs multi-projets pour investisseurs: EMICARD, ECOMNEX et futurs projets." />
+  <meta name="twitter:image" content="https://revival-business.com/projet/Emmicard.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Projects Pitch Deck",
+    "url": "https://revival-business.com/products.html",
+    "description": "Pitch decks startup interactifs multi-projets de Revival.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Revival Agency",
+      "url": "https://revival-business.com"
+    },
+    "about": {
+      "@type": "SoftwareApplication",
+      "name": "Projects Pitch Deck",
+      "applicationCategory": "BusinessApplication"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block extra_css %}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/products-pitch.css' %}" />
+{% endblock %}
 
 {% block content %}
-<!-- PAGE HERO -->
-  <section style="min-height:44vh;background:radial-gradient(ellipse at 70% 0%,#0a2a6e 0%,#050d2a 55%,#000d1f 100%);display:flex;align-items:center;padding:140px 0 70px;position:relative;overflow:hidden;">
-    <div class="hero__bg"><div class="blob blob--1"></div><div class="blob blob--2"></div><div class="grid-lines"></div></div>
-    <div class="container fade-up" style="position:relative;z-index:1;text-align:center;color:#fff">
-      <span class="badge badge--light">{% trans "Nos produits" %}</span>
-      <h1 style="font-size:clamp(36px,5vw,62px);margin:12px 0 20px;letter-spacing:-.03em">{% trans "Des outils" %} <span class="gradient-text">{% trans "prêts à l'emploi" %}</span><br/>{% trans "pour accélérer vos projets" %}</h1>
-      <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto">{% blocktrans trimmed %}Templates, thèmes et applications clés en main. Gagnez du temps et lancez votre projet avec une base solide et professionnelle.{% endblocktrans %}</p>
+<section class="pitch-hero">
+    <div class="pitch-hero__bg"></div>
+    <div class="container pitch-hero__inner fade-up">
+      <span class="badge badge--light">Projects Pitch Deck</span>
+      <h1>Projects<br /><span>Pitch Deck Interactif</span></h1>
+      <p>Une identité digitale qui permet de vendre. Une expérience startup premium intégrée au site Revival.</p>
+      
+      <div class="pitch-hero__mockup" data-parallax="0.08">
+        <img src="{% static 'logo/img/iPhone-14-Pro-393x852.png' %}" alt="Mockup EMICARD sur mobile" loading="lazy" decoding="async" />
+      </div>
     </div>
   </section>
 
-  <!-- WORDPRESS -->
-  <section class="section" id="wordpress">
+  <section class="section pitch-projects" id="wordpress">
     <div class="container">
-      <div class="product-section fade-up">
-        <div class="product-section__header">
-          <div class="product-section__icon" style="background: linear-gradient(135deg, #21759b, #4596b4)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <div class="pitch-projects__head fade-up">
+        <h2>Projects Pitch Deck</h2>
+        <p>Une plateforme innovante qui simplifie la gestion et le suivi en temps réel grâce à des solutions numériques intelligentes et sécurisées.</p>
+      </div>
+
+      <div id="laravel" class="deck-anchor"></div>
+      <div id="react" class="deck-anchor"></div>
+      <div id="html" class="deck-anchor"></div>
+
+      <div class="pitch-projects__grid">
+        <article class="project-deck-card fade-up delay-1" data-project="EMICARD">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/Emmicard.png' %}" alt="EMICARD" loading="lazy" decoding="async" />
+            <span class="project-deck-card__badge">Featured</span>
           </div>
-          <div>
-            <span class="badge">{% trans "WordPress" %}</span>
-            <h2>{% trans "Thèmes & Plugins WordPress" %}</h2>
-            <p>{% blocktrans trimmed %}Des thèmes WordPress premium, optimisés pour la performance et le SEO, avec un design moderne et personnalisable.{% endblocktrans %}</p>
-          </div>
-        </div>
-        <div class="product-cards-row">
-          <div class="product-detail-card fade-up delay-1">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #035194 0%, #38619c 100%)">
-              <div class="preview-mockup">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line"></div>
-                  <div class="pm-line pm-line--short"></div>
-                  <div class="pm-btn"></div>
-                </div>
-              </div>
+          <div class="project-deck-card__body">
+            <h3>EMICARD</h3>
+            <p>Identité digitale, boutique intégrée et paiements fluides.</p>
+            <div class="project-deck-card__meta">
+              <span>Identity + Commerce</span>
+              <span>Mobile-first</span>
             </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "TechBusiness Pro" %}</h4>
-              <p>{% trans "Thème corporate moderne pour agences et entreprises tech." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">59 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="EMICARD">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://emicard-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
             </div>
           </div>
-          <div class="product-detail-card fade-up delay-2">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #38619c 0%, #76d0ec 100%)">
-              <div class="preview-mockup">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line"></div>
-                  <div class="pm-line pm-line--short"></div>
-                  <div class="pm-btn"></div>
-                </div>
-              </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="ECOMNEX">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/ecomnex.png' %}" alt="Ecomnex" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>ECOMNEX</h3>
+            <p>Stack e-commerce performante pour vendeurs et marques locales.</p>
+            <div class="project-deck-card__meta">
+              <span>E-commerce</span>
+              <span>Growth</span>
             </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "SaaS Landing" %}</h4>
-              <p>{% trans "Landing page optimisée pour les produits SaaS et startups." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">49 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="ECOMNEX">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://ecomnex-shop.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
             </div>
           </div>
-          <div class="product-detail-card fade-up delay-3">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #76d0ec 0%, #035194 100%)">
-              <div class="preview-mockup">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line"></div>
-                  <div class="pm-line pm-line--short"></div>
-                  <div class="pm-btn"></div>
-                </div>
-              </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="ESOMBA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/ESOMBA/ESOMBA.png' %}" alt="ESOMBA APP" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>ESOMBA APP</h3>
+            <p>Mono-vendor e-commerce OS pour transformer chaque commerce en boutique digitale autonome.</p>
+            <div class="project-deck-card__meta">
+              <span>E-commerce SaaS</span>
+              <span>Mono-vendor OS</span>
             </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Portfolio Creative" %}</h4>
-              <p>{% trans "Thème portfolio élégant pour créatifs et freelances." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">39 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="ESOMBA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://www.esomba-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
             </div>
           </div>
-        </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="DROPFA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/DROPFA/DROPFA.png' %}" alt="DROPFA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>DROPFA</h3>
+            <p>Multi-vendor marketplace OS pour structurer le commerce digital africain.</p>
+            <div class="project-deck-card__meta">
+              <span>Marketplace</span>
+              <span>Africa Commerce OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="DROPFA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://kinshop-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="POSHUB">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/poshub.png' %}" alt="PosHub" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>POSHUB</h3>
+            <p>Pilotage unifié des opérations: ventes, stock, analytics.</p>
+            <div class="project-deck-card__meta">
+              <span>SaaS Ops</span>
+              <span>Analytics</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="POSHUB">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://poshub-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="FREELA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/Freela.png' %}" alt="Freela" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>FREELA</h3>
+            <p>Marketplace talents avec onboarding optimisé et conversion rapide.</p>
+            <div class="project-deck-card__meta">
+              <span>Marketplace</span>
+              <span>Mobile</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="FREELA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://freela-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="HRNOW">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/hrnow.png' %}" alt="HRNow" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>HRNOW</h3>
+            <p>Ressources humaines digitalisées pour PME en croissance.</p>
+            <div class="project-deck-card__meta">
+              <span>RH</span>
+              <span>B2B SaaS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="HRNOW">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://hrnow-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="CLINIXA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/Clinixa.png' %}" alt="CLINIXA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>CLINIXA</h3>
+            <p>Copilote clinique IA pour accélérer les décisions médicales en contexte hospitalier.</p>
+            <div class="project-deck-card__meta">
+              <span>HealthTech</span>
+              <span>AI Clinical</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="CLINIXA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://clinixa-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="CLINIQAI">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/Clinixa.png' %}" alt="CLINIQAI" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>CLINIQAI</h3>
+            <p>Operating system IA pour assister les décisions cliniques dans les hôpitaux africains.</p>
+            <div class="project-deck-card__meta">
+              <span>HealthTech Africa</span>
+              <span>Clinical AI OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="CLINIQAI">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://cliniqai-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="CARVISTA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/carvista.png' %}" alt="CARVISTA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>CARVISTA</h3>
+            <p>Marketplace automobile digitale pour structurer achat et vente de véhicules en Afrique.</p>
+            <div class="project-deck-card__meta">
+              <span>AutoTech</span>
+              <span>Marketplace</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="CARVISTA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://carvista-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="PHARMHUB">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/pharmhub.png' %}" alt="PHARMHUB" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>PHARMHUB</h3>
+            <p>Système digital pour pharmacies : stock, ventes, prescriptions et distribution connectée.</p>
+            <div class="project-deck-card__meta">
+              <span>PharmaTech</span>
+              <span>Marketplace</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="PHARMHUB">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://carvista-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="KULATABLE">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/kulatable.png' %}" alt="KULATABLE" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>KULATABLE</h3>
+            <p>Operating system restaurant pour gérer réservations, commandes, menus, paiements, cuisine et analytics.</p>
+            <div class="project-deck-card__meta">
+              <span>FoodTech</span>
+              <span>Restaurant OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="KULATABLE">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://cliniqai-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="WAPIMEDIA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/wapimedia.png' %}" alt="WAPIMEDIA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>WAPIMEDIA</h3>
+            <p>Infrastructure média digitale pour créer, distribuer et monétiser le contenu local des marchés émergents.</p>
+            <div class="project-deck-card__meta">
+              <span>MediaTech</span>
+              <span>Distribution OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="WAPIMEDIA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://wapimedia.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="IMMOHUB">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/immohub.png' %}" alt="IMMOHUB" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>IMMOHUB</h3>
+            <p>Système central pour gérer biens, locataires, paiements, maintenance et communication immobilière.</p>
+            <div class="project-deck-card__meta">
+              <span>PropTech</span>
+              <span>Real Estate OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="IMMOHUB">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://immohub-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="TASKA360">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/taska360.png' %}" alt="TASKA360" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>TASKA360</h3>
+            <p>Système d’exécution du travail qui connecte tâches, talents, workflows et performance.</p>
+            <div class="project-deck-card__meta">
+              <span>WorkTech</span>
+              <span>Execution OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="TASKA360">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://taska360.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="TASKHUB">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/taskhub.png' %}" alt="TaskHub" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>TASKHUB</h3>
+            <p>Organisation projet et performance équipe en temps réel.</p>
+            <div class="project-deck-card__meta">
+              <span>Productivité</span>
+              <span>Collaboration</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="TASKHUB">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="KABISHI">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/kabishiai.png' %}" alt="KABISHI AI" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>KABISHI AI</h3>
+            <p>Infrastructure d'IA contextuelle pour l'Afrique et les marchés émergents.</p>
+            <div class="project-deck-card__meta">
+              <span>AI Infrastructure</span>
+              <span>Africa-First</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="KABISHI">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://kabishiai.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="SPACEHUB">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/spacehub.png' %}" alt="SPACEHUB" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>SPACEHUB</h3>
+            <p>Operating system des espaces physiques : gestion, accès, optimisation et location d'actifs.</p>
+            <div class="project-deck-card__meta">
+              <span>SpaceTech</span>
+              <span>Asset OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="SPACEHUB">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://spacehub-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="AUROREIA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/auroreia.png' %}" alt="AUROREIA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>AUROREIA</h3>
+            <p>AI Continental Core System — création, automatisation et intelligence locale pour l'Afrique.</p>
+            <div class="project-deck-card__meta">
+              <span>AI Platform</span>
+              <span>Africa-First</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="AUROREIA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://auroreia.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="CELINE">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/celineai.png' %}" alt="CELINE AI" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>CELINE AI</h3>
+            <p>Personal AI Operating System — assistant, productivité et organisation en une seule interface.</p>
+            <div class="project-deck-card__meta">
+              <span>Personal AI</span>
+              <span>Productivity OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="CELINE">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://celineai-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="LAWLINKER">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/lawlinker.png' %}" alt="LAWLINKER" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>LAWLINKER</h3>
+            <p>AI Legal Growth &amp; Matching System — connecte clients et avocats, automatise l'acquisition et simplifie l'accès au droit.</p>
+            <div class="project-deck-card__meta">
+              <span>LegalTech</span>
+              <span>AI Matching</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="LAWLINKER">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://lawlinker-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="DAWAGO">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/dawago.png' %}" alt="DAWAGO AI" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>DAWAGO AI</h3>
+            <p>AI Health Intelligence &amp; Patient Care Operating System — connecte patients, médecins et données médicales en une seule intelligence.</p>
+            <div class="project-deck-card__meta">
+              <span>HealthTech</span>
+              <span>Medical AI OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="DAWAGO">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://dawagoai.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="ZAA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/zaa.png' %}" alt="ZAA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>ZAA</h3>
+            <p>Classified Marketplace Operating System — digitalise le commerce local entre particuliers et petites entreprises.</p>
+            <div class="project-deck-card__meta">
+              <span>Marketplace</span>
+              <span>Local Commerce OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="ZAA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://zaa-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="VENDIA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'projet/vendia.png' %}" alt="VENDIA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>VENDIA</h3>
+            <p>Multi-Vendor E-Commerce Marketplace OS — plusieurs vendeurs créent, vendent et scalent ensemble sur une seule plateforme.</p>
+            <div class="project-deck-card__meta">
+              <span>E-Commerce</span>
+              <span>Multi-Vendor OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="VENDIA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://vendia-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Démo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="NOVAQ">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/novaq/novaq.png' %}" alt="NOVAQ" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>NOVAQ</h3>
+            <p>The Modern Digital Brand Commerce Store — marque e-commerce D2C moderne, optimisée pour la croissance digitale et la relation directe client.</p>
+            <div class="project-deck-card__meta">
+              <span>E-Commerce D2C</span>
+              <span>Digital Brand</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="NOVAQ">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://novaq-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="NOKA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/noka/noka.png' %}" alt="NOKA" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>NOKA</h3>
+            <p>The On-Demand Services Operating System — connecte instantanément clients et prestataires de services locaux dans un seul écosystème digital.</p>
+            <div class="project-deck-card__meta">
+              <span>Services On-Demand</span>
+              <span>Marketplace OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="NOKA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://noka-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="AURORA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/AURORA/AURORA.png' %}" alt="AURORA Marketplace" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>AURORA MARKETPLACE</h3>
+            <p>The Multi-Vendor E-Commerce Operating System — infrastructure centrale du commerce multi-vendeurs, clé en main et scalable.</p>
+            <div class="project-deck-card__meta">
+              <span>E-Commerce SaaS</span>
+              <span>Multi-Vendor OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="AURORA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://marketplace-aurora.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="DOKTA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/DOKTA/DOKTA.png' %}" alt="DOKTA Healthcare" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>DOKTA HEALTHCARE</h3>
+            <p>Healthcare operating system pour connecter patients, médecins, soins et suivi médical.</p>
+            <div class="project-deck-card__meta">
+              <span>HealthTech</span>
+              <span>Care OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="DOKTA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://dokta-healthcare.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="ELIMUU">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/ELIMUU/ELIMUU.png' %}" alt="ELIMUU" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>ELIMUU</h3>
+            <p>Education platform pour digitaliser l’apprentissage, les cours, le suivi et la progression.</p>
+            <div class="project-deck-card__meta">
+              <span>EdTech</span>
+              <span>Learning OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="ELIMUU">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://elimuu.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-2" data-project="KORIZA">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/KORIZA/KORIZA.png' %}" alt="KORIZA APP" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>KORIZA APP</h3>
+            <p>Business app platform pour organiser les opérations, les clients et la croissance mobile-first.</p>
+            <div class="project-deck-card__meta">
+              <span>Business App</span>
+              <span>Mobile-first OS</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="KORIZA">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://koriza-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-3" data-project="MARIANO">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/MARIANO/MARIANO.png' %}" alt="MARIANO" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>MARIANO</h3>
+            <p>The Front-End Commerce Experience Layer — interface ultra-rapide React/Next.js pour marketplaces multi-vendeurs, optimisée conversion.</p>
+            <div class="project-deck-card__meta">
+              <span>UX Commerce</span>
+              <span>React / Next.js</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="MARIANO">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://mariano-app.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-deck-card fade-up delay-1" data-project="KINSHOP">
+          <div class="project-deck-card__media">
+            <img src="{% static 'pitch_deck/KINSHOP/KINSHOP.png' %}" alt="KINSHOP" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-deck-card__body">
+            <h3>KINSHOP</h3>
+            <p>The Hyperlocal Commerce Operating System — infrastructure complète du commerce hyperlocal digital connectant clients, vendeurs et livreurs en temps réel.</p>
+            <div class="project-deck-card__meta">
+              <span>Hyperlocal Commerce</span>
+              <span>Multi-Vendor + Delivery</span>
+            </div>
+            <div class="project-deck-card__actions">
+              <button class="btn btn--primary btn--sm js-open-deck" data-project="KINSHOP">Lire plus</button>
+              <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+              <a href="https://kinshop-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pitch-projects__pagination" id="projectsPagination" hidden>
+        <button type="button" class="btn btn--outline btn--sm" id="projectsPrevBtn">Précédent</button>
+        <span class="pitch-projects__page-status" id="projectsPageStatus" aria-live="polite"></span>
+        <button type="button" class="btn btn--primary btn--sm" id="projectsNextBtn">Suivant</button>
       </div>
     </div>
   </section>
 
-  <!-- LARAVEL -->
-  <section class="section section--light" id="laravel">
-    <div class="container">
-      <div class="product-section fade-up">
-        <div class="product-section__header">
-          <div class="product-section__icon" style="background: linear-gradient(135deg, #ff2d20, #e74c3c)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          <div>
-            <span class="badge">{% trans "Laravel" %}</span>
-            <h2>{% trans "Applications Laravel" %}</h2>
-            <p>{% blocktrans trimmed %}Des applications web robustes et scalables développées avec Laravel. Architecture MVC, API REST, authentification avancée.{% endblocktrans %}</p>
-          </div>
-        </div>
-        <div class="product-cards-row">
-          <div class="product-detail-card fade-up delay-1">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e)">
-              <div class="preview-mockup preview-mockup--dark">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line" style="background:rgba(118,208,236,.4)"></div>
-                  <div class="pm-line pm-line--short" style="background:rgba(118,208,236,.2)"></div>
-                  <div class="pm-btn" style="background:#035194"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Laravel SaaS Starter" %}</h4>
-              <p>{% trans "Boilerplate complet : auth, billing Stripe, multi-tenant, dashboard." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">149 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail-card fade-up delay-2">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #035194, #021f3d)">
-              <div class="preview-mockup preview-mockup--dark">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line" style="background:rgba(255,255,255,.3)"></div>
-                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.15)"></div>
-                  <div class="pm-btn" style="background:#76d0ec"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Laravel Admin Panel" %}</h4>
-              <p>{% trans "Panel d'administration complet avec CRUD, rôles et permissions." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">99 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail-card fade-up delay-3">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #38619c, #035194)">
-              <div class="preview-mockup preview-mockup--dark">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line" style="background:rgba(255,255,255,.3)"></div>
-                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.15)"></div>
-                  <div class="pm-btn" style="background:#76d0ec"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Laravel API Boilerplate" %}</h4>
-              <p>{% trans "API REST prête à l'emploi avec Sanctum, versioning et documentation." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">79 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="pitch-modal" id="pitchModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pitchDeckTitle">
+    <button class="pitch-modal__close" id="pitchModalClose" aria-label="Fermer le pitch deck">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
 
-  <!-- REACT & NEXT.JS -->
-  <section class="section" id="react">
-    <div class="container">
-      <div class="product-section fade-up">
-        <div class="product-section__header">
-          <div class="product-section__icon" style="background: linear-gradient(135deg, #61dafb, #0070f3)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div>
-            <span class="badge">{% trans "React & Next.js" %}</span>
-            <h2>{% trans "Modèles React & Next.js" %}</h2>
-            <p>{% blocktrans trimmed %}Templates modernes avec React et Next.js pour des applications ultra-rapides. SSR, SSG, TypeScript et Tailwind CSS inclus.{% endblocktrans %}</p>
-          </div>
-        </div>
-        <div class="product-cards-row">
-          <div class="product-detail-card fade-up delay-1">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #0f0f23, #1a1a3e)">
-              <div class="preview-mockup preview-mockup--dark">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line" style="background:rgba(97,218,251,.4)"></div>
-                  <div class="pm-line pm-line--short" style="background:rgba(97,218,251,.2)"></div>
-                  <div class="pm-btn" style="background:#61dafb"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Next.js SaaS Template" %}</h4>
-              <p>{% trans "Template complet avec auth, dashboard, billing et dark mode." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">129 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail-card fade-up delay-2">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #0070f3, #00c6ff)">
-              <div class="preview-mockup preview-mockup--dark">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line" style="background:rgba(255,255,255,.4)"></div>
-                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.2)"></div>
-                  <div class="pm-btn" style="background:white"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "React Dashboard Pro" %}</h4>
-              <p>{% trans "Dashboard analytics avec graphiques, tables et composants UI." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">89 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail-card fade-up delay-3">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #1a1a2e, #0070f3)">
-              <div class="preview-mockup preview-mockup--dark">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line" style="background:rgba(255,255,255,.3)"></div>
-                  <div class="pm-line pm-line--short" style="background:rgba(255,255,255,.15)"></div>
-                  <div class="pm-btn" style="background:#61dafb"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Next.js Landing Kit" %}</h4>
-              <p>{% trans "Kit de composants pour landing pages modernes et performantes." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">69 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <aside class="pitch-modal__side">
+      <p class="pitch-modal__project" id="deckProjectName">EMICARD</p>
+      <h2 id="pitchDeckTitle">Investor Pitch Deck</h2>
+      <div class="pitch-modal__progress">
+        <div class="pitch-modal__progress-fill" id="pitchProgressFill"></div>
       </div>
-    </div>
-  </section>
+      <nav class="pitch-modal__nav" id="pitchNav"></nav>
+      <div class="pitch-modal__side-actions">
+        <a href="{% url 'website:contact' %}" class="btn btn--outline btn--sm">Contact</a>
+        <a href="{% static 'pitch_deck/EMICARD/EMICARD.pdf' %}" class="btn btn--primary btn--sm" id="downloadPdfBtn" download>Télécharger PDF</a>
+      </div>
+    </aside>
 
-  <!-- HTML TEMPLATES -->
-  <section class="section section--light" id="html">
-    <div class="container">
-      <div class="product-section fade-up">
-        <div class="product-section__header">
-          <div class="product-section__icon" style="background: linear-gradient(135deg, #e34c26, #f06529)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="10" y1="13" x2="8" y2="15"/><line x1="14" y1="13" x2="16" y2="15"/></svg>
-          </div>
-          <div>
-            <span class="badge">{% trans "HTML" %}</span>
-            <h2>{% trans "Modèles HTML" %}</h2>
-            <p>{% blocktrans trimmed %}Templates HTML/CSS purs, légers et facilement personnalisables. Aucune dépendance, cross-browser, documentation complète.{% endblocktrans %}</p>
+    <div class="pitch-modal__deck" id="pitchDeck">
+      <section class="pitch-slide is-hero" id="pitch-slide-1" data-title="Vision">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 1</p>
+          <h3 id="slide1Title">EMICARD</h3>
+          <h4 id="slide1Subtitle">From Identity to Income</h4>
+          <p id="slide1Desc">Une identité digitale qui permet de vendre.</p>
+          <div class="pitch-slide__actions">
+            <a id="slide1DemoBtn" href="https://emicard-online.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Lire plus</a>
+            <a href="{% url 'website:contact' %}" class="btn btn--ghost btn--sm">Contact</a>
           </div>
         </div>
-        <div class="product-cards-row">
-          <div class="product-detail-card fade-up delay-1">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #035194, #76d0ec)">
-              <div class="preview-mockup">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line"></div>
-                  <div class="pm-line pm-line--short"></div>
-                  <div class="pm-btn"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Corporate HTML5" %}</h4>
-              <p>{% trans "Template corporate complet, multi-pages, animations CSS." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">29 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail-card fade-up delay-2">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #38619c, #035194)">
-              <div class="preview-mockup">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line"></div>
-                  <div class="pm-line pm-line--short"></div>
-                  <div class="pm-btn"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Agency One Page" %}</h4>
-              <p>{% trans "Landing page one-page pour agences, avec parallax et animations." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">19 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
-          <div class="product-detail-card fade-up delay-3">
-            <div class="product-detail-card__preview" style="background: linear-gradient(135deg, #76d0ec, #38619c)">
-              <div class="preview-mockup">
-                <div class="pm-header"></div>
-                <div class="pm-body">
-                  <div class="pm-line"></div>
-                  <div class="pm-line pm-line--short"></div>
-                  <div class="pm-btn"></div>
-                </div>
-              </div>
-            </div>
-            <div class="product-detail-card__info">
-              <h4>{% trans "Portfolio HTML" %}</h4>
-              <p>{% trans "Template portfolio minimaliste pour développeurs et designers." %}</p>
-              <div class="product-detail-card__meta">
-                <span class="price">15 €</span>
-                <a href="{% url 'website:contact' %}" class="btn btn--sm btn--primary">{% trans "Acheter" %}</a>
-              </div>
-            </div>
-          </div>
+        <div class="pitch-slide__visual">
+          <img id="slide1Image" src="{% static 'pitch_deck/EMICARD/EMICARD1.png' %}" alt="Done 1" loading="lazy" decoding="async" />
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- CTA BAND -->
-  <section class="cta-band fade-up">
-    <div class="container cta-band__inner">
-      <div>
-        <h2>{% trans "Besoin d'un produit sur mesure ?" %}</h2>
-        <p>{% trans "Nous développons des solutions personnalisées adaptées à vos besoins spécifiques." %}</p>
-      </div>
-      <a href="{% url 'website:contact' %}" class="btn btn--white">{% trans "Demander un devis" %}</a>
+      <section class="pitch-slide" id="pitch-slide-2" data-title="Le Problème">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 2</p>
+          <h3 id="slide2Title">Le Problème</h3>
+          <p id="slide2Desc">Les canaux sont fragmentés, les revenus fuient, la structure manque.</p>
+          <div class="problem-grid">
+            <article class="js-problem-item"><strong>LinkedIn</strong><span>Identité</span></article>
+            <article class="js-problem-item"><strong>Instagram</strong><span>Audience</span></article>
+            <article class="js-problem-item"><strong>Shopify</strong><span>Ventes</span></article>
+            <article class="js-problem-item"><strong>WhatsApp</strong><span>Support</span></article>
+          </div>
+          <div class="stats-inline">
+            <span class="js-s2-stat">-31% conversion</span>
+            <span class="js-s2-stat">+4 outils séparés</span>
+            <span class="js-s2-stat">+2.5x friction</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-3" data-title="La Solution">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 3</p>
+          <h3 id="slide3Title">EMICARD = Identité + Commerce</h3>
+          <p id="slide3Desc">Un seul flux: profil, boutique, paiement, conversion.</p>
+          <div class="flow-line">
+            <span class="js-flow-step">Identité</span>
+            <span class="js-flow-step">Boutique</span>
+            <span class="js-flow-step">Revenus</span>
+          </div>
+          <div class="solution-assets">
+            <div class="js-solution-asset">QR Code Mockup</div>
+            <div class="js-solution-asset">Carte Digitale</div>
+            <div class="js-solution-asset">Paiement Intégré</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-4" data-title="Le Produit">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 4</p>
+          <h3 id="slide4Title">Le Produit</h3>
+          <div class="pillars-grid">
+            <article class="js-pillar"><h4>IDENTITÉ</h4><p>Profil premium et signature digitale.</p></article>
+            <article class="js-pillar"><h4>RÉSEAU</h4><p>Partage intelligent et distribution sociale.</p></article>
+            <article class="js-pillar"><h4>E-COMMERCE</h4><p>Boutique intégrée et conversion directe.</p></article>
+            <article class="js-pillar"><h4>AUTOMATION</h4><p>Campagnes et pilotage intelligent.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-5" data-title="Le Marché">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 5</p>
+          <h3 id="slide5Title">Le Marché</h3>
+          <p id="slide5Desc">5 milliards d’internautes. Mobile-first. Social commerce en hypercroissance.</p>
+          <div class="market-grid">
+            <div class="market-bars">
+              <span style="--h:68%"></span>
+              <span style="--h:78%"></span>
+              <span style="--h:86%"></span>
+              <span style="--h:94%"></span>
+            </div>
+            <div class="africa-map">Afrique</div>
+            <div class="market-metrics">
+              <strong class="js-market-metric">5B+</strong>
+              <strong class="js-market-metric">76% mobile</strong>
+              <strong class="js-market-metric">Social commerce x3</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-6" data-title="Pourquoi Maintenant">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 6</p>
+          <h3 id="slide6Title">Pourquoi Maintenant</h3>
+          <p id="slide6Desc">La convergence des créateurs, du social commerce et du mobile money crée une fenêtre historique.</p>
+          <div class="timeline-track">
+            <article class="js-timeline-item"><strong>2024</strong><span>Explosion créateurs</span></article>
+            <article class="js-timeline-item"><strong>2025</strong><span>Social commerce massif</span></article>
+            <article class="js-timeline-item"><strong>2026</strong><span>Mobile money généralisé</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-7" data-title="Business Model">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 7</p>
+          <h3 id="slide7Title">Business Model</h3>
+          <div class="revenue-grid">
+            <article class="js-revenue-item"><h4>Abonnements</h4><p>Plans Starter à Scale</p></article>
+            <article class="js-revenue-item"><h4>Commissions</h4><p>Transactions intégrées</p></article>
+            <article class="js-revenue-item"><h4>Cartes NFC</h4><p>Distribution premium</p></article>
+            <article class="js-revenue-item"><h4>Services Business</h4><p>Support et intégrations</p></article>
+          </div>
+          <div class="revenue-curve">
+            <span style="--x:12%;--y:70%"></span>
+            <span style="--x:32%;--y:58%"></span>
+            <span style="--x:52%;--y:44%"></span>
+            <span style="--x:72%;--y:26%"></span>
+            <span style="--x:90%;--y:14%"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-8" data-title="Avantage Concurrentiel">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 8</p>
+          <h3 id="slide8Title">Avantage Concurrentiel</h3>
+          <div class="comparison-table" id="comparisonTable">
+            <div>Plateforme</div><div>Identité</div><div>Vente</div><div>Friction</div>
+            <div>EMICARD</div><div>Oui</div><div>Oui</div><div class="win">Zéro friction</div>
+            <div>Shopify</div><div>Partiel</div><div>Oui</div><div>Moyenne</div>
+            <div>Instagram</div><div>Oui</div><div>Partiel</div><div>Élevée</div>
+            <div>LinkedIn</div><div>Oui</div><div>Non</div><div>Élevée</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide" id="pitch-slide-9" data-title="Croissance">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 9</p>
+          <h3 id="slide9Title">Croissance</h3>
+          <p id="slide9Desc">Roadmap progressive avec effet réseau.</p>
+          <div class="growth-roadmap">
+            <article class="js-growth-item"><strong>Phase 1</strong><span>Créateurs</span></article>
+            <article class="js-growth-item"><strong>Phase 2</strong><span>Vendeurs locaux</span></article>
+            <article class="js-growth-item"><strong>Phase 3</strong><span>Entreprises</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-slide is-final" id="pitch-slide-10" data-title="Levée de Fonds">
+        <div class="pitch-slide__content">
+          <p class="pitch-slide__kicker">DONE 10</p>
+          <h3 id="slide10Title">Levée de Fonds</h3>
+          <p id="slide10Desc"></p>
+          
+          <form class="investor-form" action="{% url 'website:contact' %}" method="get">
+            <input type="text" name="name" placeholder="Nom investisseur" aria-label="Nom investisseur" />
+            <input type="email" name="email" placeholder="Email professionnel" aria-label="Email professionnel" />
+            <textarea name="message" rows="3" placeholder="Objectif de collaboration" aria-label="Objectif de collaboration"></textarea>
+            <div class="investor-form__actions">
+              <button type="submit" class="btn btn--primary btn--sm">Réserver démo</button>
+              <a href="{% static 'pitch_deck/EMICARD/EMICARD.pdf' %}" class="btn btn--outline btn--sm" id="downloadPdfBtnBottom" download>Télécharger PDF</a>
+              <a href="{% url 'website:contact' %}" class="btn btn--ghost btn--sm">Contact</a>
+            </div>
+          </form>
+          <blockquote class="final-line" id="finalLine">
+            Nous ne construisons pas une app.<br />
+            Nous construisons une économie.
+          </blockquote>
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'js/components.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
+  <script>
+    window.REVIVAL_PRODUCTS_STATIC_BASE = "{% static '' %}";
+    window.REVIVAL_PRODUCTS_CONTACT_URL = "{% url 'website:contact' %}";
+  </script>
+  <script src="{% static 'js/seo.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/products-pitch.js' %}"></script>
 {% endblock %}

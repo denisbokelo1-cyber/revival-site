@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESOMBA APP - Pitch Deck</title>
+  <style>
+    @page {
+      size: 1600px 900px;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #fff;
+      background: #080d18;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .slide {
+      width: 1600px;
+      height: 900px;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+      padding: 86px 96px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(91, 95, 255, 0.36), transparent 34%),
+        radial-gradient(circle at 85% 72%, rgba(0, 209, 255, 0.22), transparent 36%),
+        linear-gradient(135deg, #090f1d 0%, #11182b 62%, #09111f 100%);
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.22;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 34px;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      color: #67e8f9;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 24px;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-family: Poppins, Inter, Arial, sans-serif;
+      letter-spacing: 0;
+      line-height: 0.98;
+    }
+
+    h1 {
+      font-size: 104px;
+      max-width: 900px;
+    }
+
+    h2 {
+      font-size: 80px;
+      max-width: 980px;
+    }
+
+    .gradient {
+      background: linear-gradient(135deg, #ffffff, #67e8f9 46%, #818cf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 42px;
+      color: #c8d4ff;
+      font-weight: 800;
+      margin: 28px 0 0;
+      max-width: 1080px;
+      line-height: 1.18;
+    }
+
+    .lead {
+      color: #c8d4ff;
+      font-size: 34px;
+      line-height: 1.38;
+      max-width: 1120px;
+      margin: 30px 0 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 74px;
+      align-items: center;
+    }
+
+    .hero-image {
+      height: 640px;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 34px 95px rgba(0, 0, 0, 0.42);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 46px;
+      max-width: 1220px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 154px;
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.075);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.22);
+    }
+
+    .card strong {
+      display: block;
+      color: #fff;
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card span,
+    .card p {
+      color: #c8d4ff;
+      font-size: 25px;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .metric {
+      min-height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 34px;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(91, 95, 255, 0.34), rgba(0, 209, 255, 0.17));
+    }
+
+    .flow {
+      display: flex;
+      gap: 26px;
+      margin-top: 54px;
+      align-items: center;
+    }
+
+    .flow span {
+      min-width: 260px;
+      padding: 30px 34px;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 31px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #5b5fff, #00d1ff);
+      box-shadow: 0 24px 60px rgba(0, 209, 255, 0.18);
+    }
+
+    .flow i {
+      width: 78px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.35);
+      display: block;
+    }
+
+    .table {
+      display: grid;
+      grid-template-columns: 1.1fr 0.85fr 0.85fr 1.3fr;
+      margin-top: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      overflow: hidden;
+      max-width: 1260px;
+    }
+
+    .table div {
+      padding: 23px 25px;
+      min-height: 78px;
+      border-right: 1px solid rgba(255, 255, 255, 0.13);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      color: #c8d4ff;
+      font-size: 24px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .table div:nth-child(-n + 4) {
+      color: #fff;
+      font-weight: 900;
+      background: rgba(91, 95, 255, 0.24);
+    }
+
+    .table .win {
+      color: #06111f;
+      font-weight: 900;
+      background: linear-gradient(135deg, #67e8f9, #ffffff);
+    }
+
+    .footer {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      bottom: 62px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <section class="slide">
+    <div class="content hero-grid">
+      <div>
+        <p class="kicker">DONE 1</p>
+        <h1><span class="gradient">ESOMBA APP</span></h1>
+        <p class="subtitle">The Digital Store Operating System for Modern Retail Businesses</p>
+        <p class="lead">Nous construisons la plateforme qui transforme chaque commerce en boutique digitale autonome.</p>
+      </div>
+      <div class="hero-image"><img src="../ESOMBA.png" alt="ESOMBA APP" /></div>
+    </div>
+    <div class="footer"><span>Revival Agency</span><span>Pitch Deck</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 2</p>
+      <h2>Le Problème Global</h2>
+      <p class="lead">Les commerçants font face à des limites majeures qui empêchent une vraie croissance digitale.</p>
+      <div class="grid">
+        <div class="card"><strong>Boutique</strong><span>Absence de boutique en ligne simple.</span></div>
+        <div class="card"><strong>Réseaux sociaux</strong><span>Dépendance aux canaux sociaux pour vendre.</span></div>
+        <div class="card"><strong>Commandes</strong><span>Gestion manuelle, lente et peu structurée.</span></div>
+        <div class="card"><strong>Paiement</strong><span>Aucun système clair de paiement et de suivi.</span></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>02 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 3</p>
+      <h2>Notre Solution</h2>
+      <p class="lead">ESOMBA est un Mono-Vendor E-Commerce OS : une seule plateforme pour créer une boutique, gérer les produits, recevoir les commandes et suivre les ventes.</p>
+      <div class="flow"><span>Boutique</span><i></i><span>Produits</span><i></i><span>Commandes</span></div>
+      <div class="grid three">
+        <div class="card"><strong>Store Builder</strong><span>Création rapide et identité de marque.</span></div>
+        <div class="card"><strong>Order Engine</strong><span>Commandes et notifications centralisées.</span></div>
+        <div class="card"><strong>Dashboard</strong><span>Ventes, revenus et historique client.</span></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>03 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 4</p>
+      <h2>Produit</h2>
+      <div class="grid">
+        <div class="card"><strong>Digital Store Builder</strong><p>Création de boutique en quelques clics, personnalisation simple et identité propre.</p></div>
+        <div class="card"><strong>Product Management</strong><p>Ajout, gestion des produits, stock et prix en temps réel.</p></div>
+        <div class="card"><strong>Order Engine</strong><p>Gestion des commandes clients, notifications automatiques et suivi des ventes.</p></div>
+        <div class="card"><strong>Payment Dashboard</strong><p>Suivi revenus, analyse des ventes et historique client.</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>04 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 5</p>
+      <h2>Marché</h2>
+      <p class="lead">L'opportunité est de digitaliser chaque commerce individuel avec une solution simple, mobile-first et immédiatement exploitable.</p>
+      <div class="grid three">
+        <div class="card metric">Millions de petits commerces</div>
+        <div class="card metric">Croissance e-commerce mobile</div>
+        <div class="card metric">Explosion des vendeurs indépendants</div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>05 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 6</p>
+      <h2>Pourquoi Maintenant</h2>
+      <p class="lead">Avant, vendre restait principalement physique. Maintenant, chaque commerce doit être en ligne.</p>
+      <div class="grid three">
+        <div class="card"><strong>Trend 1</strong><span>Montée du commerce sur mobile.</span></div>
+        <div class="card"><strong>Trend 2</strong><span>Explosion des entrepreneurs indépendants.</span></div>
+        <div class="card"><strong>Trend 3</strong><span>Besoin de digitalisation rapide et simple.</span></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>06 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 7</p>
+      <h2>Business Model</h2>
+      <p class="lead">Un modèle SaaS récurrent et scalable, enrichi par des revenus transactionnels et des modules premium.</p>
+      <div class="grid">
+        <div class="card"><strong>Abonnement mensuel</strong><span>Revenus récurrents boutique.</span></div>
+        <div class="card"><strong>Commissions</strong><span>Monétisation sur les ventes.</span></div>
+        <div class="card"><strong>Templates premium</strong><span>Boutiques et thèmes avancés.</span></div>
+        <div class="card"><strong>Extensions</strong><span>Marketing intégré et services e-commerce.</span></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>07 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 8</p>
+      <h2>Avantage Compétitif</h2>
+      <div class="table">
+        <div>Solution</div><div>Simplicité</div><div>Mobile-first</div><div>Différenciation</div>
+        <div>ESOMBA</div><div>Ultra simple</div><div>Oui</div><div class="win">Boutique prête en minutes</div>
+        <div>Shopify</div><div>Moyenne</div><div>Partiel</div><div>Complexe pour non-tech</div>
+        <div>Réseaux sociaux</div><div>Simple</div><div>Oui</div><div>Pas de système complet</div>
+        <div>Solutions custom</div><div>Faible</div><div>Variable</div><div>Coûteuses et lentes</div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>08 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 9</p>
+      <h2>Stratégie d'Expansion</h2>
+      <p class="lead">Objectif : devenir le Shopify simplifié des marchés émergents.</p>
+      <div class="grid three">
+        <div class="card"><strong>Phase 1</strong><span>Petits commerces locaux et vendeurs indépendants.</span></div>
+        <div class="card"><strong>Phase 2</strong><span>PME, marques locales et digitalisation massive.</span></div>
+        <div class="card"><strong>Phase 3</strong><span>Standard du e-commerce mono-vendeur en Afrique.</span></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>09 / 10</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="content">
+      <p class="kicker">DONE 10</p>
+      <h2>Investissement</h2>
+      <p class="lead">Nous levons : [À DÉFINIR] pour accélérer l'acquisition utilisateurs, améliorer l'UX mobile, intégrer les paiements locaux et soutenir la croissance régionale.</p>
+      <div class="grid">
+        <div class="card"><strong>Utilisateurs</strong><span>Expansion et acquisition des premiers commerces.</span></div>
+        <div class="card"><strong>Produit</strong><span>Amélioration UX mobile et parcours vendeur.</span></div>
+        <div class="card"><strong>Paiements</strong><span>Intégration des paiements locaux.</span></div>
+        <div class="card"><strong>Région</strong><span>Croissance régionale et partenariats terrain.</span></div>
+      </div>
+    </div>
+    <div class="footer"><span>ESOMBA APP</span><span>10 / 10</span></div>
+  </section>
+</body>
+</html>
