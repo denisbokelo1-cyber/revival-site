@@ -344,11 +344,18 @@ class PartnerApplication(TimeStampedModel):
     )
     company_name = models.CharField(_("Entreprise"), max_length=180)
     manager_name = models.CharField(_("Responsable"), max_length=180)
+    job_title = models.CharField(_("Fonction"), max_length=180, blank=True)
     email = models.EmailField(_("Adresse email"))
     phone = models.CharField(_("Téléphone"), max_length=80, blank=True)
     country = models.CharField(_("Pays / ville"), max_length=140, blank=True)
     website = models.URLField(_("Site web"), blank=True)
+    sector = models.CharField(_("Secteur d'activité"), max_length=140, blank=True)
+    company_size = models.CharField(_("Taille de l'entreprise"), max_length=40, blank=True)
+    partner_type = models.CharField(_("Type de partenariat"), max_length=40, blank=True)
+    services = models.TextField(_("Services souhaités"), blank=True)
     objective = models.TextField(_("Objectif du partenariat"))
+    cgp_consent = models.BooleanField(_("Acceptation conditions de partenariat"), default=False)
+    rgpd_consent = models.BooleanField(_("Consentement RGPD"), default=False)
     status = models.CharField(
         _("Statut"), max_length=30, choices=Status.choices, default=Status.NEW
     )
@@ -360,6 +367,27 @@ class PartnerApplication(TimeStampedModel):
 
     def __str__(self):
         return f"{self.company_name} - {self.email}"
+
+
+class PartnerDocument(TimeStampedModel):
+    application = models.ForeignKey(
+        PartnerApplication,
+        verbose_name=_("Candidature"),
+        on_delete=models.CASCADE,
+        related_name="documents",
+    )
+    file = models.FileField(_("Fichier"), upload_to="partners/")
+    document_type = models.CharField(_("Type de document"), max_length=40, blank=True)
+    original_name = models.CharField(_("Nom original"), max_length=255, blank=True)
+    file_size = models.PositiveIntegerField(_("Taille (bytes)"), default=0)
+    file_type = models.CharField(_("Type MIME"), max_length=100, blank=True)
+
+    class Meta:
+        verbose_name = _("Document partenaire")
+        verbose_name_plural = _("Documents partenaires")
+
+    def __str__(self):
+        return self.original_name or str(self.file)
 
 
 class ContactMessage(TimeStampedModel):

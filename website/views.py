@@ -16,6 +16,8 @@ from website.models import (
     JobDepartment,
     JobOffer,
     NewsletterSubscriber,
+    PartnerApplication,
+    PartnerDocument,
     Project,
     ProjectCategory,
     Review,
@@ -153,6 +155,14 @@ class PrivacyPolicyView(RevivalTemplateView):
     template_name = "website/politique-confidentialite.html"
 
 
+class CguView(RevivalTemplateView):
+    template_name = "website/cgu.html"
+
+
+class LegalMentionsView(RevivalTemplateView):
+    template_name = "website/mentions-legales.html"
+
+
 class SplashView(TemplateView):
     template_name = "website/splash.html"
 
@@ -191,6 +201,187 @@ class KulatableArticleView(ArticleView):
 
 class PoshubArticleView(ArticleView):
     template_name = "website/articles/poshub.html"
+
+
+@csrf_exempt
+def partner_submit(request):
+    if request.method != "POST":
+        return JsonResponse(
+            {"success": False, "message": _("Method not allowed")}, status=405
+        )
+
+    company_name = request.POST.get("companyName", "").strip()
+    manager_name = request.POST.get("managerName", "").strip()
+    email = request.POST.get("email", "").strip()
+    phone = request.POST.get("phone", "").strip()
+    country = request.POST.get("country", "").strip()
+    objective = request.POST.get("objective", "").strip()
+    job_title = request.POST.get("jobTitle", "").strip()
+    sector = request.POST.get("sector", "").strip()
+    company_size = request.POST.get("companySize", "").strip()
+    website = request.POST.get("website", "").strip()
+    partner_type = request.POST.get("partner_type", "").strip()
+    services = request.POST.get("services", "").strip()
+    cgp_consent = request.POST.get("cgp_consent", "0") == "1"
+    rgpd_consent = request.POST.get("rgpd_consent", "0") == "1"
+
+    missing_fields = []
+    if not company_name:
+        missing_fields.append("companyName")
+    if not manager_name:
+        missing_fields.append("managerName")
+    if not email:
+        missing_fields.append("email")
+    if not objective:
+        missing_fields.append("objective")
+    if not partner_type:
+        missing_fields.append("partner_type")
+
+    if missing_fields:
+        return JsonResponse(
+            {
+                "success": False,
+                "code": "VALIDATION_ERROR",
+                "message": "Votre candidature n'a pas pu être soumise.",
+                "errors": {f: "Ce champ est obligatoire." for f in missing_fields},
+            },
+            status=400,
+        )
+
+    if not cgp_consent:
+        return JsonResponse(
+            {
+                "success": False,
+                "code": "VALIDATION_ERROR",
+                "message": "Votre candidature n'a pas pu être soumise.",
+                "errors": {"cgp": "Vous devez accepter les conditions de partenariat."},
+            },
+            status=400,
+        )
+
+    if not rgpd_consent:
+        return JsonResponse(
+            {
+                "success": False,
+                "code": "VALIDATION_ERROR",
+                "message": "Votre candidature n'a pas pu être soumise.",
+                "errors": {"rgpd": "Vous devez consentir au traitement de vos données."},
+            },
+            status=400,
+        )
+
+    try:
+        validate_email(email)
+    except ValidationError:
+        return JsonResponse(
+            {
+                "success": False,
+                "code": "VALIDATION_ERROR",
+                "message": "Votre candidature n'a pas pu être soumise.",
+                "errors": {"email": "Adresse email invalide."},
+            },
+            status=400,
+        )
+
+    application = PartnerApplication(
+        company_name=company_name,
+        manager_name=manager_name,
+        email=email,
+        phone=phone,
+        country=country,
+        website=website,
+        objective=objective,
+        job_title=job_title,
+        sector=sector,
+        company_size=company_size,
+        partner_type=partner_type,
+        services=services,
+        cgp_consent=cgp_consent,
+        rgpd_consent=rgpd_consent,
+    )
+
+    presentation_file = request.FILES.get("presentation")
+    portfolio_file = request.FILES.get("portfolio")
+
+    import mimetypes
+
+    for file_field, doc_type in [(presentation_file, "presentation"), (portfolio_file, "portfolio")]:
+        if file_field:
+            if file_field.size == 0:
+                return JsonResponse(
+                    {
+                        "success": False,
+                        "code": "VALIDATION_ERROR",
+                        "message": "Fichier vide.",
+                        "errors": {doc_type: "Le fichier semble vide."},
+                    },
+                    status=400,
+                )
+
+            if file_field.size > 20 * 1024 * 1024:
+                return JsonResponse(
+                    {
+                        "success": False,
+                        "code": "VALIDATION_ERROR",
+                        "message": "Fichier trop volumineux.",
+                        "errors": {doc_type: f"Le fichier '{file_field.name}' dépasse la limite autorisée (20 Mo)."},
+                    },
+                    status=413,
+                )
+
+            mime_type, _ = mimetypes.guess_type(file_field.name)
+            allowed_mimes = {
+                "application/pdf",
+                "image/jpeg",
+                "image/png",
+                "application/zip",
+                "application/x-zip-compressed",
+            }
+            ext = file_field.name.rsplit(".", 1)[-1].lower() if "." in file_field.name else ""
+            if ext not in {"pdf", "jpg", "jpeg", "png", "zip"}:
+                return JsonResponse(
+                    {
+                        "success": False,
+                        "code": "VALIDATION_ERROR",
+                        "message": "Format non accepté.",
+                        "errors": {doc_type: f"Le fichier '{file_field.name}' n'est pas dans un format autorisé (PDF, JPG, PNG, ZIP)."},
+                    },
+                    status=415,
+                )
+
+    try:
+        application.full_clean()
+        application.save()
+    except ValidationError as exc:
+        return JsonResponse(
+            {
+                "success": False,
+                "code": "VALIDATION_ERROR",
+                "message": "Données invalides.",
+                "errors": exc.message_dict,
+            },
+            status=400,
+        )
+
+    # Save files linked to the application
+    for file_field, doc_type in [(presentation_file, "presentation"), (portfolio_file, "portfolio")]:
+        if file_field:
+            PartnerDocument.objects.create(
+                application=application,
+                file=file_field,
+                document_type=doc_type,
+                original_name=file_field.name,
+                file_size=file_field.size,
+                file_type=file_field.mime_type if hasattr(file_field, 'mime_type') else "",
+            )
+
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "Demande de partenariat envoyée avec succès.",
+            "id": application.pk,
+        }
+    )
 
 
 @csrf_exempt

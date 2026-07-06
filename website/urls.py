@@ -28,6 +28,8 @@ urlpatterns = [
         views.PrivacyPolicyView.as_view(),
         name="privacy_policy",
     ),
+    path("cgu.html", views.CguView.as_view(), name="cgu"),
+    path("mentions-legales.html", views.LegalMentionsView.as_view(), name="legal_mentions"),
     path("splash.html", views.SplashView.as_view(), name="splash"),
     path("coming-soon.html", views.ComingSoonView.as_view(), name="coming_soon"),
     path(
@@ -50,6 +52,7 @@ urlpatterns = [
     path("articles/kulatable.html", views.KulatableArticleView.as_view(), name="article_kulatable"),
     path("articles/poshub.html", views.PoshubArticleView.as_view(), name="article_poshub"),
     path("api/contact/", views.contact_submit, name="contact_submit"),
+    path("api/partner/", views.partner_submit, name="partner_submit"),
     path("api/newsletter/", views.newsletter_subscribe, name="newsletter_subscribe"),
     path("api/application/", views.application_submit, name="application_submit"),
     path("api/video-interactions/", views.video_interactions, name="video_interactions"),
