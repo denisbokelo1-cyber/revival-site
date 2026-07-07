@@ -291,6 +291,7 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script>
 (function(){
+  var _ = window.gettext || function(m){return m;};
   var STEPS = 4;
   var PCT = {1:'25%',2:'50%',3:'75%',4:'100%'};
   var currentStep = 1;
@@ -315,10 +316,10 @@
     nameEl.style.display = 'none';
     errEl.style.display = 'none';
     if (!file) return true;
-    if (file.size === 0) { zone.classList.add('has-error'); errEl.textContent = "{% trans "Le fichier semble vide." %}"; errEl.style.display = 'block'; input.value = ''; return false; }
-    if (file.size > MAX_SIZE) { zone.classList.add('has-error'); errEl.textContent = "{% trans "Votre dossier dépasse 20 Mo. Veuillez compresser ou utiliser WeTransfer." %}"; errEl.style.display = 'block'; input.value = ''; return false; }
+    if (file.size === 0) { zone.classList.add('has-error'); errEl.textContent = _('Le fichier semble vide.'); errEl.style.display = 'block'; input.value = ''; return false; }
+    if (file.size > MAX_SIZE) { zone.classList.add('has-error'); errEl.textContent = _('Votre dossier d\u00e9passe 20 Mo. Veuillez compresser ou utiliser WeTransfer.'); errEl.style.display = 'block'; input.value = ''; return false; }
     var ext = file.name.split('.').pop().toLowerCase();
-    if (ALLOWED_EXTS.indexOf(ext) === -1) { zone.classList.add('has-error'); errEl.textContent = "{% trans "Formats acceptés : PDF, JPG, PNG, ZIP." %}"; errEl.style.display = 'block'; input.value = ''; return false; }
+    if (ALLOWED_EXTS.indexOf(ext) === -1) { zone.classList.add('has-error'); errEl.textContent = _('Formats accept\u00e9s : PDF, JPG, PNG, ZIP.'); errEl.style.display = 'block'; input.value = ''; return false; }
     zone.classList.add('has-file');
     nameEl.textContent = '\u2713 ' + file.name + ' (' + (file.size/1024/1024).toFixed(1) + ' Mo)';
     nameEl.style.display = 'block';
@@ -383,7 +384,7 @@
 
   window.nextStep=function(step){
     if(step<=currentStep){goToStep(step);return;}
-    if(!validateStep(currentStep)){showToast("{% trans "Informations incomplètes" %}","{% trans "Veuillez vérifier les champs en surbrillance." %}","error");return;}
+    if(!validateStep(currentStep)){showToast(_('Informations incompl\u00e8tes'),_('Veuillez v\u00e9rifier les champs en surbrillance.'),'error');return;}
     goToStep(step);
   };
   window.prevStep=function(step){goToStep(step);};
@@ -402,7 +403,7 @@
     var valid=true;
     if(!cgp.checked){document.getElementById('cgp-group').classList.add('has-error');valid=false;}
     if(!rgpd.checked){document.getElementById('rgpd-group').classList.add('has-error');valid=false;}
-    if(!valid){showToast("{% trans "Engagements requis" %}","{% trans "Acceptation des conditions et consentement obligatoires." %}","error");return;}
+    if(!valid){showToast(_('Engagements requis'),_('Acceptation des conditions et consentement obligatoires.'),'error');return;}
     var presInput=document.getElementById('filePresentation');
     var portInput=document.getElementById('filePortfolio');
     if(presInput&&presInput.files[0]&&!validateFile(presInput,'file-zone-presentation'))valid=false;
@@ -411,7 +412,7 @@
 
     var btn=document.getElementById('submitBtn');
     btn.disabled=true;
-    btn.innerHTML='<span class="spinner"></span> {% trans "Envoi en cours…" %}';
+    btn.innerHTML='<span class="spinner"></span> ' + _('Envoi en cours\u2026');
 
     var formData=new FormData(this);
     var partnerType=document.querySelector('input[name="partnerType"]:checked');
@@ -424,10 +425,10 @@
 
     fetch(window.REVIVAL_ENDPOINTS.partner,{method:'POST',body:formData})
     .then(function(r){
-      if(r.status===413){showToast("{% trans "Fichier trop volumineux" %}","{% trans "Votre dossier dépasse la limite. Veuillez compresser." %}","error");throw new Error('413');}
-      if(r.status===415){showToast("{% trans "Format non accepté" %}","{% trans "Formats autorisés : PDF, JPG, PNG, ZIP." %}","error");throw new Error('415');}
+      if(r.status===413){showToast(_('Fichier trop volumineux'),_('Votre dossier d\u00e9passe la limite. Veuillez compresser.'),'error');throw new Error('413');}
+      if(r.status===415){showToast(_('Format non accept\u00e9'),_('Formats autoris\u00e9s : PDF, JPG, PNG, ZIP.'),'error');throw new Error('415');}
       return r.json().catch(function(){
-        showToast("{% trans "Erreur serveur" %}","{% trans "Notre équipe technique a été alertée. Veuillez réessayer sous 5 min ou écrire à partenaire@revival-business.com." %}","error");
+        showToast(_('Erreur serveur'),_('Notre \u00e9quipe technique a \u00e9t\u00e9 alert\u00e9e. Veuillez r\u00e9essayer sous 5 min ou \u00e9crire \u00e0 partenaire@revival-business.com.'),'error');
         throw new Error('parse');
       });
     })
@@ -437,17 +438,17 @@
         document.getElementById('formSuccess').style.display='block';
       } else {
         btn.disabled=false;
-        btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> {% trans "Réessayer l'envoi" %}';
-        var msg="{% trans "Une erreur est survenue." %}";
+        btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ' + _('R\u00e9essayer l\'envoi');
+        var msg=_('Une erreur est survenue.');
         if(res.errors){var parts=[];for(var k in res.errors){if(res.errors.hasOwnProperty(k))parts.push(res.errors[k]);}if(parts.length)msg=parts.join('<br>');}
-        showToast("{% trans "Candidature non envoyée" %}",msg,"error");
+        showToast(_('Candidature non envoy\u00e9e'),msg,'error');
       }
     })
     .catch(function(err){
       if(err.message==='413'||err.message==='415'||err.message==='parse')return;
       btn.disabled=false;
-      btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> {% trans "Réessayer l'envoi" %}';
-      showToast("{% trans "Erreur de connexion" %}","{% trans "Connexion perdue. Vérifiez votre réseau." %}","error");
+      btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ' + _('R\u00e9essayer l\'envoi');
+      showToast(_('Erreur de connexion'),_('Connexion perdue. V\u00e9rifiez votre r\u00e9seau.'),'error');
     });
   });
 })();
