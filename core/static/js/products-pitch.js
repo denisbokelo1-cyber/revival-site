@@ -3108,23 +3108,87 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function applyProjectDeck(projectKey) {
-    const project = projectDecks[projectKey] || projectDecks.EMICARD;
+    const project = projectDecks[projectKey];
+    const safeProject = project || projectDecks.EMICARD;
+    const isSoon = !project;
 
-    if (projectName) projectName.textContent = project.displayName;
-    if (deckTitle) deckTitle.textContent = project.deckTitle;
-    if (downloadTop) downloadTop.setAttribute("href", staticAsset(project.pdf));
-    if (downloadBottom) downloadBottom.setAttribute("href", staticAsset(project.pdf));
+    if (projectName) projectName.textContent = (safeProject.displayName || projectKey || "Projet");
+
+    // Cas "bientôt disponible" / deck inconnu
+    if (isSoon) {
+      if (deckTitle) deckTitle.textContent = "Bientôt disponible";
+
+      // Désactiver proprement les liens téléchargement (sans casser l'HTML)
+      if (downloadTop) {
+        downloadTop.setAttribute("href", "#");
+        downloadTop.setAttribute("aria-disabled", "true");
+        downloadTop.addEventListener("click", (e) => e.preventDefault(), { once: true });
+      }
+      if (downloadBottom) {
+        downloadBottom.setAttribute("href", "#");
+        downloadBottom.setAttribute("aria-disabled", "true");
+        downloadBottom.addEventListener("click", (e) => e.preventDefault(), { once: true });
+      }
+
+      if (slide1DemoBtn) {
+        slide1DemoBtn.setAttribute("href", contactUrl);
+        slide1DemoBtn.textContent = "Contacter";
+      }
+
+      setText("slide1Title", projectKey || "Projet");
+      setText("slide1Subtitle", "Bientôt disponible");
+      setText("slide1Desc", "Le pitch deck de ce projet sera disponible prochainement.");
+
+      // Image: on ne supprime jamais src (évite erreurs). On garde le layout.
+      // Si l'image du slide1 existe déjà dans le HTML, on la laisse.
+      if (slide1Image) {
+        slide1Image.setAttribute("alt", projectKey || "Projet");
+      }
+
+      // Nettoyage contenu slides restantes pour éviter des valeurs undefined
+      setText("slide2Title", "");
+      setText("slide2Desc", "");
+      setText("slide3Title", "");
+      setText("slide3Desc", "");
+      setText("slide4Title", "");
+      setText("slide5Title", "");
+      setText("slide5Desc", "");
+      setText("slide6Title", "");
+      setText("slide6Desc", "");
+      setText("slide7Title", "");
+      setText("slide8Title", "");
+      setText("slide9Title", "");
+      setText("slide9Desc", "");
+      setText("slide10Title", "");
+
+      const finalLine = document.getElementById("finalLine");
+      if (finalLine) finalLine.innerHTML = "Bientôt disponible.";
+
+      // Ne pas appeler renderComparisonTable/ setRepeatedContent sur un objet absent
+      // juste pour ne jamais provoquer d'erreur JS.
+      slides.forEach((slide) => {
+        slide.dataset.title = "Bientôt";
+      });
+
+      return;
+    }
+
+
+    if (deckTitle) deckTitle.textContent = safeProject.deckTitle;
+    if (downloadTop) downloadTop.setAttribute("href", staticAsset(safeProject.pdf));
+    if (downloadBottom) downloadBottom.setAttribute("href", staticAsset(safeProject.pdf));
     if (slide1DemoBtn) {
-      slide1DemoBtn.setAttribute("href", project.demo || contactUrl);
+      slide1DemoBtn.setAttribute("href", safeProject.demo || contactUrl);
     }
 
-    setText("slide1Title", project.slide1.title);
-    setText("slide1Subtitle", project.slide1.subtitle);
-    setText("slide1Desc", project.slide1.desc);
-    if (slide1Image && project.slide1.image) {
-      slide1Image.setAttribute("src", staticAsset(project.slide1.image));
-      slide1Image.setAttribute("alt", project.slide1.title);
+    setText("slide1Title", safeProject.slide1.title);
+    setText("slide1Subtitle", safeProject.slide1.subtitle);
+    setText("slide1Desc", safeProject.slide1.desc);
+    if (slide1Image && safeProject.slide1.image) {
+      slide1Image.setAttribute("src", staticAsset(safeProject.slide1.image));
+      slide1Image.setAttribute("alt", safeProject.slide1.title);
     }
+
 
     setText("slide2Title", project.slide2.title);
     setText("slide2Desc", project.slide2.desc);
