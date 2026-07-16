@@ -9,6 +9,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
+from website.email_utils import OutboundEmail, build_kv_body, send_to_contact_email
 from website.models import (
     ContactMessage,
     FAQ,
@@ -22,6 +23,7 @@ from website.models import (
     ProjectCategory,
     Review,
 )
+
 
 
 class RevivalTemplateView(TemplateView):
@@ -210,6 +212,8 @@ def partner_submit(request):
             {"success": False, "message": _("Method not allowed")}, status=405
         )
 
+
+
     company_name = request.POST.get("companyName", "").strip()
     manager_name = request.POST.get("managerName", "").strip()
     email = request.POST.get("email", "").strip()
@@ -375,6 +379,59 @@ def partner_submit(request):
                 file_type=file_field.mime_type if hasattr(file_field, 'mime_type') else "",
             )
 
+    try:
+        attachments = []
+        for file_field, doc_type in [(presentation_file, "presentation"), (portfolio_file, "portfolio")]:
+            if not file_field:
+                continue
+            try:
+                file_field.open("rb")
+                content = file_field.read()
+                file_field.close()
+            except Exception:
+                content = b""
+            # If content is empty, still attach name (some email providers may reject empty files)
+            if content:
+                attachments.append((file_field.name, content, file_field.content_type or "application/octet-stream"))
+
+        mail_body = build_kv_body(
+            "Nouvelle demande de partenariat Revival",
+            {
+                "company_name": application.company_name,
+                "manager_name": application.manager_name,
+                "email": application.email,
+                "phone": application.phone,
+                "country": application.country,
+                "website": application.website,
+                "objective": application.objective,
+                "job_title": application.job_title,
+                "sector": application.sector,
+                "company_size": application.company_size,
+                "partner_type": application.partner_type,
+                "services": application.services,
+                "cgp_consent": application.cgp_consent,
+                "rgpd_consent": application.rgpd_consent,
+                "application_id": application.pk,
+            },
+        )
+
+        send_to_contact_email(
+            email=OutboundEmail(
+                subject=f"[Revival] Partenariat - {application.company_name}",
+                body_text=mail_body,
+                attachments=attachments,
+            )
+        )
+    except Exception as exc:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": _("Impossible d'envoyer la notification par e-mail. Merci de réessayer."),
+                "errors": {"email": str(exc)},
+            },
+            status=500,
+        )
+
     return JsonResponse(
         {
             "success": True,
@@ -382,6 +439,7 @@ def partner_submit(request):
             "id": application.pk,
         }
     )
+
 
 
 @csrf_exempt
@@ -457,6 +515,36 @@ def contact_submit(request):
             status=400,
         )
 
+    try:
+        mail_body = build_kv_body(
+            "Nouveau message de contact Revival",
+            {
+                "first_name": contact_message.first_name,
+                "last_name": contact_message.last_name,
+                "email": contact_message.email,
+                "company": contact_message.company,
+                "subject": contact_message.subject,
+                "message": contact_message.message,
+                "contact_message_id": contact_message.pk,
+            },
+        )
+
+        send_to_contact_email(
+            email=OutboundEmail(
+                subject=f"[Revival] Contact - {contact_message.first_name} {contact_message.last_name}",
+                body_text=mail_body,
+            )
+        )
+    except Exception as exc:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": _("Impossible d'envoyer la notification par e-mail. Merci de réessayer."),
+                "errors": {"email": str(exc)},
+            },
+            status=500,
+        )
+
     return JsonResponse(
         {
             "success": True,
@@ -464,6 +552,7 @@ def contact_submit(request):
             "id": contact_message.pk,
         }
     )
+
 
 
 @csrf_exempt
@@ -509,6 +598,32 @@ def newsletter_subscribe(request):
             subscriber.source = source
         subscriber.save(update_fields=["is_active", "source", "updated_at"])
 
+    try:
+        mail_body = build_kv_body(
+            "Nouvel abonnement newsletter Revival",
+            {
+                "email": subscriber.email,
+                "source": subscriber.source,
+                "is_active": subscriber.is_active,
+                "newsletter_subscriber_id": subscriber.pk,
+            },
+        )
+        send_to_contact_email(
+            email=OutboundEmail(
+                subject=f"[Revival] Newsletter - {subscriber.email}",
+                body_text=mail_body,
+            )
+        )
+    except Exception as exc:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": _("Impossible d'envoyer la notification par e-mail. Merci de réessayer."),
+                "errors": {"email": str(exc)},
+            },
+            status=500,
+        )
+
     return JsonResponse(
         {
             "success": True,
@@ -516,6 +631,7 @@ def newsletter_subscribe(request):
             "id": subscriber.pk,
         }
     )
+
 
 
 @csrf_exempt
@@ -618,6 +734,50 @@ def application_submit(request):
             status=400,
         )
 
+    try:
+        attachments = []
+        for file_field in [cv, cover_letter]:
+            if not file_field:
+                continue
+            try:
+                file_field.open("rb")
+                content = file_field.read()
+                file_field.close()
+            except Exception:
+                content = b""
+            if content:
+                attachments.append((file_field.name, content, file_field.content_type or "application/octet-stream"))
+
+        mail_body = build_kv_body(
+            "Nouvelle candidature Revival",
+            {
+                "full_name": application.full_name,
+                "email": application.email,
+                "salary_expectation": application.salary_expectation,
+                "availability": application.availability,
+                "job_id": application.job_id,
+                "job_title": application.job.translation_getter("title", any_language=True) if getattr(application, 'job', None) else "",
+                "application_id": application.pk,
+            },
+        )
+
+        send_to_contact_email(
+            email=OutboundEmail(
+                subject=f"[Revival] Carrière - {application.full_name}",
+                body_text=mail_body,
+                attachments=attachments,
+            )
+        )
+    except Exception as exc:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": _("Impossible d'envoyer la notification par e-mail. Merci de réessayer."),
+                "errors": {"email": str(exc)},
+            },
+            status=500,
+        )
+
     return JsonResponse(
         {
             "success": True,
@@ -625,6 +785,84 @@ def application_submit(request):
             "id": application.pk,
         }
     )
+
+
+
+@csrf_exempt
+def donation_submit(request):
+    if request.method != "POST":
+        return JsonResponse({"success": False, "message": _("Method not allowed")}, status=405)
+
+    try:
+        payload = json.loads(request.body.decode("utf-8") or "{}")
+    except json.JSONDecodeError:
+        payload = request.POST.dict()
+
+    name = (payload.get("name") or "").strip()
+    email = (payload.get("email") or "").strip()
+    phone = (payload.get("phone") or "").strip()
+    country = (payload.get("country") or "").strip()
+    message = (payload.get("message") or "").strip()
+
+    amount = payload.get("amount")
+    try:
+        amount_value = float(amount)
+    except (TypeError, ValueError):
+        amount_value = None
+
+    donation_type = (payload.get("donation_type") or "").strip()
+    currency = (payload.get("currency") or "USD").strip()
+    anonymous = bool(payload.get("anonymous"))
+    payment_method = (payload.get("paymentMethod") or "").strip()
+
+    missing_fields = []
+    if not name:
+        missing_fields.append("name")
+    if not email:
+        missing_fields.append("email")
+    if not phone:
+        missing_fields.append("phone")
+    if not country:
+        missing_fields.append("country")
+    if amount_value is None or amount_value <= 0:
+        missing_fields.append("amount")
+
+    if missing_fields:
+        return JsonResponse({"success": False, "message": _("Champs obligatoires manquants."), "errors": {"missing_fields": missing_fields}}, status=400)
+
+    try:
+        validate_email(email)
+    except ValidationError:
+        return JsonResponse({"success": False, "message": _("Adresse email invalide."), "errors": {"email": "Adresse email invalide."}}, status=400)
+
+    display_name = "Anonyme" if anonymous else name
+
+    mail_body = build_kv_body(
+        "Nouvelle demande de don Revival",
+        {
+            "name": display_name,
+            "email": email,
+            "phone": phone,
+            "country": country,
+            "message": message or "",
+            "donation_type": donation_type or payload.get("type") or "Don",
+            "amount": amount_value,
+            "currency": currency,
+            "payment_method": payment_method,
+        },
+    )
+
+    try:
+        send_to_contact_email(
+            email=OutboundEmail(
+                subject=f"[Revival] Don - {display_name}",
+                body_text=mail_body,
+            )
+        )
+    except Exception as exc:
+        return JsonResponse({"success": False, "message": _("Impossible d'envoyer la notification par e-mail. Merci de réessayer."), "errors": {"email": str(exc)}}, status=500)
+
+    return JsonResponse({"success": True, "message": _("Demande de don envoyée avec succès."), "id": None})
 
 
 @csrf_exempt

@@ -46,6 +46,8 @@ ALLOWED_HOSTS = config(
 ADMIN_URL = config("ADMIN_URL", default="admin/").strip("/") + "/"
 
 
+
+
 if DEBUG:
     # Allow all origins in development
     # for testing with ngrok
@@ -53,8 +55,40 @@ if DEBUG:
         "https://*.ngrok-free.dev",
     ]
 
-    # Use console email backend in development
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    # In development you can choose to keep the console backend by setting:
+    # EMAIL_BACKEND_CONSOLE=true
+    # Otherwise we use SMTP settings from environment variables.
+    if config("EMAIL_BACKEND_CONSOLE", default="false", cast=config_bool):
+        EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+# Email (SMTP via Hostinger or any SMTP provider)
+# Expected env vars (see .env or hosting config):
+# - EMAIL_HOST
+# - EMAIL_PORT
+# - EMAIL_HOST_USER
+# - EMAIL_HOST_PASSWORD
+# - EMAIL_USE_SSL (true/false)
+# - EMAIL_USE_TLS (true/false)
+# - DEFAULT_FROM_EMAIL
+#
+# If EMAIL_BACKEND_CONSOLE=true and DEBUG=true, console backend overrides SMTP.
+if "EMAIL_BACKEND" not in globals():
+    EMAIL_BACKEND = config(
+        "EMAIL_BACKEND",
+        default="django.core.mail.backends.smtp.EmailBackend",
+    )
+
+EMAIL_HOST = config("EMAIL_HOST", default="")
+EMAIL_PORT = config("EMAIL_PORT", default=0, cast=int)
+EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
+EMAIL_USE_SSL = config("EMAIL_USE_SSL", default=False, cast=config_bool)
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False, cast=config_bool)
+DEFAULT_FROM_EMAIL = config(
+    "DEFAULT_FROM_EMAIL", default="webmaster@localhost"
+)
+
 
 
 # Application definition

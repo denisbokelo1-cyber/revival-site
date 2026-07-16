@@ -56,5 +56,6 @@ urlpatterns = [
     path("api/newsletter/", views.newsletter_subscribe, name="newsletter_subscribe"),
     path("api/application/", views.application_submit, name="application_submit"),
     path("api/video-interactions/", views.video_interactions, name="video_interactions"),
+    path("api/donation/", views.donation_submit, name="donation_submit"),
     path("jsi18n/", JavaScriptCatalog.as_view(), name="javascript_catalog"),
 ]
