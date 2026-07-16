@@ -853,16 +853,51 @@ def donation_submit(request):
     )
 
     try:
+        # Email admin/contact (comme les autres formulaires)
         send_to_contact_email(
             email=OutboundEmail(
                 subject=f"[Revival] Don - {display_name}",
                 body_text=mail_body,
             )
         )
-    except Exception as exc:
-        return JsonResponse({"success": False, "message": _("Impossible d'envoyer la notification par e-mail. Merci de réessayer."), "errors": {"email": str(exc)}}, status=500)
 
-    return JsonResponse({"success": True, "message": _("Demande de don envoyée avec succès."), "id": None})
+        # Email de confirmation au donateur (le "mail du compagnon" du formulaire)
+        donor_body = build_kv_body(
+            "Merci pour votre don à Revival",
+            {
+                "name": display_name,
+                "don_amount": amount_value,
+                "currency": currency,
+                "donation_type": donation_type or payload.get("type") or "Don",
+                "payment_method": payment_method,
+                "message": message or "",
+            },
+        )
+
+        send_to_contact_email(
+            email=OutboundEmail(
+                subject="[Revival] Confirmation de votre don",
+                body_text=donor_body,
+                to=[email],
+                reply_to=[email] if email else [],
+            )
+        )
+    except Exception as exc:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": _(
+                    "Impossible d'envoyer la notification par e-mail. Merci de réessayer."
+                ),
+                "errors": {"email": str(exc)},
+            },
+            status=500,
+        )
+
+    return JsonResponse(
+        {"success": True, "message": _("Demande de don envoyée avec succès."), "id": None}
+    )
+
 
 
 @csrf_exempt
